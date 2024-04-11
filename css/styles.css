@@ -1,0 +1,183 @@
+@font-face {
+    font-family: "FIFA Welcome";
+    src: url('../img/fifawelcome1.3.ttf') format('truetype');
+}
+
+
+  
+  body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+ 
+   
+  }
+  #videoFondo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+}
+
+.navbar {
+    margin-top: 2%;
+    background: radial-gradient(at top, rgba(227, 14, 149, 0.363), rgba(221, 87, 199, 0.346)) !important;
+    backdrop-filter: blur(5px);
+    z-index: 0;
+    position: absolute;
+    border-radius: 25px;
+
+  }
+
+ .navbar-nav .nav-link {
+    color: #ffffff; /* Cambia el color según tus preferencias */
+    font-size: large;
+    font-family: "FIFA Welcome"; 
+    
+}
+
+
+.logo {
+    width: 40%;
+    z-index: 1;
+   
+    
+}
+
+
+.button2 {
+  min-width: 300px;
+  min-height: 60px;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #d5d5e3;
+   margin-top: 5%;
+  font-family: "FIFA Welcome" !important ; 
+  background: radial-gradient(at top, rgba(14, 220, 227, 0.363), rgba(89, 142, 217, 0.346)) !important;
+  backdrop-filter: blur(5px);
+background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgb(47, 110, 226) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+
+.button2::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #00FFCB;
+  box-shadow: 0 0 60px rgba(0,255,203,.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button2:hover, .button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.button2:hover::before, button:focus::before {
+  opacity: 1;
+}
+
+.button2::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #00FFCB;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.button2:hover::after, button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+ 
+footer{
+  
+   
+    color: #ffffff; /* Cambia el color según tus preferencias */
+    font-size: large;
+    font-family: "FIFA Welcome"; 
+    margin-top: 8%;
+ 
+   
+}
+.zapa{
+    width: 60%;
+    animation: zapatilla_animacion ease-in-out infinite 4s;
+    z-index: 2;
+}
+
+@keyframes zapatilla_animacion{ 
+     0%{ transform: translateY(-10%)} 
+     50%{ transform: translateY(0%)}
+     100%{transform: translateY(-10%)}
+}
+
+@media (min-width: 1200px){
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 60% !important;
+}
+}
+.iconos {
+  display: flex !important;
+ justify-content: center; 
+ align-items: center; 
+ position: relative; 
+ width: 50px; 
+ height: 50px; 
+ font-size: 30px; 
+ transition: 0.3s; 
+ z-index: 5; 
+ text-decoration: none;
+ margin-left: 48%;
+
+  
+  
+}
+
+ i { 
+  display: flex; 
+  justify-content: center; 
+  padding: 20px;
+  
+ 
+
+}
