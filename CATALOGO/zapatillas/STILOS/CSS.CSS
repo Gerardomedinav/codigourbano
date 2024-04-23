@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: "FIFA Welcome";
-    src: url('/codigourbano/img/fifawelcome1.3.ttf') format('truetype');
+    src: url('/img/fifawelcome1.3.ttf') format('truetype');
 }
 
  body{
@@ -31,20 +31,60 @@ border-bottom: solid 1vw rgba(247, 56, 237, 0.5);
 
     width: 100%;
     height: 11vh;
-    
-   
-
     display: flex;
      justify-content: space-around; 
      align-items: center; 
      background-color: rgb(255, 138, 235);
 }
 
+/*configuracion para que sea responsive*/
+.contenedor_menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
+    padding: 1em;
+    background-color: rgb(255, 138, 235);
+}
 
+button{
+    display: inline;
+}
+
+.abrir_menu{
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .abrir_menu{
+        display: block;
+    }
+
+    /* .topnav{
+        display: none;
+
+    } */
+
+    .topnav{
+        flex-direction: column;
+        align-items: end;
+        
+        
+    }
+    
+    
+    
+}
+
+/***fin***/
+
+.logo{
+    
+    display: flex;
+}
 
 .logo img{
-
+    
     width: 9vh;   
 }
 
@@ -73,6 +113,7 @@ border-bottom: solid 1vw rgba(247, 56, 237, 0.5);
     border-radius: 17px;
     font-size: 1.5em;
     padding-left: 0.8em;
+    
 }
 
 
@@ -159,7 +200,8 @@ border-bottom: solid 1vw rgba(247, 56, 237, 0.5);
 /*fin de productos*/
 
 footer{
-    background-color: brown;
+    background-color: rgb(204, 41, 204);
+    
 }
 
 #footer_del_todo{
