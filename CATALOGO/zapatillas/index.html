@@ -8,54 +8,30 @@
 </head>
 <body>
 
-     <header> 
-      
-        
-
-       
-        
-        <section class="contenedor_menu">
-
-
-            <div class="logo">
-                <a href=""><img src="./img/codigourbano2.png" alt=""></a>
-            </div>
-            <button class="abrir_menu">abrir</button>
-
-            <div class="topnav">
-
-           
-                    
-                
-                    <a class="menu_interno" href="/index.html">Home</a>
-
-                
-                    <a class="menu_interno" href="">Zapatillas</a>
-                    <a class="menu_interno" href="">Ropa</a>
-                    <a class="menu_interno" href="">Accesorios</a>
-                
-
-                
-                    <a class="menu_interno" href="">Acerca de</a>
-                    <a class="menu_interno" href="">Contactos</a>
-               
-           
-                    <div class="carrito">
-                    <form>
-                        <a href=""><img class="corazon_compra" src="./img/shopping-cart_icon-icons.com_72552.ico" alt=""></a>
-                        <a href=""><img class="corazon_compra" src="./img/heart_icon-icons.com_50374.ico" alt=""></a>
-                        <input placeholder="Search" id="buscador_header"  type="text">
-                    </form>
-            </div>
-
-        </section>
-                
+    <header>
+        <a class="logo" href=""><img src="./img/codigourbano2.png" alt=""></a>
+        <button class="boton-hamburguesa"><span>&#9776;</span>Menú</button>
+        <div id="topnav">
+            <button class="cerrar_menu">Cerrar</button>
+            <ul class="nav-list">
+                <li><a class="menu_interno" href="/index.html">Home</a></li>
+                <li><a class="menu_interno" href="">Zapatillas</a></li>
+                <li><a class="menu_interno" href="">Ropa</a></li>
+                <li><a class="menu_interno" href="">Accesorios</a></li>
+                <li><a class="menu_interno" href="">Acerca de</a></li>
+                <li><a class="menu_interno" href="">Contactos</a></li>
+            </ul>
         </div>
-            
-       
-
         
-    </header> 
+            <form id="buscador_header_logico">
+                <a href=""><img class="corazon_compra" src="./img/shopping-cart_icon-icons.com_72552.ico" alt=""></a>
+                <a href=""><img class="corazon_compra" src="./img/heart_icon-icons.com_50374.ico" alt=""></a>
+                <input placeholder="Search" id="buscador_header" type="text">
+            </form>
+        
+    </header>
+
+
 
     <main class="main">
 
@@ -140,6 +116,8 @@
               © codigourbano.com | Diseñado por Codigo Urbano
             </div>
     </footer>
+
+    <script src="./ZAPATILLAS JS/logica.js"></script>
     
 </body>
 </html>

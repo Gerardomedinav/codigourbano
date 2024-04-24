@@ -10,7 +10,7 @@
     src: url('/img/fifawelcome1.3.ttf') format('truetype');
 }
 
- body{
+body{
     background-color: rgb(255, 204, 244);
 
 } 
@@ -18,61 +18,56 @@
 /* configracion del menu*/
 
 header{
-
-width: 100%;    
-
-border-bottom: solid 1vw rgba(247, 56, 237, 0.5);
-
-    
+    display: flex;
+    align-items: center;
+    width: 100%;    
+    border-bottom: solid 1vw rgba(247, 56, 237, 0.5);
 }
 
 
-.topnav {
+#topnav {
 
     width: 100%;
-    height: 11vh;
     display: flex;
-     justify-content: space-around; 
-     align-items: center; 
-     background-color: rgb(255, 138, 235);
-}
-
-/*configuracion para que sea responsive*/
-.contenedor_menu{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-
-    padding: 1em;
+    justify-content: space-around; 
+    align-items: center; 
     background-color: rgb(255, 138, 235);
 }
 
-button{
-    display: inline;
+
+
+.nav-list{
+    list-style-type: none;
+    display: flex;
+    gap: 2rem;
 }
 
-.abrir_menu{
+/*configuracion para que sea responsive*/
+
+
+
+ .cerrar_menu, .boton-hamburguesa {
     display: none;
-}
+} 
+
 
 @media screen and (max-width: 1200px) {
-    .abrir_menu{
+
+    .boton-hamburguesa {
         display: block;
     }
 
-    /* .topnav{
+    #topnav{
         display: none;
-
-    } */
-
-    .topnav{
-        flex-direction: column;
-        align-items: end;
-        
-        
     }
-    
-    
+
+    #buscador_header{
+        width: 30vw;
+    }
+
+
+
+
     
 }
 
@@ -81,6 +76,13 @@ button{
 .logo{
     
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1em;
+    
+   
+    
 }
 
 .logo img{
@@ -89,11 +91,8 @@ button{
 }
 
 .menu_interno{
-   
     font-size: 1.5em;
     padding: 0.5vw;
-    
-    
 }
 
 .menu_interno:hover{
@@ -109,11 +108,15 @@ button{
 
 /*configuramos el buscador del header*/
 
+#buscador_header_logico{
+    display: flex;
+    margin-right:2em;
+}
+
 #buscador_header{
     border-radius: 17px;
     font-size: 1.5em;
-    padding-left: 0.8em;
-    
+    padding-left: 0.8em; 
 }
 
 
