@@ -1,0 +1,213 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "FIFA Welcome"; 
+}
+
+@font-face {
+    font-family: "FIFA Welcome";
+    src: url('/img/fifawelcome1.3.ttf') format('truetype');
+}
+
+
+
+/* configracion del menu*/
+
+header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, purple, rgb(216, 112, 190), rgb(132, 59, 155) );
+    border-bottom: solid 1vw rgba(226, 76, 219, 0.5);
+}
+
+.logo_flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.topnav {
+    
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center; 
+    font-family: 'Gill Sans';
+    font-size: 1em;
+    
+}
+
+
+
+.nav-list{
+    
+    list-style-type: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-list a{
+    color: rgb(142, 247, 93);
+}
+
+.boton-hamburguesa{
+    height: 50%;
+}
+
+/*configuracion para que sea responsive*/
+
+ .cerrar_menu, .boton-hamburguesa {
+    display: none;
+} 
+
+
+@media screen and (max-width: 1200px) {
+
+    .boton-hamburguesa, .cerrar_menu {
+        display: block;
+    }
+
+    
+    .topnav{
+        opacity: 0;
+        visibility: hidden;
+
+        position: absolute;
+        justify-content: left;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3); 
+        
+    }
+
+    .topnav.visible{
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    .nav-list{
+        
+        background-color: black;
+        position: absolute;
+        align-items: center;
+        flex-direction: column;
+ 
+        padding: 27em 5em 2em 10em;
+       
+    }
+
+
+
+
+
+
+    #buscador_header{
+        
+        width: 30vw;
+    }
+
+    #buscador_header_logico{
+        margin: 1em;
+    }
+
+
+    #main-prin_seleccionador_genero{
+        margin: 10em;
+    }
+
+
+    
+}
+
+/***fin***/
+
+.logo{
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1em;
+    
+   
+    
+}
+
+.logo img{
+    
+    width: 9vh;   
+}
+
+.menu_interno{
+    font-size: 1.5em;
+    padding: 0.5vw;
+}
+
+.menu_interno:hover{
+    background-color: rgba(206, 236, 236,0.2) ;
+   
+    border-radius: 17px;
+    transition: 0.5s;
+}
+
+.corazon_compra{
+    width:1.5em;
+    margin: 0 0.5em;
+}
+
+/*configuramos el buscador del header*/
+
+#buscador_header_logico{
+    display: flex;
+    justify-content: end;
+    margin-right:2em;
+}
+
+#buscador_header{
+    
+    padding-right:1em;
+    border-radius: 17px;
+    font-size: 1.5em;
+    padding-left: 0.8em; 
+}
+
+/*fin del menu*/
+
+
+.genero {
+    min-height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.genero p {
+    margin: 0 50px;
+    padding: 5px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.genero p:hover {
+    border-bottom: 2px solid black;
+}
+
+
+
+
+
+footer{
+    background-color: rgb(108, 183, 206);
+    padding: 1em;
+    
+}
+
+#footer_del_todo{
+    background-color: rgb(194, 97, 97);
+}
