@@ -1,10 +1,12 @@
-const closeButton = document.querySelector('.cerrar_menu');
-const navList = document.querySelector('.nav-list');
+const topnav = document.querySelector("#topnav");
+const abrir = document.querySelector("#abrir");
+const cerrar = document.querySelector("#cerrar");
 
-hamburgerButton.addEventListener('click', () => {
-    navList.classList.toggle('show');
-});
+abrir.addEventListener("click", () => {
+    topnav.classList.add("visible");
+})
 
-closeButton.addEventListener('click', () => {
-    navList.classList.remove('show');
-});
+cerrar.addEventListener("click", () => {
+    topnav.classList.remove("visible");
+})
+

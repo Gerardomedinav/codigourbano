@@ -10,41 +10,57 @@
     src: url('/img/fifawelcome1.3.ttf') format('truetype');
 }
 
-body{
-    background-color: rgb(255, 204, 244);
 
-} 
 
 /* configracion del menu*/
 
 header{
     display: flex;
     align-items: center;
-    width: 100%;    
-    border-bottom: solid 1vw rgba(247, 56, 237, 0.5);
+ 
+    justify-content: space-between;
+    background-image: linear-gradient(to right, purple, rgb(216, 112, 190), rgb(132, 59, 155) );
+    border-bottom: solid 1vw rgba(226, 76, 219, 0.5);
+}
+
+.logo_flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 
-#topnav {
-
-    width: 100%;
+.topnav {
+    
+    margin: 1em;
     display: flex;
-    justify-content: space-around; 
+    flex-direction: row;
+    justify-content: space-between; 
     align-items: center; 
-    background-color: rgb(255, 138, 235);
+    font-family: 'Gill Sans';
+    font-size: 1em;
+    
 }
 
 
 
 .nav-list{
+    
     list-style-type: none;
     display: flex;
     gap: 2rem;
 }
 
+.nav-list a{
+    color: rgb(142, 247, 93);
+}
+
+.boton-hamburguesa{
+    height: 50%;
+}
+
 /*configuracion para que sea responsive*/
-
-
 
  .cerrar_menu, .boton-hamburguesa {
     display: none;
@@ -53,19 +69,56 @@ header{
 
 @media screen and (max-width: 1200px) {
 
-    .boton-hamburguesa {
+    .boton-hamburguesa, .cerrar_menu {
         display: block;
     }
 
-    #topnav{
-        display: none;
+    
+    .topnav{
+        opacity: 0;
+        visibility: hidden;
+
+        position: absolute;
+        justify-content: left;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3); 
+        
     }
 
+    .topnav.visible{
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    .nav-list{
+        
+        background-color: black;
+        position: absolute;
+        align-items: center;
+        flex-direction: column;
+ 
+        padding: 27em 5em 2em 10em;
+       
+    }
+
+
+
+
+
+
     #buscador_header{
+        
         width: 30vw;
     }
 
+    #buscador_header_logico{
+        margin: 1em;
+    }
 
+
+    #main-prin_seleccionador_genero{
+        margin: 10em;
+    }
 
 
     
@@ -96,7 +149,8 @@ header{
 }
 
 .menu_interno:hover{
-    background-color: azure ;
+    background-color: rgba(206, 236, 236,0.2) ;
+   
     border-radius: 17px;
     transition: 0.5s;
 }
@@ -110,10 +164,13 @@ header{
 
 #buscador_header_logico{
     display: flex;
+    justify-content: end;
     margin-right:2em;
 }
 
 #buscador_header{
+    
+    padding-right:1em;
     border-radius: 17px;
     font-size: 1.5em;
     padding-left: 0.8em; 
@@ -135,7 +192,8 @@ header{
     align-items: center;
     justify-content: center;
     gap: 4vw;
-    height: 15vw;
+    height: 10em;
+    background-color: antiquewhite;
     
     
 }
@@ -203,7 +261,8 @@ header{
 /*fin de productos*/
 
 footer{
-    background-color: rgb(204, 41, 204);
+    background-color: rgb(108, 183, 206);
+    padding: 1em;
     
 }
 
