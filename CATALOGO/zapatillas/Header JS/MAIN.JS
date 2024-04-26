@@ -1,6 +1,6 @@
 document.querySelector("header").innerHTML=` 
 <div class="logo_flex">
-<a class="logo" href=""><img src="./img/codigourbano2.png" alt=""></a>
+<a class="logo" href="/index.html"><img src="./img/codigourbano2.png" alt=""></a>
 <button  class="boton-hamburguesa" id="abrir"><img src="img/icons8-menu-16.png" alt=""></button>
 </div>
 
