@@ -64,6 +64,12 @@ header{
 
 .boton-hamburguesa{
     height: 50%;
+    
+    background-color: transparent;
+}
+
+.cerrar_menu{
+    background-color: transparent;
 }
 
 /*configuracion para que sea responsive*/
@@ -98,7 +104,7 @@ header{
     .nav-list{
         
         
-        background-color: black;
+        background-color: rgb(27, 27, 27);
         position: absolute;
         align-items: center;
         flex-direction: column;
@@ -293,6 +299,45 @@ header{
 .imagen_product{
     width: 15em;
 }
+
+/* ver detalle del producto */
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40em; /* Ajusta el ancho según tus necesidades */
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+#agrupador {
+    display: flex;
+    align-items: center;
+}
+
+h2{
+    margin: 0 auto;
+}
+
+.imagen_product_interno{
+    max-width: 82%;
+
+}
+
+#comprar{
+    margin: 1em;
+    font-size: 2em;
+    background-color: green;
+}
+
+#añadir{
+    margin: 1em;
+    font-size: 2em; 
+    background-color: rgb(226, 226, 0);
+}
+
 
 /*fin de productos*/
 

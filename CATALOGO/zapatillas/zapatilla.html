@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="STILOS/Zapatillas.CSS">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="STILOS/flickity.css"> <!-- libreria para el carruzel -->
-    
-    
-   
+
+
+
     <title>Document</title>
 </head>
-<body>
+
+<body >
 
     <header>
-    
+
     </header>
 
 
 
     <main>
 
-        <div class="gallery js-flickity" data-flickity-option = '{"wrapAround":true}'>
+        <div class="gallery js-flickity" data-flickity-option='{"wrapAround":true}'>
 
             <div class="gallery-cell">
                 <img src="img/1.png" alt="">
@@ -46,36 +48,58 @@
             <div class="gallery-cell">
                 <img src="img/1.png" alt="">
             </div>
-            
+
 
         </div>
-        
+
 
         <div id="main-prin_seleccionador_genero">
-             <a class="genero" href="">Todo</a>
-             <a class="genero" href="">Hombre</a>
-             <a class="genero" href="">Mujer</a>
+            <a class="genero" href="">Todo</a>
+            <a class="genero" href="">Hombre</a>
+            <a class="genero" href="">Mujer</a>
         </div>
 
-        
+        <!--  -->
+
+
+
+        <!--  -->
 
         <div id="contenedor_de_productos">
 
-            
 
-            <div class="producto">
+            <!-- primer producto -->
+            <!-- Contenido de la página -->
+            <div class="producto" onclick="showModal();">
                 <img class="imagen_product" src="img/1.png" alt="">
-                <h3>titulo</h3>
+                <h3>Título</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                     
-
             </div>
 
+            <!-- Cuadro modal -->
+            <dialog id="modal">
+                <section id="agrupador">
+                    <h2 >Título de la ventana modal</h2>
+                    <a onclick="closeModal();"><img src="img/icons8-close-16.png"></a>
+                </section>
+
+                <img class="imagen_product_interno" src="img/1.png" alt="">
+                <p>Contenido de ejemplo dentro de la ventana modal.</p>
+
+                <button id="comprar">comprar</button>
+                <button id="añadir">añadir</button>
+            </dialog>
+
+
+
+
+
+            <!-- segundo producto -->
             <div class="producto">
                 <img class="imagen_product" src="img/2.png" alt="">
                 <h3>titulo</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                
+
             </div>
 
             <div class="producto">
@@ -110,11 +134,17 @@
     <footer>
 
     </footer>
+    <script>
+
+
+    </script>
 
     <script src="../Header_Footer JS/MAIN.JS"></script> <!-- aca guardamos el HEADER y el Footer en JS -->
     <script src="../Header_Footer JS/Menu.js"></script> <!-- esto esta logia de responsiva  -->
+    <script src="logica/main.js"></script> <!-- esto es para seleccionar los productos -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!-- para hacer un carrito -->
-   
-    
+
+
 </body>
+
 </html>
