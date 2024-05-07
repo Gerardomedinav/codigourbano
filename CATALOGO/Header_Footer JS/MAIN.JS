@@ -1,15 +1,15 @@
 document.querySelector("header").innerHTML=` 
 <div class="logo_flex">
-<a class="logo" href=""><img src="./img/codigourbano2.png" alt=""></a>
-<button  class="boton-hamburguesa" id="abrir"><img src="img/icons8-menu-16.png" alt=""></button>
+<a class="logo" href="/index.html"><img src="../Header_Footer JS/img_head-foot/codigourbano2.png" alt=""></a>
+<button  class="boton-hamburguesa" id="abrir"><img src="../Header_Footer JS/img_head-foot/icons8-menu-16.png" alt=""></button>
 </div>
 
 <div class="topnav" id="topnav">
     
     <ul class="nav-list">
-        <button class="cerrar_menu" id="cerrar"><img src="img/icons8-close-16.png" alt=""></button>
+        <button class="cerrar_menu" id="cerrar"><img src="../Header_Footer JS/img_head-foot/icons8-close-16.png" alt=""></button>
         <li><a class="menu_interno" href="/index.html">Home</a></li>
-        <li><a class="menu_interno" href="/CATALOGO/zapatillas/zapatilla.html">Zapatillas</a></li>
+        <li><a class="menu_interno" href="">Zapatillas</a></li>
         <li><a class="menu_interno" href="/CATALOGO/ropa/ropa.html">Ropa</a></li>
         <li><a class="menu_interno" href="">Accesorios</a></li>
         <li><a class="menu_interno" href="">Acerca de</a></li>
@@ -20,8 +20,8 @@ document.querySelector("header").innerHTML=`
     <form id="buscador_header_logico">
         
         <input placeholder="Search" id="buscador_header" type="text">
-        <a href=""><img class="corazon_compra" src="img/icons8-shopping-cart-32.png" alt=""></a>
-        <a href=""><img class="corazon_compra" src="img/icons8-heart-32.png" alt=""></a>
+        <a href=""><img class="corazon_compra" src="../Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
+        <a href=""><img class="corazon_compra" src="../Header_Footer JS/img_head-foot/icons8-heart-32.png" alt=""></a>
     </form>
 
 `
