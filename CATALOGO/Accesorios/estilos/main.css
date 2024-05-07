@@ -1,0 +1,22 @@
+
+
+/*conf del carruzel*/
+.gallery{
+    
+    max-width: 80%;
+    
+    margin: auto;
+}
+
+.gallery-cell{
+    width: 100%;
+    max-width: 50vw; 
+    min-width: 20em;
+   
+}
+
+.gallery-cell img{
+    width: 80%;
+    
+    background-size: contain;
+}
