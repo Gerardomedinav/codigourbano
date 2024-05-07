@@ -70,6 +70,7 @@ header{
 
  .cerrar_menu, .boton-hamburguesa {
     display: none;
+    background-color: transparent;
 } 
 
 
@@ -98,7 +99,7 @@ header{
     .nav-list{
         
         
-        background-color: black;
+        background-color: rgb(27, 27, 27);
         position: absolute;
         align-items: center;
         flex-direction: column;
