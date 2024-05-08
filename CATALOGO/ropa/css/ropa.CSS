@@ -11,175 +11,6 @@
     src: url('/img/fifawelcome1.3.ttf') format('truetype');
 }
 
-
-
-/* configracion del menu*/
-
-header{
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    justify-content: space-between;
-    background-image: linear-gradient(to right, purple, rgb(216, 112, 190), rgb(132, 59, 155) );
-    border-bottom: solid 1vw rgba(226, 76, 219, 0.5);
-}
-
-.logo_flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-
-.topnav {
-    
-    margin: 1em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    align-items: center; 
-    font-family: 'Gill Sans';
-    font-size: 1em;
-    
-}
-
-
-
-.nav-list{
-    
-    list-style-type: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-list a{
-    color: rgb(142, 247, 93);
-}
-
-.boton-hamburguesa{
-    height: 50%;
-}
-
-/*configuracion para que sea responsive*/
-
- .cerrar_menu, .boton-hamburguesa {
-    display: none;
-} 
-
-
-@media screen and (max-width: 1200px) {
-
-    .boton-hamburguesa, .cerrar_menu {
-        display: block;
-    }
-
-    
-    .topnav{
-        opacity: 0;
-        visibility: hidden;
-
-        position: absolute;
-        justify-content: left;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3); 
-        
-    }
-
-    .topnav.visible{
-        opacity: 1;
-        visibility: visible;
-
-    }
-
-    .nav-list{
-        
-        background-color: black;
-        position: absolute;
-        align-items: center;
-        flex-direction: column;
- 
-        padding: 27em 5em 2em 10em;
-       
-    }
-
-
-
-
-
-
-    #buscador_header{
-        
-        width: 30vw;
-    }
-
-    #buscador_header_logico{
-        margin: 1em;
-    }
-
-
-    #main-prin_seleccionador_genero{
-        margin: 10em;
-    }
-
-
-    
-}
-
-/***fin***/
-
-.logo{
-    
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 1em;
-    
-   
-    
-}
-
-.logo img{
-    
-    width: 9vh;   
-}
-
-.menu_interno{
-    font-size: 1.5em;
-    padding: 0.5vw;
-}
-
-.menu_interno:hover{
-    background-color: rgba(206, 236, 236,0.2) ;
-   
-    border-radius: 17px;
-    transition: 0.5s;
-}
-
-.corazon_compra{
-    width:1.5em;
-    margin: 0 0.5em;
-}
-
-/*configuramos el buscador del header*/
-
-#buscador_header_logico{
-    display: flex;
-    justify-content: end;
-    margin-right:2em;
-}
-
-#buscador_header{
-    
-    padding-right:1em;
-    border-radius: 17px;
-    font-size: 1.5em;
-    padding-left: 0.8em; 
-}
-
-/*fin del menu*/
-
-
 .genero {
     min-height: 100px;
     width: 100%;
@@ -200,8 +31,9 @@ header{
 }
 
 .carousel {
+    
     max-width: 90%;
-    margin: 0px auto;
+    margin: 1rem auto;
     overflow: hidden;
 }
 
@@ -213,58 +45,40 @@ header{
 
 }
 
-/*Carousel de imagenes a mano 
-.carrousel{
-    width: 80%;
-    max-width: 102em;
-    background-color: rgb(14, 243, 243);
-    height: 9em;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.carrousel .grande{
-    width: 200%;
-    background-color: orange;
-    height:2em;
-    display:flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-
-    transition: all .5s ease;
-    transform: translateX(0%);
-}
-.carrousel .img{
-    width: calc(100% / 2);
-    min-height: 10vh;
-    background-color: limegreen;
-}
-.carrousel .puntos{
+/*grid-container que contiene a lista ropa y tarjetas*/
+.grid-container {
+    height: 80%;
     width: 100%;
-    background-color: red;
-    padding: 1em;
-    margin: 1em ,0, 0;
-    display: flex;
-    flex-wrap: row nowrap;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-}
-.carrousel .punto{
-    width: 2em;
-    height: 2em;
-    background-color: blue;
-    margin: 1em;
-    border-radius: 15px;
-    list-style:none;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* 1fr 3fr*/
+    
 }
 
-.carrousel .punto.activo {
-    background-color: rgb(242, 255, 0);
-}
-*/
 
-.container {
+
+
+/*estilos de lista de tipo-ropa*/
+.tipo-ropa {
+    border: 1px solid blueviolet;
+    margin: 1rem;
+    padding: 1rem;
+    width: 200px;
+    height: 230px;
+    font-size: 1.5rem;
+    min-height: 230px; /* Establece una altura mínima */
+    border-radius: 5px;
+    background-color: rgb(168, 225, 244);
+    box-shadow: 10px 10px 20px rgba(241, 136, 241, 0.5);
+}
+
+.tipo-ropa ul :hover{
+    border-bottom: 1px solid blueviolet;
+    /*list-style-type: circle;*/
+}
+
+/* sección de tarjetas*/
+.container-tarjeta {
     width: 80%;
     height:auto;
     margin: 0 auto;
@@ -277,22 +91,22 @@ header{
 }
 
 .tarjeta{
-    max-width: 300px;
-    height: 100%;
+    
+    max-width: 100%; /* 250 px*/
+    height: auto;
     border: 1px solid rgb(241, 136, 241);
     border-radius: 5px;
     margin: 1em;
-    overflow:hidden;
-    box-shadow: 10px 10px 20px rgba(241, 136, 241, 0.5);
-      
-      
+    /* overflow:hidden; */
+    box-shadow: 10px 10px 20px rgba(241, 136, 241, 0.5);  
+    background-color:rgb(190, 241, 241) ;
 }
 
 .tarjeta img {
   
     width: 100%;  /* 300px */
     height: 300px;
-    object-fit: cover;
+    object-fit:contain;
 }
 
 .tarjeta p {
@@ -303,11 +117,8 @@ header{
 
 .tarjeta:hover {
     transform: translateY(-5px);
-}
-
-.tarjeta:hover {
     transition: 500ms;
-    background-color: rgba(184, 120, 244, 0.5);
+    background-color: rgba(197, 95, 237, 0.5);
 }
 
 footer{
@@ -319,4 +130,8 @@ footer{
 
 #footer_del_todo{
     background-color: rgb(194, 97, 97);
+}
+
+.gallery {
+    border-radius: 15px;
 }
