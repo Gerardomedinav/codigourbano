@@ -24,6 +24,30 @@
     background-size: contain;
 }
 
+
+/* para el genero */
+#main-prin_seleccionador_genero{
+   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4vw;
+    height: 10em;
+
+    
+    
+}
+
+.genero{
+    font-size: 2em;
+}
+
+.genero:hover{
+    border-bottom: 2px solid black;
+    transition: 2s;
+}
+
 /* fin del carruzel */
 
 .grid{

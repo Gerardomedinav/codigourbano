@@ -207,3 +207,8 @@ header{
     padding-left: 0.8em; 
     width: 20vw;
 }
+
+footer{
+    margin-top: 3em;
+    background-image: linear-gradient(to right, rgb(139, 84, 139), rgb(158, 90, 141), rgb(166, 91, 189) );
+}
