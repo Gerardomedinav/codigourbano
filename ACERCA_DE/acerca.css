@@ -4,10 +4,21 @@
     grid-template-rows: 0fr 0fr 0fr; 
     gap: 0px 0px; 
     grid-template-areas: 
-      ". . . ."
-      ". . . ."
-      ". . . ."; 
+      ". . . "
+      ". . . "
+      ". . . "; 
   }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto;
+    gap: 20px;
+    }
+    
+    .container > * {
+    min-width: 0;
+    min-height: 0;
+    }
 
 
     
@@ -92,7 +103,7 @@
        }
     p {
 
-      font-size: 20px;
+      font-size: 26px;
     }
 
     #banner img {
@@ -115,4 +126,5 @@
       
       .box1_top h2 span {
       display: block;
+      margin: 10%;
       }
