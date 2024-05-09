@@ -1,7 +1,7 @@
 document.querySelector("header").innerHTML=` 
 <div class="logo_flex">
 <a class="logo" href="/index.html"><img src="../img/codigourbano2.png" alt=""></a>
-<button  class="boton-hamburguesa" id="abrir"><img src="../Header_Footer JS/img_head-foot/icons8-menu-16.png" alt=""></button>
+<button  class="boton-hamburguesa" id="abrir"><img src="../CATALOGO/Header_Footer JS/img_head-foot/icons8-menu-16.png" alt=""></button>
 </div>
 
 <div class="topnav" id="topnav">
