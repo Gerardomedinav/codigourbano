@@ -9,11 +9,11 @@ document.querySelector("header").innerHTML=`
     <ul class="nav-list">
         <button class="cerrar_menu" id="cerrar"><img src="../Header_Footer JS/img_head-foot/icons8-close-16.png" alt=""></button>
         <li><a class="menu_interno" href="/index.html">Home</a></li>
-        <li><a class="menu_interno" href="../zapatillas/zapatilla.html">Zapatillas</a></li>
-        <li><a class="menu_interno" href="../ropa/ropa.html">Ropa</a></li>
-        <li><a class="menu_interno" href="../Accesorios/accesorios.html">Accesorios</a></li>
-        <li><a class="menu_interno" href="">Acerca de</a></li>
-        <li><a class="menu_interno" href="">Contactos</a></li>
+        <li><a class="menu_interno" href="../../CATALOGO/zapatillas/zapatilla.html">Zapatillas</a></li>
+        <li><a class="menu_interno" href="../../CATALOGO/ropa/ropa.html">Ropa</a></li>
+        <li><a class="menu_interno" href="../../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
+        <li><a class="menu_interno" href="../../ACERCA_DE/acerca_de.html">Acerca de</a></li>
+        <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li> 
     </ul>
 </div>
 
