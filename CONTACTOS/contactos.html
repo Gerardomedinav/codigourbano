@@ -29,59 +29,28 @@
 
 
             <div class="box1" id="contactos">
-                <div class="titulo">
-                    <h2><span>Formulario de Contactos</span></h2>
-                </div>
-                <div class="box1_inner">
-
-
-
-                    <div id="note"></div>
-                    <div id="fields">
-                        <form id="contact-form">
-                            <div class="control-group">
-                                <label class="control-label" for="inputName">Nombre:</label>
-                                <div class="controls">
-                                    <input class="" type="text" id="inputName" name="name" value="Nombre"
-                                        onBlur="if(this.value=='') this.value='Nombre'"
-                                        onFocus="if(this.value =='Nombre' ) this.value=''">
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                <label class="control-label" for="inputEmail">Email:</label>
-                                <div class="controls">
-                                    <input class="" type="text" id="inputEmail" name="email" value="Email:"
-                                        onBlur="if(this.value=='') this.value='Email:'"
-                                        onFocus="if(this.value =='Email:' ) this.value=''">
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                <label class="control-label" for="inputPhone">Numero de
-                                    Telefono:</label>
-                                <div class="controls">
-                                    <input class="" type="text" id="inputPhone" name="phone" value="Numero de Telefono:"
-                                        onBlur="if(this.value=='') this.value='Numero de Telefono:'"
-                                        onFocus="if(this.value =='Numero de Telefono:' ) this.value=''">
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                <label class="control-label" for="inputMessage">Mensaje:</label>
-                                <div class="controls">
-                                    <textarea class="" id="inputMessage" name="content"
-                                        onBlur="if(this.value=='') this.value='Mensaje:'"
-                                        onFocus="if(this.value =='Mensaje:' ) this.value=''">Mensaje:</textarea>
-                                </div>
-                            </div>
-
-
-                            <button type="submit" class="submit">Enviar</button>
-                        </form>
+                <div class="contactBody">   
+                    <div class="wrapper">
+                    <div class="title">
+                       <h1>Contactanos</h1>
+                  
                     </div>
-
-                   
+                  
+            
+                    <form class="form">
+                      <input type="text" class="name entry " placeholder="Ingrese su nombre"/>
+                      
+                      <input type="text" class="email entry" placeholder="Email"/>
+                      
+                      <textarea class="message entry" placeholder="Mensaje"></textarea> 
+                      
+                      <button class="submit entry" onclick="thanks()">Enviar</button>
+                    </form>  
+                    
+                    <div class="shadow"></div>
+                  </div>
+                  
+                <script src="app.js"></script>
                 </div>
             </div>
             <div class="box3" id="contactos">
@@ -102,7 +71,31 @@
                         Belgrano 885 - Formosa<br>
                         Telefono: +549370000048<br>
                         E-mail: <a href="mailto:codigo@gmail.com">codigo@gmail.com</a>
+                        
                     </p>
+                    <div class="text-right"><a href="https://wa.link/r940fi"
+                        class="button1">Whatsapp <i class="fab fa-whatsapp"></i></a>
+                    
+                    </div>
+                    <div class="icon">
+                        <ul class="iconos">
+                            <a href="">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-square-facebook"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-square-whatsapp"></i>
+                            </a>
+                        </ul>
+                    </div>
 
                 </div>
             </div>
