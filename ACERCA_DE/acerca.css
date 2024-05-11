@@ -49,6 +49,14 @@
   .box2 {
     width: 100%;
   }
+  .box3 .titulo{
+    margin-top: 0% !important;
+   
+   
+}
+
+
+
 }
 
     
@@ -161,6 +169,7 @@
 
       margin-top: 2% !important;
     }
+  
 
     
       div#fields {
@@ -176,6 +185,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        left: auto;
+        background-color: #04d7f3;
+        
       }
 
  /* formulario contactos */
@@ -333,3 +346,20 @@
           width: 50%;
         }
       }
+
+      .box3 .titulo {
+        color: #ffffff;
+        margin-top: -10%;
+        
+      }
+
+      .box3 a {
+        font-size: 20px;
+        color: white;
+        margin: 5px;
+
+      }
+      .whatsapp {
+        color: darkgreen !important;
+      }
+
