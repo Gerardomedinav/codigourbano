@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/main.css"> <!-- estilo CSS de la propia pagina -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="../Header_Footer JS/estilo-fot-head.CSS">
+    <title>Documen</title>
+</head>
+
+<body>
+
+    <header>
+
+    </header>
+    <main>
+        <div class="gallery js-flickity" data-flickity-option='{"wrapAround":true}'>
+
+            <div class="gallery-cell">
+                <h2>curaz</h2>
+                <img src="img/adhesiva deportiva.jpg" alt="">
+            </div>
+
+            <div class="gallery-cell">
+                <h2>anteojos</h2>
+                <img src="img/anteojos.jpg" alt="">
+            </div>
+
+            <div class="gallery-cell">
+                <h2>gorra</h2>
+                <img src="img/gorra.jpg" alt="">
+            </div>
+
+            <div class="gallery-cell">
+                <h2>guantes</h2>
+                <img src="img/guante.jpg">
+            </div>
+
+            <div class="gallery-cell">
+                <h2>mochilas</h2>
+                <img src="img/mochila.jpg" alt="">
+            </div>
+
+            <div class="gallery-cell">
+                <h2>relojes</h2>
+                <img src="img/reloj.jpg" alt="">
+            </div>
+
+
+        </div>
+
+        <div id="main-prin_seleccionador_genero">
+            <a class="genero" href="">Todo</a>
+            <a class="genero" href="">Hombre</a>
+            <a class="genero" href="">Mujer</a>
+        </div>
+
+
+
+        <div class="grid">
+            <div id="sidebar">
+            
+                    <a class="sidebar-link" href="#">curitas</a>
+                    <a class="sidebar-link" href="#">anteojos</a>
+                    <a class="sidebar-link" href="#">gorra</a>
+                    <a class="sidebar-link" href="#">mochilas</a>
+                    <a class="sidebar-link" href="#">relojes</a>
+
+                
+            </div>
+
+            <div id="contenedor_de_productos">
+
+
+                <!-- primer producto -->
+                <!-- Contenido de la página -->
+                <div class="producto" onclick="showModal();">
+                    <img class="imagen_product" src="img/1.png" alt="">
+                    <h3>Título</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+
+                <!-- Cuadro modal -->
+                <dialog id="modal">
+                    <section id="agrupador">
+                        <h2>Título de la ventana modal</h2>
+                        <a onclick="closeModal();"><img src="img/icons8-close-16.png"></a>
+                    </section>
+
+                    <img class="imagen_product_interno" src="img/1.png" alt="">
+                    <p>Contenido de ejemplo dentro de la ventana modal.</p>
+
+                    <button id="comprar">comprar</button>
+                    <button id="añadir">añadir</button>
+                </dialog>
+
+
+
+
+
+                <!-- segundo producto -->
+                <div class="producto">
+                    <img class="imagen_product" src="img/2.png" alt="">
+                    <h3>titulo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+
+                </div>
+
+                <div class="producto">
+                    <a href=""><img class="imagen_product" src="img/3.png" alt=""></a>
+                    <h3>titulo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+
+                <div class="producto">
+                    <h3>titulo</h3>
+                </div>
+
+                <div class="producto">
+                    <h3>titulo</h3>
+                </div>
+
+                <div class="producto">
+                    <h3>titulo</h3>
+                </div>
+
+                <div class="producto">
+                    <h3>titulo</h3>
+                </div>
+
+                <div class="producto">
+                    <h3>titulo</h3>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <footer>
+
+    </footer>
+
+
+    <script src="../Header_Footer JS/MAIN.JS"></script>
+    <script src="../Header_Footer JS/Menu.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!-- para hacer un carrito -->
+</body>
+
+</html>
