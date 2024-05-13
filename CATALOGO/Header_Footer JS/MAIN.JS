@@ -12,7 +12,7 @@ document.querySelector("header").innerHTML=`
         <li><a class="menu_interno" href="../zapatillas/zapatilla.html">Zapatillas</a></li>
         <li><a class="menu_interno" href="../ropa/ropa.html">Ropa</a></li>
         <li><a class="menu_interno" href="../Accesorios/accesorios.html">Accesorios</a></li>
-        <li><a class="menu_interno" href="">Acerca de</a></li>
+        <li><a class="menu_interno" href="">Nosotros</a></li>
         <li><a class="menu_interno" href="">Contactos</a></li>
     </ul>
 </div>

@@ -3,7 +3,15 @@
 
 /*fin del menu*/
 
+
+
 /*configuramos el menu*/
+
+h1{
+    margin: 1.5em 0;
+    font-size: 5em;
+    text-align: center;
+}
 
 
 /*conf del carruzel*/
@@ -76,6 +84,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5em 0;
+    border: 5px solid rgb(6, 197, 204);
    
     border-radius: 2em;
     margin: 0.9em;
@@ -85,8 +94,6 @@
 
 
 .producto{
-    /* width: 20vw;
-    height: 30vw; */
 
     text-align: center;
     width: 20em;
@@ -94,13 +101,17 @@
     min-width: 10em;
     height: 20em;
     padding: 0 1em;
-
     background-color: rgba(135, 0, 168, 0.2);
     margin: 1vw;
-    overflow: auto;
+    /* overflow: auto; */
     border-radius: 17px;
 
     
+}
+
+#favorito:hover{  /*esto es del corazon faovrito*/
+ color: wheat;
+ background-color: aqua;
 }
 
 #contenedor_de_productos, .producto{
@@ -115,20 +126,47 @@
 }
 
 .imagen_product{
-    width: 15em;
+    width: 14em;
+    margin-top: 1em;
 }
 
 /* ver detalle del producto */
-dialog {
+.procutoInterno{
+   
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40em; /* Ajusta el ancho según tus necesidades */
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 20px;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+    
+
+    
+
+    
+    min-width: 25em;
+    max-width: 30em;
+    height: 50em;
+    min-height: 30em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    z-index: 1000;
+
+    box-shadow: 0 12px 16px rgba(0, 0, 0,0.9);
 }
+
+
+.modla_interno{
+    width: 450px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+
+}
+
 
 #agrupador {
     display: flex;
