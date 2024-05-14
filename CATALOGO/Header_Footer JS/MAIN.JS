@@ -30,7 +30,7 @@ document.querySelector("header").innerHTML=`
 document.querySelector("footer").innerHTML=`        
 <div class="footer-content">
 <div class="footer-section about">
-    <h1 class="logo-text"><span>Codigo</span>Urbano</h1>
+    <h2 class="logo-text"><span>Codigo</span>Urbano</h2>
     <p>
         Codigo Urbano es una tienda de ropa en línea que ofrece productos de alta calidad y a la moda. Nos esforzamos por ofrecer a nuestros clientes la mejor experiencia de compra posible.
     </p>
