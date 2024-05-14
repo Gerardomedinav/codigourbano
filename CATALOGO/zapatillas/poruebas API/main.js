@@ -58,9 +58,25 @@ createApp({
       document.body.style.overflow = 'auto'; // Habilita el desplazamiento nuevamente
     },
 
-    removeFromCart(index) {
+    removeFromCart(index) { //remover de favoritos
       this.cart.splice(index, 1);
     },
+
+    toggleColor(product) { //funcionalidad de agregar y sacar corazon
+      product.isFavorite = !product.isFavorite;
+  
+      if (product.isFavorite) {
+        this.addToCart(product);
+      } else {
+        const index = this.cart.indexOf(product);
+        if (index !== -1) {
+          this.removeFromCart(index);
+        }
+      }
+    },
+
+
+    
 
     totalPrice() {
       return this.cart.reduce((total, product) => total + product.price, 0);
@@ -73,4 +89,7 @@ createApp({
     this.fetchData(this.gender);
   },
 }).mount('#app');
+
+
+
 

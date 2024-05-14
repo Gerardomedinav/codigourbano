@@ -100,7 +100,7 @@ h1{
     max-width: 30em;
     min-width: 10em;
     height: 20em;
-    padding: 0 1em;
+  
     background-color: rgba(135, 0, 168, 0.2);
     margin: 1vw;
     /* overflow: auto; */
@@ -109,9 +109,19 @@ h1{
     
 }
 
-#favorito:hover{  /*esto es del corazon faovrito*/
- color: wheat;
- background-color: aqua;
+.heart{
+    font-size: 50px;
+    margin-right: 0.3em;
+    margin-top: 0.2em;
+    color: green;
+    position: fixed;
+    transform: translateX(190px);
+    
+
+}
+
+.heart.red{  /*esto es del corazon faovrito*/
+ color: rgb(233, 10, 10);
 }
 
 #contenedor_de_productos, .producto{
@@ -126,8 +136,10 @@ h1{
 }
 
 .imagen_product{
-    width: 14em;
+    width: 15em;
     margin-top: 1em;
+    
+   
 }
 
 /* ver detalle del producto */

@@ -20,8 +20,8 @@ document.querySelector("header").innerHTML=`
     <form id="buscador_header_logico">
         
         <input placeholder="Search" id="buscador_header" type="text">
-        <a href=""><img class="corazon_compra" src="../Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
-        <a href=""><img class="corazon_compra" src="../Header_Footer JS/img_head-foot/icons8-heart-32.png" alt=""></a>
+        
+        <a href="" class="corazon_compra"><img  src="" alt="">&hearts;</a>
     </form>
 
 `

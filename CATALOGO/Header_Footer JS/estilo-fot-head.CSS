@@ -187,6 +187,8 @@ header{
 }
 
 .corazon_compra{
+    color: red;
+    font-size: 2em;
     width:1.5em;
     margin: 0 0.5em;
 }
