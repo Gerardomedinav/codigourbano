@@ -12,7 +12,7 @@ document.querySelector("header").innerHTML=`
         <li><a class="menu_interno" href="../zapatillas/zapatilla.html">Zapatillas</a></li>
         <li><a class="menu_interno" href="../ropa/ropa.html">Ropa</a></li>
         <li><a class="menu_interno" href="../Accesorios/accesorios.html">Accesorios</a></li>
-        <li><a class="menu_interno" href="">Acerca de</a></li>
+        <li><a class="menu_interno" href="">Nosotros</a></li>
         <li><a class="menu_interno" href="">Contactos</a></li>
     </ul>
 </div>
@@ -20,8 +20,8 @@ document.querySelector("header").innerHTML=`
     <form id="buscador_header_logico">
         
         <input placeholder="Search" id="buscador_header" type="text">
-        <a href=""><img class="corazon_compra" src="../Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
-        <a href=""><img class="corazon_compra" src="../Header_Footer JS/img_head-foot/icons8-heart-32.png" alt=""></a>
+        
+        <a href="" class="corazon_compra"><img  src="" alt="">&hearts;</a>
     </form>
 
 `
@@ -30,7 +30,7 @@ document.querySelector("header").innerHTML=`
 document.querySelector("footer").innerHTML=`        
 <div class="footer-content">
 <div class="footer-section about">
-    <h2 class="logo-text"><span>Codigo</span>Urbano</h2>
+    <h1 class="logo-text"><span>Codigo</span>Urbano</h1>
     <p>
         Codigo Urbano es una tienda de ropa en línea que ofrece productos de alta calidad y a la moda. Nos esforzamos por ofrecer a nuestros clientes la mejor experiencia de compra posible.
     </p>

@@ -1,4 +1,4 @@
-const modal = document.getElementById('modal');
+const modal = document.querySelector('.procutoInterno')
 const body = document.body;
 
 function showModal() {
@@ -10,5 +10,6 @@ function closeModal() {
     modal.close();
     body.style.overflow = 'auto'; // Habilita el desplazamiento nuevamente
 }
+
 
 
