@@ -236,7 +236,7 @@
         background-color: #DF1B76;
         border-bottom: 5px solid #B2175F;
         color: white;
-        width:300px;
+        width:30em;
       }
     
       ::-webkit-input-placeholder{
@@ -246,8 +246,7 @@
       .name:hover{
         background-color: #DF1B76;
         border-bottom: 5px solid #B2175F;
-        height:30px;
-        width:400px;
+       
       }
     
       .email {
@@ -260,8 +259,7 @@
       .email:hover{
         background-color: #7239C1;  
         border-bottom: 5px solid #502789;
-        height:30px;
-        width:380px;
+       
        
       }
       .message {   
@@ -275,8 +273,7 @@
       .message:hover{
         background-color: #2DD7BB;
         border-bottom: 5px solid #2BB09A;
-        height: 100px;
-        width:370px;
+       
       }
     
       .submit{
@@ -304,7 +301,7 @@
         box-shadow: 0px 0px 25px 2px #AAA;  
       }
     
-      /* Shadow to make it look like form is floating  */
+      
       .shadow{
         box-shadow: 0px 0px 60px 5px #AAA;
         opacity: 0.5;
@@ -352,6 +349,20 @@
         margin-top: -10%;
         
       }
+
+      @media (max-width: 767px) {
+        .name {
+            background-color: #DF1B76;
+            border-bottom: 3px solid #B2175F;
+            color: white;
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+        .email, .message{
+          width: 100%;
+        }
+    }
 
       .box3 a {
         font-size: 20px;
