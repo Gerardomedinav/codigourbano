@@ -37,6 +37,10 @@ h1 {
     border-bottom: 2px solid black;
 }
 
+.genero p:active {
+    transform: translateY(-5px);
+}
+
 .carousel {
     
     max-width: 80%;
@@ -71,22 +75,28 @@ h1 {
     border: 1px solid blueviolet;
     margin: 1rem;
     padding: 1rem;
-    width: 200px;
-    height: 230px;
+    width: 300px;   /* 200*/ 
+    height: 265px;  /* 236  265*/
     font-size: 1.5rem;
     min-height: 230px; /* Establece una altura mínima */
     border-radius: 5px;
     background-color: rgb(168, 225, 244);
     box-shadow: 10px 10px 20px rgba(241, 136, 241, 0.5);
+   
 }
 
-.tipo-ropa ul li{
-    list-style: none;
+.tipo-ropa .boton{
+    height: auto;
+    width: 100%;
+    margin: 0 0 5px 0;
+    display: block;
+    font-size: 20px;
+    cursor: pointer;
+
 }
 
-.tipo-ropa ul :hover{
-     border-bottom: 1px solid blueviolet;
-    list-style-type:disc;
+.tipo-ropa .boton.active{
+    background-color: aqua;
 }
 
 /* sección de tarjetas*/
@@ -119,11 +129,17 @@ h1 {
     height: 300px;
     object-fit:contain;
 }
-
-.tarjeta p {
+.tarjeta-texto  {
+    width: 300px; /* Establece el ancho deseado para la tarjeta */
+    overflow: hidden; /* Oculta el contenido que desborda */
+    font-size: 1.5rem;
+}
+.tarjeta p{
     text-align: center;
     padding-bottom: 5px;
     font-size: 1.5em;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos al final del texto recortado */
 }
 
 .tarjeta:hover {
@@ -145,4 +161,25 @@ footer{
 
 .gallery {
     border-radius: 15px;
+}
+
+.procutoInterno{
+   
+    position: fixed;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+    min-width: 25em;
+    max-width: 30em;
+    height: 50em;
+    min-height: 30em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    z-index: 1000;
+
+    box-shadow: 0 12px 16px rgba(0, 0, 0,0.9);
 }
