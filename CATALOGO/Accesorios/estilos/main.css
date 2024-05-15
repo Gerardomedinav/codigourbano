@@ -111,7 +111,7 @@
     /* max-width: 15em;
     min-width: 5em; */
 
-    height: 20em;
+    height: 24em;
     padding: 0 1em;
 
     background-color: rgba(135, 0, 168, 0.2);
@@ -128,6 +128,52 @@
     box-shadow: 0 12px 16px rgba(0, 0, 0,0.4);
 }
 
+.heart{
+    font-size: 50px;
+    margin-right: 0.3em;
+    margin-top: 0.2em;
+    color: green;
+    position: fixed;
+    transform: translateX(190px);
+    
+
+}
+
+.heart.red{  /*esto es del corazon faovrito*/
+ color: rgb(233, 10, 10);
+}
+
+.btn-exit {
+    font-size: 7em;
+    color: red;
+    position: fixed;
+    transform: translate(230%, -280%);
+}
+
+/* ver detalle del producto */
+.procutoInterno{
+   
+    position: fixed;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+
+    min-width: 25em;
+    max-width: 30em;
+    height: 50em;
+    min-height: 30em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    z-index: 1000;
+
+    box-shadow: 0 12px 16px rgba(0, 0, 0,0.9);
+}
+
+
 #contenedor_de_productos, .producto:hover{
     transform: translateY(-5px);
 
@@ -135,4 +181,24 @@
 
 .imagen_product{
     width: 15em;
+    margin-top: 1em;
+}
+
+
+.imagen_product_interno{
+    max-width: 82%;
+    
+
+}
+
+#comprar{
+    margin: 1em;
+    font-size: 2em;
+    background-color: green;
+}
+
+#añadir{
+    margin: 1em;
+    font-size: 2em; 
+    background-color: rgb(226, 226, 0);
 }
