@@ -63,9 +63,8 @@
                     </div>
 
                     <dialog id="modal" class="procutoInterno" v-show="isModalOpen">
-                        <button @click="closeModal"><img src="img/icons8-close-16.png"></button>
-                        <img class="imagen_product_interno" v-if="selectedProduct"
-                            :src="getImageUrl(selectedProduct.thumbnail)" alt="">
+                        <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
+                        <img class="imagen_product_interno" v-if="selectedProduct" :src="getImageUrl(selectedProduct.thumbnail)" alt="">
                         <h2 v-if="selectedProduct">{{selectedProduct.title}}</h2>
                         <p>Contenido de ejemplo dentro de la ventana modal.</p>
                         <button id="comprar" @click="buyProduct">comprar</button>
