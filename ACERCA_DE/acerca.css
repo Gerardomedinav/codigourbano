@@ -253,7 +253,7 @@
         background-color: #7239C1;  
         border-bottom: 5px solid #502789;
         height:50px;
-        width:300px;
+        width:82%;
         
       }
       .email:hover{
@@ -267,7 +267,7 @@
         border-bottom: 5px solid rgb(195, 35, 17);
         overflow: hidden;
         height: 100px;  
-        width:300px;
+        width:82%;
       }
     
       .message:hover{
