@@ -79,13 +79,9 @@ header {
 .cerrar_menu,
 .boton-hamburguesa {
     display: none;
-<<<<<<< HEAD
-    background-color: transparent;
-} 
 
-=======
 }
->>>>>>> felix
+
 
 /* Estilos para pantallas menores a 1200px */
 @media screen and (max-width: 1200px) {
