@@ -388,7 +388,7 @@
         }
         .gender {
           display: flex;
-          flex-direction: column;
+          flex-direction: column !important;
           width: 50%;
           margin: 8%;
           padding: auto;
