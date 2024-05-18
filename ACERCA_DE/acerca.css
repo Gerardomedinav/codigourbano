@@ -194,7 +194,7 @@
       .box_mapa {
         display: flex;
         width: 80%;
-        height: 80%;
+        height: 83%;
         background-color: #049bf3;
         box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
         flex-direction: column;
@@ -203,6 +203,14 @@
         align-items: center;
 
       }
+      .box1 , .box3 * {
+        font-size: 30px; 
+        color: white; 
+        }
+        .box1:hover , .box3:hover * {
+          font-size: 30px; 
+          color: white; 
+          }
 
  /* formulario contactos */
 
@@ -389,9 +397,15 @@
         .gender {
           display: flex;
           flex-direction: column !important;
-          width: 50%;
+          width: 100%;
           margin: 8%;
           padding: auto;
+          
+        }
+        .genero {
+          display: flex;
+          flex-direction: column !important;
+          width: 50%;
           
         }
         .titulo h1#titles {
@@ -516,4 +530,9 @@
 }
 label#gene {
   display: flex;
+}
+
+.genero {
+  display: flex;
+  flex-direction: column;
 }

@@ -40,10 +40,14 @@
                             <div class="gender">
                                 <label id="gene" for="gender">Género:</label>
                                 <div class="genero">
-                                    <input type="radio" id="male" name="gender" value="male"> <label
-                                        for="male">Masculino</label>
-                                    <input type="radio" id="female" name="gender" value="female"> <label
-                                        for="female">Femenino</label>
+                                    <div class="masc">
+                                        <input type="radio" id="male" name="gender" value="male"> <label
+                                            for="male">Masculino</label>
+                                    </div>
+                                    <div class="femen">
+                                        <input type="radio" id="female" name="gender" value="female"> <label
+                                            for="female">Femenino</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="country">
@@ -97,7 +101,7 @@
                             <a href=""><i class="fa-brands fa-square-facebook"></i></a>
                             <a href=""><i class="fa-brands fa-github"></i></a>
                             <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href=""><i class="fa-brands fa-square-whatsapp"></i></a>
+
                         </ul>
                     </div>
                 </div>
@@ -111,12 +115,13 @@
     <script src="../CATALOGO/Header_Footer JS/Menu.js"></script>
 
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!-- para hacer un carrito -->
-    <script> document.getElementById('contactForm').addEventListener('submit', function (event) { var name = document.querySelector('.name').value; var email = document.querySelector('.email').value; var message = document.querySelector('.message').value; var country = document.querySelector('#country').value; var captcha = document.querySelector('#captcha').value; 
-            if (name === '' || email === '' || message === '' || country === '' || captcha === '') { 
-                alert('Por favor complete todos los campos obligatorios.'); event.preventDefault(); 
-            } else { 
-                alert(`Envío exitoso. Su mensaje de:\n Nombre: ${name}\n Correo electrónico: ${email}\n Mensaje: ${message}\n País: ${country}\n  ¡¡¡Será respondido a la brevedad.!!!!`); 
-            } 
+    <script> document.getElementById('contactForm').addEventListener('submit', function (event) {
+            var name = document.querySelector('.name').value; var email = document.querySelector('.email').value; var message = document.querySelector('.message').value; var country = document.querySelector('#country').value; var captcha = document.querySelector('#captcha').value;
+            if (name === '' || email === '' || message === '' || country === '' || captcha === '') {
+                alert('Por favor complete todos los campos obligatorios.'); event.preventDefault();
+            } else {
+                alert(`Envío exitoso. Su mensaje de:\n Nombre: ${name}\n Correo electrónico: ${email}\n Mensaje: ${message}\n País: ${country}\n  ¡¡¡Será respondido a la brevedad.!!!!`);
+            }
         }); 
     </script>
 </body>
