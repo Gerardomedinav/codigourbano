@@ -422,6 +422,14 @@
         display: flex;
         width: 100%;
       }
+      .box1 , .box3 * {
+        font-size: 20px; 
+        color: white; 
+        }
+        .box1:hover , .box3:hover * {
+          
+          color: white; 
+          }
     }
 
       .box3 a {
