@@ -209,3 +209,50 @@ footer{
     font-size: 2em; 
     background-color: rgb(226, 226, 0);
 }
+
+/* Para tablets */
+@media only screen and (min-width: 412px) and (max-width: 664px) {
+ 
+    #carousel-div{
+        width: 80%;
+    }
+    .genero {
+        min-height: 100px;
+        width: auto;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .grid-container {
+        /* Cambia la disposición de tus elementos a vertical */
+        grid-template-columns: 1fr; /* Una sola columna */
+        grid-auto-rows: auto; /* Altura automática */
+      }
+      .tipo-ropa {
+        margin: 0 auto;
+        
+        
+      }
+      .genero{
+        min-width: 100%;
+        /*display: inline;*/
+        
+      }
+      .genero p {
+        width: auto;
+        margin: 10px;
+           
+      }
+}
+
+@media only screen and (min-width: 412px) and (max-width: 664px) {
+      
+      .genero p {
+        width: auto;
+        margin: 10px;
+           
+      }
+
+
+    }
