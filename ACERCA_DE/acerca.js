@@ -12,14 +12,14 @@ document.querySelector("header").innerHTML=`
         <li><a class="menu_interno" href="../CATALOGO/zapatillas/zapatilla.html">Zapatillas</a></li>
         <li><a class="menu_interno" href="../CATALOGO/ropa/ropa.html">Ropa</a></li>
         <li><a class="menu_interno" href="../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
-        <li><a class="menu_interno" href="../ACERCA_DE/acerca_de.html">Acerca de</a></li>
+        <li><a class="menu_interno" href="../ACERCA_DE/acerca_de.html">Nosotros</a></li>
         <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li>
     </ul>
 </div>
 
     <form id="buscador_header_logico">
         
-        <input placeholder="Search" id="buscador_header" type="text">
+       
         <a href=""><img class="corazon_compra" src="../CATALOGO/Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
         <a href=""><img class="corazon_compra" src="../CATALOGO/Header_Footer JS/img_head-foot/icons8-heart-32.png" alt=""></a>
     </form>
