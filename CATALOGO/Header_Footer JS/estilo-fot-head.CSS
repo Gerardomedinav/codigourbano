@@ -12,21 +12,28 @@
 
 body {
 
-    background-image: linear-gradient(to right, rgb(24, 228, 211), rgb(47, 245, 245), rgb(57, 236, 207), rgb(30, 210, 216))
+     background-image: linear-gradient(to right, rgb(24, 228, 211), rgb(47, 245, 245), rgb(57, 236, 207), rgb(30, 210, 216)) 
         /* background-image: linear-gradient(to right, rgb(135, 233, 179), rgb(59, 202, 114), rgb(63, 209, 119),rgb(120, 226, 152)) */
-
+   
 }
 
 
 /* configracion del menu*/
 
 header {
-    display: flex;
-    align-items: center;
-
-    justify-content: space-between;
-    background-image: linear-gradient(to right, purple, rgb(216, 112, 190), rgb(132, 59, 155));
+    
+   
+    
+    background-image: linear-gradient(to right, purple, rgb(216, 112, 190), rgb(216, 112, 190), rgb(132, 59, 155));
     border-bottom: solid 1vw rgba(226, 76, 219, 0.5);
+}
+
+
+#nav{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  
 }
 
 .logo_flex {
@@ -81,34 +88,10 @@ header {
     display: none;
 }
 
-/* Estilos para pantallas menores a 1200px */
-@media screen and (max-width: 1200px) {
 
-    .boton-hamburguesa,
-    .cerrar_menu {
-        display: block;
-        /* Asegúrate de que el z-index sea suficiente para estar sobre otros elementos */
-        z-index: 1001;
-    }
-
-    .NosYConta {
-        display: none;
-    }
-
-    .topnav {
-        opacity: 0;
-        visibility: hidden;
-        transition: visibility 0s, opacity 0.5s linear;
-    }
-
-    .topnav.visible {
-        opacity: 1;
-        visibility: visible;
-    }
-}
 
 /* Estilos para pantallas menores a 800px */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
 
     .boton-hamburguesa,
     .cerrar_menu {
@@ -117,11 +100,11 @@ header {
 
     .topnav {
         opacity: 0;
+        visibility: hidden; /* Agregado */
         position: absolute;
-        justify-content: left;
+        justify-content: center;
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
-        /* Asegúrate de que el z-index sea suficiente para estar sobre otros elementos */
-        z-index: 1001;
+        z-index: 1000;
     }
 
     .topnav.visible {
@@ -132,25 +115,14 @@ header {
     .nav-list {
         background-color: rgb(27, 27, 27);
         position: fixed;
+        transform: translate(100px, 0);
         align-items: center;
         flex-direction: column;
         padding: 27em 5em 2em 10em;
         z-index: 1000;
     }
-
-    #buscador_header {
-        max-width: 70vw;
-        height: 1.4em;
-    }
-
-    #main-prin_seleccionador_genero {
-        margin: 4em;
-    }
-
-    .NosYConta {
-        display: block;
-    }
 }
+
 
 
 /***fin***/
@@ -229,7 +201,8 @@ header {
 
 #buscador_header_logico {
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    align-items: center;
     margin-right: 2em;
     
 }
