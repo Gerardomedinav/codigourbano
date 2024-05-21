@@ -209,3 +209,108 @@ footer{
     font-size: 2em; 
     background-color: rgb(226, 226, 0);
 }
+
+
+.procutoInterno {
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40em;
+    height: 95%;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    z-index: 1000;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    /* Agrega desplazamiento si el contenido es más grande que el modal */
+}
+
+/* se un tamaño mínimo para el modal en pantallas grandes */
+@media (max-width: 600px) {
+    .procutoInterno {
+        width: 81%;
+        height: 90%;
+
+    }
+
+    .btn-exit {
+        font-size: 1em;
+    }
+
+}
+
+.boton_agragar_compara {
+    font-size:1em;
+    
+}
+
+.btn-exit {
+
+    /* transform: translate(1.5em, -1.7em);  */
+    font-size: 7em;
+    /* Reducir el tamaño de la fuente */
+    color: red;
+    z-index: 1111;
+    position: fixed;
+    top: -25px;
+    /* Agregar un poco de margen */
+    right: 10px;
+    /* Agregar un poco de margen */
+
+
+}
+
+.btn-exit:hover {
+    color: green;
+}
+
+
+#agrupador {
+    display: flex;
+    align-items: center;
+}
+
+.imagen_product_interno {
+    max-width: 50%;
+
+}
+
+#comprar {
+    margin: 1em;
+    font-size: 2em;
+    background-color: green;
+}
+
+#añadir {
+    margin: 1em;
+    font-size: 2em;
+    background-color: rgb(226, 226, 0);
+}
+
+#sacar{
+    margin: 1em;
+    font-size: 2em;
+    background-color: rgb(226, 226, 0);
+
+}
+
+.titulo_de_productoSeleccionado{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+   
+    flex-direction: column;
+}
+
+#favorio, #compra{
+    font-size: 3em;
+}

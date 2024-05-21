@@ -18,6 +18,7 @@ createApp({
             mouseX: 0,
             mouseY: 0,
 
+            compras: [], //aca se almacenan las compras
 
         };
     },
@@ -46,6 +47,27 @@ createApp({
         addToCart(product) {
             this.cart.push(product);
         },
+        
+            //es para agregar productos al carrito
+    addToCompras(product) {
+        if (!this.compras.includes(product)) {
+          this.compras.push(product);
+        }
+      },
+      removeFromCompras(product) {
+        const index = this.compras.indexOf(product);
+        if (index !== -1) {
+          this.compras.splice(index, 1);
+        }
+      },
+      toggleCompras(product) {
+        if (this.compras.includes(product)) {
+          this.removeFromCompras(product);
+        } else {
+          this.addToCompras(product);
+        }
+      },
+  
 
         buyProduct() {
             alert('Has comprado el producto!');
@@ -97,24 +119,12 @@ createApp({
     },
 }).mount('#app');
 
-
-
-let botonActivo = null;
-
-function cambiarColor(boton) {
-    if (botonActivo) {
-        botonActivo.classList.remove("active");
-    }
-    boton.classList.add("active");
-    botonActivo = boton;
-}
-
-const tarjeta = document.getElementById("miTarjeta");
-const contenido = tarjeta.textContent;
-const longitudMaxima = 100; // Establece la longitud máxima deseada
-
-if (contenido.length > longitudMaxima) {
-    tarjeta.textContent = contenido.slice(0, longitudMaxima) + "...";
-}
-
+var elem = document.querySelector('.gallery');
+var flkty = new Flickity( elem, {
+  // options
+  cellAlign: 'left',
+  contain: true,
+  wrapAround: true,
+  autoPlay: 5000
+});
 
