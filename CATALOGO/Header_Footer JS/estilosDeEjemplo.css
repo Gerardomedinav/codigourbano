@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "FIFA Welcome";
+}
+
+@font-face {
+    font-family: "FIFA Welcome";
+    src: url('/img/fifawelcome1.3.ttf') format('truetype');
+}
+
+body {
+
+    background-image: linear-gradient(to right, rgb(24, 228, 211), rgb(47, 245, 245), rgb(57, 236, 207), rgb(30, 210, 216))
+        /* background-image: linear-gradient(to right, rgb(135, 233, 179), rgb(59, 202, 114), rgb(63, 209, 119),rgb(120, 226, 152)) */
+
+}
+
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    margin-top: 3em;
+    padding: 1rem;
+    background-image: linear-gradient(to right, rgb(52, 0, 52), rgb(52, 0, 52), rgb(148, 52, 151));
+    color: white;
+    
+}
+
+h2{
+    font-size: 2.5em;
+    color: white;
+
+}
+
+p, span{
+    font-size: 1.7em;
+    color: white;
+
+}
+.container-contacto{
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.icon {
+    height: 50px;
+    width: auto; 
+    background-color: black;
+}
+
+.icon .iconos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    width: 15rem;
+    font-size: 24px;
+    
+}
+.icon .iconos li {
+    list-style-type: none;
+}
+
+.icon .iconos li a {
+    color: aliceblue;
+}
+
+

@@ -16,8 +16,6 @@ body {
         /* background-image: linear-gradient(to right, rgb(135, 233, 179), rgb(59, 202, 114), rgb(63, 209, 119),rgb(120, 226, 152)) */
 
 }
-
-
 /* configracion del menu*/
 
 header {
@@ -84,7 +82,7 @@ header {
 
 
 /* Estilos para pantallas menores a 1200px */
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 801) and (max-width: 1200px) {
 
     .boton-hamburguesa,
     .cerrar_menu {
@@ -93,12 +91,10 @@ header {
         z-index: 1001;
     }
 
-    .NosYConta {
-        display: none;
-    }
+
 
     .topnav {
-        opacity: 0;
+        opacity: 1;
         visibility: hidden;
         transition: visibility 0s, opacity 0.5s linear;
     }
