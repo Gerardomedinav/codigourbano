@@ -26,7 +26,7 @@
 
         <h1>Zapatillas</h1>
 
-        <div class="gallery js-flickity" data-flickity-option='{"wrapAround":true}'>
+        <div class="gallery js-flickity" data-flickity-option='{"wrapAround": true}'>
 
             <div class="gallery-cell">
                 <img src="img/1.png" alt="">
@@ -40,20 +40,8 @@
                 <img src="img/3.png" alt="">
             </div>
 
-            <div class="gallery-cell">
-                <img src="img/1.png" alt="">
-            </div>
-
-            <div class="gallery-cell">
-                <img src="img/1.png" alt="">
-            </div>
-
-            <div class="gallery-cell">
-                <img src="img/1.png" alt="">
-            </div>
-
-
         </div>
+
 
 
         <div id="app">
@@ -64,45 +52,69 @@
                 <a style="margin-left: 1em;" class="genero" href="#" @click.prevent="fetchData('niño')">niño</a>
                 <a style="margin-left: 1em;" class="genero" href="#" @click.prevent="fetchData('Hombre')">Hombre</a>
                 <a style="margin-left: 1em;" class="genero" href="#" @click.prevent="fetchData('Mujer')">Mujer</a>
+
+            </div>
+            <div id="searchs">
                 <input type="text" class="form-control" id="search" v-model="buscador_zaptillaz"
                     @keyup.enter="fetchData(buscador_zaptillaz)" @click="fetchData(searchQuery)">
             </div>
 
-
             <div id="contenedor_de_productos">
                 <div class="producto" v-for="product in products">
-                    <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }" @click="toggleColor(product)"><img  src="" alt="">&hearts;</a>
-                    
-                    <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title" @click="showModal(product)">
+                    <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }"
+                        @click="toggleColor(product)"><img src="" alt="">&hearts;</a>
+                    <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title"
+                        @click="showModal(product)">
                     <h3>{{product.title}}</h3>
-                    
                 </div>
 
             </div>
 
             <dialog id="modal" class="procutoInterno" v-show="isModalOpen">
+                <img class="imagen_product_interno" v-if="selectedProduct" :src="getImageUrl(selectedProduct.thumbnail)"
+                    alt="">
                 <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
-                <img class="imagen_product_interno" v-if="selectedProduct" :src="getImageUrl(selectedProduct.thumbnail)" alt="">
                 <h2 v-if="selectedProduct">{{selectedProduct.title}}</h2>
-                <p>Contenido de ejemplo dentro de la ventana modal.</p>
-                <button id="comprar" @click="buyProduct">comprar</button>
-                <button id="añadir">añadir</button>
+                <div class="descripcion_de_producots">
+                    <p v-if="selectedProduct">Precio: ${{ selectedProduct.price }}</p>
+                    <p v-if="selectedProduct">Condicion del producto: {{selectedProduct.condition}} </p>
+                    <p v-if="selectedProduct">Pais:{{selectedProduct.currency_id}}</p>
+                    <p v-if="selectedProduct">{{official_store_name}}</p>
+                </div>
+                <div class="boton_agragar_compara">
+                    <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>
+                    <button class="boton_agragar_compara" @click="toggleCompras(selectedProduct)" id="añadir">{{ compras.includes(selectedProduct) ? 'sacar' : 'añadir' }}</button>
+                </div>
             </dialog>
 
-            <h3 style="text-align: center;">Carrito de compras</h3>
+            <h3 id="favorio" style="text-align: center;">Favoritos</h3>
 
             <div id="contenedor_de_productos">
-                
                 <div v-for="(product, index) in cart">
-                    
                     <div class="producto">
                         <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
                         <h5>{{ product.title }}</h5>
                         <p>Precio: ${{ product.price }}</p>
-                        <button @click="removeFromCart(index)">Eliminar</button>
+                        <button  @click="removeFromCart(index)">Eliminar</button>
                     </div>
+                </div>
+            </div>
+
+            <h3 id="compra" style="text-align: center;">Compras</h3>
+
+            <div id="contenedor_de_productos">
+              <div>
+                <p>Total: ${{ totalPrice() }}</p>
+              </div>
+              <div v-for="(product, index) in compras">
+                <div class="producto">
+                  <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
+                  <h5>{{ product.title }}</h5>
+                  <p>Precio: ${{ product.price }}</p>
+                  <button @click="removeFromCompras(product)">Eliminar</button>
 
                 </div>
+              </div>
             </div>
 
 
@@ -124,7 +136,7 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!-- para hacer un carrito -->
 
     <script src="../zapatillas/poruebas API/main.js"></script> <!-- esto es la prueba API -->
-    
+
 
 
 
