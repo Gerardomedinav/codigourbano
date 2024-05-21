@@ -6,17 +6,19 @@ createApp({
       url: 'https://api.mercadolibre.com/sites/MLA/search',
       productsAll: [],
       products: [],
-      cart: [],
+      cart: [], //aca se almacenana los favoritos
       searchQuery: 'sneakers, zapatillas de deporte, ropa, accesorios',
       buscador_zaptillaz: '',
       gender: 'Todo',
 
 
       isModalOpen: false, //  propiedad para controlar la visibilidad del modal
-      selectedProduct: null, // Agrega una nueva propiedad para el producto seleccionado
+      selectedProduct: null, // una nueva propiedad para el producto seleccionado
 
       mouseX: 0,
       mouseY: 0,
+
+      compras: [], //aca se almacenan las compras
 
 
     };
@@ -26,7 +28,7 @@ createApp({
       try {
         this.gender = gender;
 
-        const response = await fetch(`${this.url}?q=${this.searchQuery} ${this.buscador_zaptillaz} ${gender !== 'Todo' ? gender : ''}`);
+        const response = await fetch(`${this.url}?q=${this.searchQuery} ${this.buscador_zaptillaz} ${gender !== 'Todo' ? gender : ''}`); //un filtrado simple
         const data = await response.json();
         this.productsAll = data.results;
         this.products = data.results;
@@ -39,6 +41,28 @@ createApp({
     addToCart(product) {
       this.cart.push(product);
     },
+
+    //es para agregar productos al carrito
+    addToCompras(product) {
+      if (!this.compras.includes(product)) {
+        this.compras.push(product);
+      }
+    },
+    removeFromCompras(product) {
+      const index = this.compras.indexOf(product);
+      if (index !== -1) {
+        this.compras.splice(index, 1);
+      }
+    },
+    toggleCompras(product) {
+      if (this.compras.includes(product)) {
+        this.removeFromCompras(product);
+      } else {
+        this.addToCompras(product);
+      }
+    },
+
+
 
     buyProduct() {
       alert('Has comprado el producto!');
@@ -79,8 +103,9 @@ createApp({
     
 
     totalPrice() {
-      return this.cart.reduce((total, product) => total + product.price, 0);
+      return this.compras.reduce((total, product) => total + product.price, 0);
     },
+
     getImageUrl(thumbnail) {
       return thumbnail.replace(/\w\.jpg/gi, 'W.jpg');
     },
@@ -91,5 +116,13 @@ createApp({
 }).mount('#app');
 
 
+var elem = document.querySelector('.gallery');
+var flkty = new Flickity( elem, {
+  // options
+  cellAlign: 'left',
+  contain: true,
+  wrapAround: true,
+  autoPlay: 5000
+});
 
 
