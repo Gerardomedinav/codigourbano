@@ -1,10 +1,17 @@
-*{
+* {
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: "FIFA Welcome"; 
+    font-family: "FIFA Welcome";
 }
 
+body {
+    background-image: url(../img/imgFondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: inset 0 0 0 2000px #cdf0f080;
+}
 
 @font-face {
     font-family: "FIFA Welcome";
@@ -15,15 +22,19 @@ h1 {
     margin: 2rem 0px;
     text-align: center;
     font-size: 3rem;
-    color:rgb(39, 39, 69);
+    color: rgb(39, 39, 69);
+}
+
+h3 {
+    text-align: center;
 }
 
 .genero {
     min-height: 100px;
     width: auto;
     display: flex;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 }
 
 .genero p {
@@ -42,19 +53,45 @@ h1 {
 }
 
 .carousel {
-    
+
     max-width: 80%;
     max-height: 500px;
     margin: 1rem auto;
     overflow: hidden;
 }
 
+.gallery {
+    border-radius: 15px;
+}
+.gallery-cell {
+    width: 100%;
+}
 .carousel img {
-    width: auto; /* Establece el ancho deseado */
-    height: 1000px; /* Establece la altura deseada */        /*width: 100%; height: auto;*/
+    width: 100%;
+    /* Establece el ancho deseado */
+    height: 1000px;
+    /* Establece la altura deseada */
+    /*width: 100%; height: auto;*/
     object-fit: cover;
     border: none;
+}
 
+/*aplicamos animacion al producto*/
+
+@keyframes mover-arriba-abajo {
+
+    0%,
+    100% {
+        transform: translateY(5px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.carousel img {
+    animation: mover-arriba-abajo 3s infinite;
 }
 
 /*grid-container que contiene a lista ropa y tarjetas*/
@@ -63,8 +100,9 @@ h1 {
     width: 100%;
     margin-bottom: 1rem;
     display: grid;
-    grid-template-columns: 1fr 3fr; /* 1fr 3fr*/
-    
+    grid-template-columns: 1fr 3fr;
+    /* 1fr 3fr*/
+
 }
 
 
@@ -75,17 +113,20 @@ h1 {
     border: 1px solid blueviolet;
     margin: 1rem;
     padding: 1rem;
-    width: 300px;   /* 200*/ 
-    height: 265px;  /* 236  265*/
+    width: 300px;
+    /* 200*/
+    height: 265px;
+    /* 236  265*/
     font-size: 1.5rem;
-    min-height: 230px; /* Establece una altura mínima */
+    min-height: 230px;
+    /* Establece una altura mínima */
     border-radius: 5px;
     background-color: rgb(168, 225, 244);
     box-shadow: 10px 10px 20px rgba(241, 136, 241, 0.5);
-   
+
 }
 
-.tipo-ropa .boton{
+.tipo-ropa .boton {
     height: auto;
     width: 100%;
     margin: 0 0 5px 0;
@@ -95,51 +136,64 @@ h1 {
 
 }
 
-.tipo-ropa .boton.active{
+/* Con js se activa o desactiva*/
+.tipo-ropa .boton.active {
     background-color: aqua;
 }
 
 /* sección de tarjetas*/
 .container-tarjeta {
-    width: 100%;
-    height:auto;
-    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    justify-content: center; 
+    gap: 0.5em 0;
+    border: 5px solid rgb(6, 197, 204);
+    background-color: rgba(70, 68, 68, 0.5);
+    border-radius: 2em;
+    margin: 0.9em;
 }
 
-.tarjeta{
-    
-    max-width: 100%; /* 250 px*/
-    height: auto;
-    border: 1px solid rgb(241, 136, 241);
+.tarjeta {
+    text-align: center;
+    width: 20em;
+    max-width: 30em;
+    min-width: 10em;
+    height: 22.2em;
+
+    background-color: rgba(204, 253, 245, 0.8);
+    margin: 1vw;
+    /* overflow: auto; */
+    border-radius: 17px;
+
+
+}
+
+.imagen_product {
+    width: 15em;
+    margin-top: 1em;
     border-radius: 5px;
-    margin: 1em;
-    /* overflow:hidden; */
-    box-shadow: 10px 10px 20px rgba(241, 136, 241, 0.5);  
-    background-color:rgb(190, 241, 241) ;
+    /*object-fit:contain;*/
 }
 
-.tarjeta img {
-  
-    width: 100%;  /* 300px */
-    height: 300px;
-    object-fit:contain;
-}
-.tarjeta-texto  {
-    width: 300px; /* Establece el ancho deseado para la tarjeta */
-    overflow: hidden; /* Oculta el contenido que desborda */
+.tarjeta-texto {
+    display: block;
+    width: 300px;
+    /* Establece el ancho deseado para la tarjeta */
+    overflow: hidden;
+    /* Oculta el contenido que desborda */
     font-size: 1.5rem;
 }
-.tarjeta p{
+
+.tarjeta p {
     text-align: center;
     padding-bottom: 5px;
     font-size: 1.5em;
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-    text-overflow: ellipsis; /* Muestra puntos suspensivos al final del texto recortado */
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
+    text-overflow: ellipsis;
+    /* Muestra puntos suspensivos al final del texto recortado */
 }
 
 .tarjeta:hover {
@@ -148,70 +202,24 @@ h1 {
     background-color: rgba(197, 95, 237, 0.5);
 }
 
-footer{
-    margin-top: 10px;
-    background-color: rgb(108, 183, 206);
-    padding: 1em;
-    
+.container-tarjeta,
+.tarjeta {
+    box-shadow: 0 2px 2px rgba(100, 100, 100, 0.2);
+    transition: all 0.25s;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.4);
 }
 
-#footer_del_todo{
-    background-color: rgb(194, 97, 97);
+.container-tarjeta,
+.tarjeta:hover {
+    transform: translateY(-5px);
 }
 
-.gallery {
-    border-radius: 15px;
+.imagen_product {
+    width: 15em;
+    margin-top: 1em;
 }
 
-.procutoInterno{
-   
-    position: fixed;
-    left: 50%; 
-    top: 50%; 
-    transform: translate(-50%, -50%); 
-    min-width: 25em;
-    max-width: 30em;
-    height: 50em;
-    min-height: 30em;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: antiquewhite;
-    z-index: 1000;
-
-    box-shadow: 0 12px 16px rgba(0, 0, 0,0.9);
-}
-.btn-exit {
-    font-size: 7em;
-    color: red;
-    position: fixed;
-    transform: translate(230%, -280%);
-  }
-  
-  .btn-exit:hover{
-      color: green;
-  }
-
-.imagen_product_interno{
-    max-width: 82%;
-}
-
-#comprar{
-    margin: 1em;
-    font-size: 2em;
-    background-color: green;
-}
-
-#añadir{
-    margin: 1em;
-    font-size: 2em; 
-    background-color: rgb(226, 226, 0);
-}
-
-
-.procutoInterno {
+.productoInterno {
 
     position: fixed;
 
@@ -233,24 +241,35 @@ footer{
     /* Agrega desplazamiento si el contenido es más grande que el modal */
 }
 
-/* se un tamaño mínimo para el modal en pantallas grandes */
-@media (max-width: 600px) {
-    .procutoInterno {
-        width: 81%;
-        height: 90%;
 
-    }
+.descripcion_de_producots {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
 
-    .btn-exit {
-        font-size: 1em;
-    }
+.heart {
+    font-size: 50px;
+    margin-right: 0.3em;
+    margin-top: 0.2em;
+    color: green;
+    position: fixed;
+    transform: translateX(190px);
 
+
+}
+
+.heart.red {
+    /*esto es del corazon faovrito*/
+    color: rgb(233, 10, 10);
 }
 
 .boton_agragar_compara {
-    font-size:1em;
-    
+    font-size: 1em;
+
 }
+
+/* Botones de abir, cerrar ventana emergente*/
 
 .btn-exit {
 
@@ -295,22 +314,93 @@ footer{
     background-color: rgb(226, 226, 0);
 }
 
-#sacar{
+#sacar {
     margin: 1em;
     font-size: 2em;
     background-color: rgb(226, 226, 0);
 
 }
 
-.titulo_de_productoSeleccionado{
+.titulo_de_productoSeleccionado {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-   
     flex-direction: column;
 }
 
-#favorio, #compra{
+#favorio,
+#compra {
     font-size: 3em;
+}
+
+footer {
+    margin-top: 10px;
+    background-color: rgb(108, 183, 206);
+    padding: 1em;
+
+}
+
+#footer_del_todo {
+    background-color: rgb(194, 97, 97);
+}
+
+
+
+
+
+/* Para tablets */
+@media only screen and (min-width: 412px) and (max-width: 664px) {
+
+    #carousel-div {
+        width: 80%;
+    }
+
+    .genero {
+        min-height: 100px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid-container {
+        /* Cambia la disposición de tus elementos a vertical */
+        grid-template-columns: 1fr;
+        /* Una sola columna */
+        grid-auto-rows: auto;
+        /* Altura automática */
+    }
+
+    .tipo-ropa {
+        margin: 0 auto;
+
+
+    }
+
+    .genero {
+        min-width: 100%;
+        /*display: inline;*/
+
+    }
+
+    .genero p {
+        width: auto;
+        margin: 10px;
+
+    }
+}
+
+/* se un tamaño mínimo para el modal en pantallas grandes */
+@media (min-width: 1px) and (max-width: 630px) {
+    .productoInterno {
+        width: 81%;
+        height: 90%;
+
+    }
+/*
+    .btn-exit {
+        font-size: 1em;
+    }
+*/
 }
