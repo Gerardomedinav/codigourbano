@@ -90,9 +90,6 @@
             <h3 id="favorio" style="text-align: center;">Favoritos</h3>
 
             <div id="contenedor_de_productos">
-                <div class="titulo_de_productoSeleccionado">
-                    <p>Total: ${{ totalPrice() }}</p>
-                </div>
                 <div v-for="(product, index) in cart">
                     <div class="producto">
                         <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">

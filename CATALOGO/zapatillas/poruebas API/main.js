@@ -103,8 +103,9 @@ createApp({
     
 
     totalPrice() {
-      return this.cart.reduce((total, product) => total + product.price, 0);
+      return this.compras.reduce((total, product) => total + product.price, 0);
     },
+
     getImageUrl(thumbnail) {
       return thumbnail.replace(/\w\.jpg/gi, 'W.jpg');
     },
