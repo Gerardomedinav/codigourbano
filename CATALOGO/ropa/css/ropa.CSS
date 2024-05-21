@@ -314,6 +314,7 @@ h3 {
     background-color: rgb(226, 226, 0);
 }
 
+
 #sacar {
     margin: 1em;
     font-size: 2em;
@@ -356,16 +357,19 @@ footer {
         width: 80%;
     }
 
+
     .genero {
         min-height: 100px;
         width: auto;
         display: flex;
+
         justify-content: center;
         align-items: center;
     }
 
     .grid-container {
         /* Cambia la disposición de tus elementos a vertical */
+
         grid-template-columns: 1fr;
         /* Una sola columna */
         grid-auto-rows: auto;
@@ -404,3 +408,4 @@ footer {
     }
 */
 }
+
