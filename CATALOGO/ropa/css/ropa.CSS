@@ -49,7 +49,32 @@ h3 {
 }
 
 .genero p:active {
+    transition: transform 0.3s ease;
     transform: translateY(-5px);
+}
+
+.genero p.active{
+    border-bottom: 2px solid black;
+}
+
+#buscador {
+    display: flex;
+    width: 50%;
+    max-width:25rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    background-color: rgba(231, 176, 237, 0.502);
+    padding: 5px;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    letter-spacing: 2px;
+    border:2px solid rgb(6,197,204);
+    outline: none;
+
+    
+}
+#buscador:focus{
+    border:2px solid rgb(6,197,204);
 }
 
 .carousel {
@@ -110,7 +135,6 @@ h3 {
 
 /*estilos de lista de tipo-ropa*/
 .tipo-ropa {
-    border: 1px solid blueviolet;
     margin: 1rem;
     padding: 1rem;
     width: 300px;
@@ -121,9 +145,8 @@ h3 {
     min-height: 230px;
     /* Establece una altura mínima */
     border-radius: 5px;
-    background-color: rgb(168, 225, 244);
-    box-shadow: 10px 10px 20px rgba(241, 136, 241, 0.5);
-
+    box-shadow: inset 0 0 0 2000px rgba(147,154,154,0.5);
+    border:4px solid rgb(6,197,204);
 }
 
 .tipo-ropa .boton {
@@ -133,13 +156,22 @@ h3 {
     display: block;
     font-size: 20px;
     cursor: pointer;
-
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)   
+}
+.boton{
+    transition: background-color 0.3s ease;
+    background-image: linear-gradient(to right,rgb(193,233,227), rgb(244, 36, 244), rgb(193,233,227));
+    box-shadow: inset 0 0 0 2000px #cf83d980;
+    border:2px solid rgba(6,197,204,0.5);
+}
+.boton:hover{
+    background-image: linear-gradient(to right,rgb(193,233,227), rgb(239, 194, 239), rgb(193,233,227));
+}
+.boton.active{
+    background-image: linear-gradient(to right,rgb(165, 245, 184), rgb(34, 255, 196), rgb(165, 245, 184));
 }
 
-/* Con js se activa o desactiva*/
-.tipo-ropa .boton.active {
-    background-color: aqua;
-}
 
 /* sección de tarjetas*/
 .container-tarjeta {

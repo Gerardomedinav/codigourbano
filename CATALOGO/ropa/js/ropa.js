@@ -7,10 +7,9 @@ createApp({
             productsAll: [],
             products: [],
             cart: [],
-            searchQuery: 'Sportswear ropa deportiva ',
-            selectorRopa: '',
+            searchQuery: 'Sportswear ropa deportiva',
+            selectorRopa: 'Todo',
             gender: 'todo',
-
 
             isModalOpen: false, //  propiedad para controlar la visibilidad del modal
             selectedProduct: null, // Agrega una nueva propiedad para el producto seleccionado
@@ -107,13 +106,14 @@ createApp({
 
 
 
-    totalPrice() {
-        return this.compras.reduce((total, product) => total + product.price, 0);
-    },
+        totalPrice() {
+            return this.compras.reduce((total, product) => total + product.price, 0);
+        },
 
-    getImageUrl(thumbnail) {
-        return thumbnail.replace(/\w\.jpg/gi, 'W.jpg');
-    },
+        getImageUrl(thumbnail) {
+            return thumbnail.replace(/\w\.jpg/gi, 'W.jpg');
+        },
+
     },
     created() {
         this.fetchData(this.gender);
@@ -130,3 +130,24 @@ var flkty = new Flickity(elem, {
     autoPlay: 5000
 });
 
+// cambia de color los botones de tipo de ropa.
+let activarBoton = null;
+
+function cambiarColor(button) {
+    if(activarBoton) {
+        activarBoton.classList.remove('active');
+    }
+    button.classList.add('active');
+    activarBoton = button;
+}
+
+// mantener linea inferior de opciones genero.
+let activarLinea = null;
+
+function mantenerLinea(p) {
+    if(activarLinea) {
+        activarLinea.classList.remove('active');
+    }
+    p.classList.add('active');
+    activarLinea = p;
+}

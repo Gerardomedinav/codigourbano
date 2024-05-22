@@ -43,21 +43,21 @@
             </div>
 
             <div class="genero">
-                <p @click="changeGender('todo')">Todo</p>
-                <p @click="changeGender('hombre')">Hombre</p>
-                <p @click="changeGender('mujer')">Mujer</p>
-                <p @click="changeGender('niño')">Niños</p>
+                <p @click="changeGender('todo')" onclick="mantenerLinea(this)">Todo</p>
+                <p @click="changeGender('hombre')" onclick="mantenerLinea(this)">Hombre</p>
+                <p @click="changeGender('mujer')" onclick="mantenerLinea(this)">Mujer</p>
+                <p @click="changeGender('niño')" onclick="mantenerLinea(this)">Niños</p>
             </div>
+            <label for="buscador"></label>
+            <input type="text" id="buscador" placeholder="Buscador"  v-model="selectorRopa" @keyup.enter="fetchData(selectorRopa)">
             <div class="grid-container">
                 <div class="tipo-ropa">
 
-                    <button @click="changeRopa('remera')" class="boton" onclick="cambiarColor(this)">Remeras</button>
-                    <button @click="changeRopa('camisetas')" class="boton"
-                        onclick="cambiarColor(this)">Camisetas</button>
-                    <button @click="changeRopa('pantalones')" class="boton"
-                        onclick="cambiarColor(this)">Pantalones</button>
-                    <button @click="changeRopa('calzas')" class="boton" onclick="cambiarColor(this)">Calzas</button>
-                    <button @click="changeRopa('shorts')" class="boton" onclick="cambiarColor(this)">Shorts</button>
+                    <button @click="changeRopa('Remera')" class="boton"onclick="cambiarColor(this)">Remeras</button>
+                    <button @click="changeRopa('Camisetas')" class="boton"onclick="cambiarColor(this)">Camisetas</button>
+                    <button @click="changeRopa('Pantalones')" class="boton"onclick="cambiarColor(this)">Pantalones</button>
+                    <button @click="changeRopa('Calzas')" class="boton" onclick="cambiarColor(this)">Calzas</button>
+                    <button @click="changeRopa('Shorts')" class="boton" onclick="cambiarColor(this)">Shorts</button>
                     <button @click="changeRopa('Buzos')" class="boton" onclick="cambiarColor(this)">Buzos</button>
                     <button @click="changeRopa('Camperas')" class="boton" onclick="cambiarColor(this)">Camperas</button>
 
