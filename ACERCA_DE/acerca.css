@@ -1,0 +1,546 @@
+.container {
+    display: grid; 
+    grid-template-columns: 4fr 4fr 0fr 0fr; 
+    grid-template-rows: 0fr 0fr 0fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      ". . . "
+      ". . . "
+      ". . . "; 
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto;
+    gap: 20px;
+    }
+    
+    .container > * {
+    min-width: 0;
+    min-height: 0;
+    }
+
+
+
+/* Estilos para pantallas medianas */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+  
+  .container > * {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 767px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .box1,
+  .box2 {
+    width: 100%;
+  }
+  .box3 .titulo{
+    margin-top: 0% !important;
+   
+   
+}
+
+
+
+}
+
+    
+    .box1 {
+   
+    padding: 20px;
+    width: auto;
+    margin: 2%;
+    border: 10px solid darkorchid;
+ 
+    }
+
+    .box1 {
+     
+      background: radial-gradient(at top, rgba(14, 220, 227, 0.363), rgba(89, 142, 217, 0.346)) !important;
+      backdrop-filter: blur(5px);
+      background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgb(47, 110, 226) 100%);
+      box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
+      transition: all 0.3s ease-in-out 0s;
+      outline: none;
+      position: relative;
+      padding: 10px;
+      
+      
+      }
+      .box1 p {
+        text-align: justify;
+        }
+  
+    .box1:hover {
+      color: #313133;
+      transform: translateY(-6px);
+    }
+    
+    
+    
+    
+    .box2, .box3 {
+    height: auto;
+    overflow: hidden;
+    font-family: none !important;
+    
+    }
+    
+  
+    .box2 video,.box3 {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin: 0%;
+      margin-top: 5%;
+      border: 10px solid darkorchid;
+      padding: 5px;
+      box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
+    
+      position: relative;
+      
+      }
+      .box2 video:hover, .box3:hover {
+        color: #313133;
+        transform: translateY(-6px);
+      }
+      a {
+         text-decoration: none !important;
+      }
+
+      .button1 {
+       
+        color: rgb(46, 116, 46);
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-right: 10px;
+        
+       
+        }
+        .fab.fa-whatsapp {
+          color: rgb(20, 124, 20);
+          font-size: 24px;
+          
+       }
+    p {
+
+      font-size: 22px;;
+    }
+
+    #banner img {
+      width: 100%;
+      margin-top:4%;
+      border: 10px solid darkorchid;
+      padding: 5px;
+      box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
+      
+      position: relative;
+    }
+
+    #banner:hover {
+      color: #313133;
+      transform: translateY(-6px);
+    }
+    .box1_top {
+      text-align: center;
+      }
+      
+      .box1_top h2 span {
+      display: block;
+      margin: 10%;
+      }
+
+    .box3 {
+
+      margin-top: 2% !important;
+    }
+  
+
+    
+      div#fields {
+        width: 300px !important;
+        height: 100% !important;
+      }
+      input, textarea{
+        width: 300px;
+      }
+
+      .box3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        left: auto;
+        background-color: #04d7f3;
+        
+      }
+      .box_mapa {
+        display: flex;
+        width: 80%;
+        height: 83%;
+        background-color: #049bf3;
+        box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
+        flex-direction: column;
+        margin: 10px;
+        padding: 20px;
+        align-items: center;
+
+      }
+      .box1 , .box3 * {
+        font-size: 30px; 
+        color: white; 
+        }
+        .box1:hover , .box3:hover * {
+          font-size: 30px; 
+          color: white; 
+          }
+
+ /* formulario contactos */
+
+      .contactBody{
+       
+        background-size: cover;
+        background-attachment: fixed;
+        height:100%;
+    
+    }
+    .titulo{
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 42px;
+        color: rgb(252, 252, 252);
+        display: flex;
+      }
+      .titulo h1#titles {
+        display: flex !important;
+        margin: 0 auto;
+        margin-top: -50px;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 42px;
+        color: rgb(252, 252, 252) !important;
+      }
+    
+      #title-Tag-Line{
+          font-size: 20px;
+      }
+    /* This will center the form */
+      .wrapper {
+        width: 80%;
+        height: 80%;
+        margin: 5% auto 0 auto; 
+      }
+    
+    /* form animation starts */
+      .form {
+        background: #049bf3;
+        text-align: center; 
+        box-shadow: 0px 0px 20px 5px #AAA; 
+        border-radius: 10px;  
+        width: 100%; 
+        height: 100%;
+        margin: 30px auto 0 auto;
+        padding: 10px 10px;  
+        
+      }
+    
+    .name { 
+        background-color: #DF1B76;
+        border-bottom: 5px solid #B2175F;
+        color: white;
+        width:82%;
+      }
+    
+      ::-webkit-input-placeholder{
+          color: white;
+          font-size: 20px;
+      }
+      .name:hover{
+        background-color: #DF1B76;
+        border-bottom: 5px solid #B2175F;
+       
+      }
+    
+      .email {
+        background-color: #7239C1;  
+        border-bottom: 5px solid #502789;
+        height:50px;
+        width:82%;
+        
+      }
+      .email:hover{
+        background-color: #7239C1;  
+        border-bottom: 5px solid #502789;
+       
+       
+      }
+      .message {   
+        background-color: rgb(230, 108, 15);
+        border-bottom: 5px solid rgb(195, 35, 17);
+        overflow: hidden;
+        height: 100px;  
+        width:82%;
+      }
+    
+      .message:hover{
+        background-color: #2DD7BB;
+        border-bottom: 5px solid #2BB09A;
+       
+      }
+    
+      .submit{
+        border-radius:5px;
+        padding:10px;
+        background-color: #2DD7BB;  
+        border: none;
+        border-bottom: 5px solid #CB64B2; 
+        transform: translateY(-120px); 
+    
+      }
+    
+      .submit:hover{
+        border-bottom: 5px solid #CB64B2;  
+        box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+      }
+    
+      .entry{
+        display: block;
+        margin: 30px auto;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        transition: all 0.5s ease 0s;
+        box-shadow: 0px 0px 25px 2px #AAA;  
+      }
+    
+      
+      .shadow{
+        box-shadow: 0px 0px 60px 5px #AAA;
+        opacity: 0.5;
+        border-radius: 100px;
+        width: 50%; 
+        margin: 50px auto 0 auto;
+        padding: 0 20px;  
+        animation: shadow 1.5s infinite;
+      }
+    .submit{
+        border-radius:5px;
+        padding:10px;
+        width:150px;
+        color: white;
+        background-color: #EE78D1;  
+        border: none;
+        border-bottom: 5px solid #CB64B2; 
+        margin-top: 150px; 
+    
+      }
+    
+    
+    
+      @keyframes bounce{
+        0%{
+          
+        }
+        50%{
+          transform: translate(0, 8px);
+        }
+    
+      }
+      @keyframes shadow{
+        0%{
+          
+        }
+        50%{
+          opacity: 0.8;
+          width: 50%;
+        }
+      }
+
+      .box3  {
+        color: #ffffff;
+        margin-top: -10%;
+        
+      }
+      /*  Responsivo movil tablet  */
+      @media (max-width: 767px) {
+        .name {
+            background-color: #DF1B76;
+            border-bottom: 3px solid #B2175F;
+            color: white;
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+        .email, .message{
+          width: 100%;
+        }
+        .gender {
+          display: flex;
+          flex-direction: column !important;
+          width: 100%;
+          margin: 8%;
+          padding: auto;
+          
+        }
+        .genero {
+          display: flex;
+          flex-direction: column !important;
+          width: 50%;
+          
+        }
+        .titulo h1#titles {
+        
+          margin-top: 0;
+         
+      }
+      figure{
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
+      iframe {
+        display: flex;
+        width: 100%;
+      }
+      .box1 , .box3 * {
+        font-size: 20px; 
+        color: white; 
+        }
+        .box1:hover , .box3:hover * {
+          
+          color: white; 
+          }
+    }
+
+      .box3 a {
+        font-size: 20px;
+        color: white;
+        margin: 5px;
+
+      }
+      .whatsapp {
+        color: darkgreen !important;
+      }
+
+ .box1 , .box3 p a  {
+  font-family:  none !important ;
+}
+.email.entry {
+  font-family: none !important;
+  }
+
+  /* Estilo para la etiqueta de género */
+.gender {
+  display: flex;
+  width: 80%;
+  margin: 8%;
+  padding: auto;
+}
+
+/* Estilo para los botones de radio de género */
+.gender-radio {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Estilo para la etiqueta de país */
+.country {
+  display: flex;
+  margin: 8%;
+  padding: auto;
+}
+.country label{
+  margin: 2%;
+  padding: auto;
+}
+
+/* Estilo para el select de país */
+#country {
+  display: block;
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilo para la etiqueta de captcha */
+.captcha-label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+
+
+
+/* Estilo para la imagen de captcha */
+.captcha-image {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* Estilo para el input de captcha */
+ input#captcha {
+  display: flex;
+  margin: 15%;
+  text-align: center;
+  margin-top: -1%;
+  width: 70%;
+  
+}
+
+.captcha img {
+  display: flex;
+  width: 80%;
+  margin-left: 8%;
+}
+
+.box3#contactos {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+}
+
+.gender {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+  padding: auto;
+  font-size: 18px; /* Aumentar el tamaño de fuente a 18px / font-size: 18px; Aumentar el tamaño de fuente a 18px */
+  line-height: 1.5; 
+  color: #fcf9f9;
+ 
+  
+}
+label#gene {
+  display: flex;
+}
+
+.genero {
+  display: flex;
+  flex-direction: column;
+}

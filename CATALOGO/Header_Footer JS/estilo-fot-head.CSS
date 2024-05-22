@@ -16,8 +16,6 @@ body {
         /* background-image: linear-gradient(to right, rgb(135, 233, 179), rgb(59, 202, 114), rgb(63, 209, 119),rgb(120, 226, 152)) */
    
 }
-
-
 /* configracion del menu*/
 
 header {
@@ -86,7 +84,13 @@ header {
 .cerrar_menu,
 .boton-hamburguesa {
     display: none;
+
 }
+
+
+
+
+
 
 
 
