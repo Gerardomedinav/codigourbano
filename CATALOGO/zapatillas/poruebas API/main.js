@@ -126,3 +126,12 @@ var flkty = new Flickity( elem, {
 });
 
 
+let activarBotonGenero = null; //funcio para los botones de la seleccion de Genero
+function activarBotonGeneros(a) {
+    if(activarBotonGenero) {
+      activarBotonGenero.classList.remove('activar');
+    }
+    a.classList.add('activar');
+    activarBotonGenero = a;
+}
+

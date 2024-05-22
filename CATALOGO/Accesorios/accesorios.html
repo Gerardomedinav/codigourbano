@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/main.css"> <!-- estilo CSS de la propia pagina -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
     <link rel="stylesheet" href="../Header_Footer JS/estilo-fot-head.CSS">
 
 
@@ -19,67 +19,41 @@
     </header>
     <main>
 
-        <h1 style="text-align: center;">Accesorios</h1>
 
-        <div class="gallery js-flickity" data-flickity-option='{"wrapAround":true}'>
+        <h1 id="myID"></h1>
 
-            <div class="gallery-cell">
-                <img src="img/adhesiva deportiva.jpg" alt="">
-            </div>
-
-            <div class="gallery-cell">
-                <img src="img/anteojos.jpg" alt="">
-            </div>
-
-            <div class="gallery-cell">
-                <img src="img/gorra.jpg" alt="">
-            </div>
-
-            <div class="gallery-cell">
-                <img src="img/guante.jpg">
-            </div>
-
-            <div class="gallery-cell">
-                <img src="img/mochila.jpg" alt="">
-            </div>
-
-            <div class="gallery-cell">
-                <img src="img/reloj.jpg" alt="">
-            </div>
-
-
-        </div>
 
         <div id="app">
             <div id="pintado">
-            <div id="main-prin_seleccionador_genero">
-                <a href="javascript:void(0)" style="margin-left: 1em;" class="genero" href="#"
-                    @click="changeGender('Todo')">Todo</a>
-                <a href="javascript:void(0)" style="margin-left: 1em;" class="genero" href="#"
-                    @click="changeGender('Niño')">Niño</a>
-                <a href="javascript:void(0)" style="margin-left: 1em;" class="genero"
-                    @click="changeGender('Hombre')">Hombre</a>
-                <a href="javascript:void(0)" style="margin-left: 1em;" class="genero"
-                    @click="changeGender('Mujer')">Mujer</a>
-            </div>
+                <div id="main-prin_seleccionador_genero">
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" style="margin-left: 1em;" class="genero" href="#"
+                        @click="changeGender('Todo')">Todo</button>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" style="margin-left: 1em;" class="genero" href="#"
+                        @click="changeGender('Niño')">Niño</a>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" style="margin-left: 1em;" class="genero"
+                        @click="changeGender('Hombre')">Hombre</a>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" style="margin-left: 1em;" class="genero"
+                        @click="changeGender('Mujer')">Mujer</a>
+                </div>
 
-            <div id="searchs">
-                <input placeholder="Buscar..." type="text" class="form-control" id="search" v-model="buscador_zaptillaz"
-                    @keyup.enter="fetchData(buscador_zaptillaz)" @click="fetchData(searchQuery)">
-            </div>
+                <div id="searchs">
+                    <input placeholder="Buscar..." type="text" class="form-control" id="search"
+                        v-model="buscador_zaptillaz" @keyup.enter="fetchData(buscador_zaptillaz)"
+                        @click="fetchData(searchQuery)">
+                </div>
             </div>
 
             <div class="grid">
 
                 <div id="sidebar">
-                    <a href="javascript:void(0)" class="sidebar-link" @click="changeSubCategory('Curitas')">Curitas</a>
-                    <a href="javascript:void(0)" class="sidebar-link"
-                        @click="changeSubCategory('Anteojos')">Anteojos</a>
-                    <a href="javascript:void(0)" class="sidebar-link" @click="changeSubCategory('Gorra')">Gorra</a>
-                    <a href="javascript:void(0)" class="sidebar-link"
-                        @click="changeSubCategory('Mochilas')">Mochilas</a>
-                    <a href="javascript:void(0)" class="sidebar-link" @click="changeSubCategory('Relojes')">Relojes</a>
-                    <a href="javascript:void(0)" class="sidebar-link" @click="changeSubCategory('Bolso')">Bolso</a>
+                    <button href="javascript:void(0)" onclick="cambiarColor(this)" class="sidebar-link" @click="changeSubCategory('Curitas')">Curitas</button>
+                    <button href="javascript:void(0)" onclick="cambiarColor(this)" class="sidebar-link"
+                        @click="changeSubCategory('Anteojos')">Anteojos</button>
+                    <button href="javascript:void(0)" onclick="cambiarColor(this)" class="sidebar-link" @click="changeSubCategory('Gorra')">Gorra</button>
+                    <button href="javascript:void(0)" onclick="cambiarColor(this)" class="sidebar-link"
+                        @click="changeSubCategory('Mochilas')">Mochilas</button>
+                    <button href="javascript:void(0)" onclick="cambiarColor(this)" class="sidebar-link" @click="changeSubCategory('Relojes')">Relojes</button>
+                    <button href="javascript:void(0)" onclick="cambiarColor(this)" class="sidebar-link" @click="changeSubCategory('Bolso')">Bolso</abutton>
                 </div>
 
 
@@ -98,8 +72,8 @@
 
 
                 <dialog id="modal" class="procutoInterno" v-show="isModalOpen">
-                    <img class="imagen_product_interno" v-if="selectedProduct" :src="getImageUrl(selectedProduct.thumbnail)"
-                        alt="">
+                    <img class="imagen_product_interno" v-if="selectedProduct"
+                        :src="getImageUrl(selectedProduct.thumbnail)" alt="">
                     <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
                     <h2 v-if="selectedProduct">{{selectedProduct.title}}</h2>
                     <div class="descripcion_de_producots">
@@ -110,42 +84,45 @@
                     </div>
                     <div class="boton_agragar_compara">
                         <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>
-                        <button class="boton_agragar_compara" @click="toggleCompras(selectedProduct)" id="añadir">{{ compras.includes(selectedProduct) ? 'sacar' : 'añadir' }}</button>
+                        <button class="boton_agragar_compara" @click="toggleCompras(selectedProduct)" id="añadir">{{
+                            compras.includes(selectedProduct) ? 'sacar' : 'añadir' }}</button>
                     </div>
                 </dialog>
 
-                <h3 id="favorio" style="text-align: center;">Favoritos</h3>
+            </div>
 
-                <div class="contenedor_de_productos">
+                <h3 id="favorio">Favoritos</h3>
+                <div class="contenedor_de_productos_y_favoritos">
                     <div v-for="(product, index) in cart">
                         <div class="producto">
+                            <button class="elimnar_fav_Y_produc" @click="removeFromCart(index)">X</button>
                             <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
                             <h5>{{ product.title }}</h5>
                             <p>Precio: ${{ product.price }}</p>
-                            <button  @click="removeFromCart(index)">Eliminar</button>
+                            
                         </div>
                     </div>
                 </div>
-    
-                <h3 id="compra" style="text-align: center;">Compras</h3>
-    
-                <div class="contenedor_de_productos">
-                  <div>
-                    <p style="color: rgb(255, 0, 0);">Total: ${{ totalPrice() }}</p>
-                  </div>
-                  <div v-for="(product, index) in compras">
-                    <div class="producto">
-                      <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
-                      <h5>{{ product.title }}</h5>
-                      <p>Precio: ${{ product.price }}</p>
-                      <button @click="removeFromCompras(product)">Eliminar</button>
-    
-                    </div>
-                  </div>
+
+                <div id="contenedor_botones_prosucto">
+                    <h3 id="compra">Compras</h3>
+                    <p id="contador_precio" style="color: rgb(247, 247, 247);">Total: ${{ totalPrice() }}</p>
+                    <button id="compra_producto" class="boton_agragar_compara" id="comprar" @click="buyProduct">Realizar Pedido</button>
                 </div>
 
+                <div class="contenedor_de_productos_y_favoritos">
+                    <div v-for="(product, index) in compras">
+                        <div class="producto">
+                            <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
+                            <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
+                            <h5>{{ product.title }}</h5>
+                            <p>Precio: ${{ product.price }}</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
 
-            </div>
+
 
     </main>
 
@@ -157,7 +134,6 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../Header_Footer JS/MAIN.JS"></script>
     <script src="../Header_Footer JS/Menu.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!-- para hacer un carrito -->
     <script src="Logica API/main.js"></script>
 </body>
 
