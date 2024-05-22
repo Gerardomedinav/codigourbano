@@ -180,5 +180,72 @@ footer{
   
  
 
+<<<<<<< HEAD
 >>>>>>> felix
 }
+=======
+}
+.iconos a i {
+  color: #fff; /* Color blanco */
+}
+.iconos a i:hover {
+  color: rgb(14, 101, 233);
+}
+
+a {
+  font-size: 25px !important;
+}
+
+.carousel-inner {
+  height: 550px;
+}
+
+#catalogo {
+  font-family: "FIFA Welcome" !important ; 
+  color: #fff;
+}
+
+.navbar-toggler {
+  background-color: #efe6e645 !important;
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+
+.logo{
+-webkit-animation: rotate-center 5s ease-in-out reverse both;
+        animation: rotate-center 1s ease-in-out reverse both;
+}
+
+
+.logo{
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1em;
+  
+ 
+  
+}
+>>>>>>> 0ab92b36674b51b5e43afa2250d596a02c867f21

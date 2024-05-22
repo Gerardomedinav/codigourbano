@@ -1,59 +1,76 @@
-
-
-
 /*fin del menu*/
 
+body {
 
+    background-image: url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: inset 0 0 0 2000px #cdf0f080;
+}
 
 /*configuramos el menu*/
 
-h1{
-    margin: 1.5em 0;
+h1 {
+    margin: 1.1em 0;
     font-size: 5em;
     text-align: center;
 }
 
 
 /*conf del carruzel*/
-.gallery{
-    max-width: 80%;
+.gallery {
+    max-width: 90%;
     margin: auto;
+
 }
 
-.gallery-cell{
+.gallery-cell {
     width: 100%;
-    max-width: 50vw; 
-    min-width: 20em;
-   
+    /* max-width: 50%;  */
+
+    border-radius: 17px;
 }
 
-.gallery-cell img{
-    width: 80%;
+.gallery-cell.is-selected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.gallery-cell img {
+    border-radius: 17px;
+    width: 50%;
     background-size: contain;
+
 }
 
 /*aplicamos animacion al producto*/
 
 @keyframes mover-arriba-abajo {
-    0%, 100% {
-      transform: translateY(5px);
+
+    0%,
+    100% {
+        transform: translateY(5px);
     }
+
     50% {
-      transform: translateY(-5px);
+        transform: translateY(-5px);
     }
-  }
-  
-  .gallery-cell img:hover {
+}
+
+.gallery-cell img:hover {
     animation: mover-arriba-abajo 3s infinite;
-  }
-  
+}
+
 
 /*fin del carruzel*/
 
 
 
-#main-prin_seleccionador_genero{
-   
+#main-prin_seleccionador_genero {
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -61,23 +78,42 @@ h1{
     gap: 4vw;
     height: 10em;
 
-    
-    
+
+
 }
 
-.genero{
+/*buscador del porductos*/
+
+#searchs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6%;
+    padding: 2em;
+
+
+}
+
+.form-control {
+    font-size: 1.5em;
+    border-radius: 17px;
+}
+
+/*fin del buscador de poroducto*/
+
+.genero {
     font-size: 2em;
 }
 
-.genero:hover{
+.genero:hover {
     border-bottom: 2px solid black;
     transition: 2s;
 }
 
 /*configuracion de productos*/
 
-#contenedor_de_productos{
-   
+#contenedor_de_productos {
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -85,7 +121,8 @@ h1{
     align-items: center;
     gap: 0.5em 0;
     border: 5px solid rgb(6, 197, 204);
-   
+    background-color: rgba(70, 68, 68,0.5);
+
     border-radius: 2em;
     margin: 0.9em;
 
@@ -93,59 +130,69 @@ h1{
 
 
 
-.producto{
+.producto {
 
     text-align: center;
     width: 20em;
     max-width: 30em;
     min-width: 10em;
     height: 20em;
-    padding: 0 1em;
-    background-color: rgba(135, 0, 168, 0.2);
+
+    background-color: rgba(204, 253, 245, 0.8);
     margin: 1vw;
     /* overflow: auto; */
     border-radius: 17px;
 
-    
+
 }
 
-#favorito:hover{  /*esto es del corazon faovrito*/
- color: wheat;
- background-color: aqua;
+.heart {
+    font-size: 50px;
+    margin-right: 0.3em;
+    margin-top: 0.2em;
+    color: green;
+    position: fixed;
+    transform: translateX(190px);
+
+
 }
 
-#contenedor_de_productos, .producto{
+.heart.red {
+    /*esto es del corazon faovrito*/
+    color: rgb(233, 10, 10);
+}
+
+#contenedor_de_productos,
+.producto {
     box-shadow: 0 2px 2px rgba(100, 100, 100, 0.2);
     transition: all 0.25s;
-    box-shadow: 0 12px 16px rgba(0, 0, 0,0.4);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.4);
 }
 
-#contenedor_de_productos, .producto:hover{
+#contenedor_de_productos,
+.producto:hover {
     transform: translateY(-5px);
 
 }
 
-.imagen_product{
-    width: 14em;
+.imagen_product {
+    width: 15em;
     margin-top: 1em;
+
+
 }
 
 /* ver detalle del producto */
-.procutoInterno{
-   
+.procutoInterno {
+
     position: fixed;
-    left: 50%; 
-    top: 50%; 
-    transform: translate(-50%, -50%); 
-    
 
-    
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40em;
+    height: 95%;
 
-    
-    min-width: 25em;
-    max-width: 30em;
-    height: 50em;
-    min-height: 30em;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -153,18 +200,61 @@ h1{
     align-items: center;
     background-color: antiquewhite;
     z-index: 1000;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    /* Agrega desplazamiento si el contenido es más grande que el modal */
+}
 
-    box-shadow: 0 12px 16px rgba(0, 0, 0,0.9);
+/* se un tamaño mínimo para el modal en pantallas grandes */
+@media (max-width: 600px) {
+    .procutoInterno {
+        width: 81%;
+        height: 90%;
+
+    }
+
+    .btn-exit {
+        font-size: 1em;
+    }
+
+}
+
+.descripcion_de_producots{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
 }
 
 
-.modla_interno{
-    width: 450px;
-    height: auto;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: antiquewhite;
 
+
+
+
+/*-------------------------------------*/
+
+.boton_agragar_compara {
+    font-size:1em;
+    
+}
+
+.btn-exit {
+
+    /* transform: translate(1.5em, -1.7em);  */
+    font-size: 7em;
+    /* Reducir el tamaño de la fuente */
+    color: red;
+    z-index: 1111;
+    position: fixed;
+    top: -25px;
+    /* Agregar un poco de margen */
+    right: 10px;
+    /* Agregar un poco de margen */
+
+
+}
+
+.btn-exit:hover {
+    color: green;
 }
 
 
@@ -173,36 +263,56 @@ h1{
     align-items: center;
 }
 
-h2{
+h2 {
     margin: 0 auto;
 }
 
-.imagen_product_interno{
-    max-width: 82%;
+.imagen_product_interno {
+    max-width: 50%;
 
 }
 
-#comprar{
+#comprar {
     margin: 1em;
     font-size: 2em;
     background-color: green;
 }
 
-#añadir{
+#añadir {
     margin: 1em;
-    font-size: 2em; 
+    font-size: 2em;
     background-color: rgb(226, 226, 0);
+}
+
+#sacar{
+    margin: 1em;
+    font-size: 2em;
+    background-color: rgb(226, 226, 0);
+
+}
+
+.titulo_de_productoSeleccionado{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+   
+    flex-direction: column;
+}
+
+#favorio, #compra{
+    font-size: 3em;
 }
 
 
 /*fin de productos*/
 
-footer{
+footer {
     background-color: rgb(108, 183, 206);
     padding: 1em;
-    
+
 }
 
-#footer_del_todo{
+#footer_del_todo {
     background-color: rgb(194, 97, 97);
 }

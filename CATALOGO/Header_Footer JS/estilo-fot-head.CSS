@@ -1,8 +1,8 @@
-*{
+* {
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: "FIFA Welcome"; 
+    font-family: "FIFA Welcome";
 }
 
 @font-face {
@@ -10,205 +10,233 @@
     src: url('/img/fifawelcome1.3.ttf') format('truetype');
 }
 
-body{
-    
-    background-image: linear-gradient(to right, rgb(24, 228, 211), rgb(47, 245, 245), rgb(57, 236, 207),rgb(30, 210, 216))
-    /* background-image: linear-gradient(to right, rgb(135, 233, 179), rgb(59, 202, 114), rgb(63, 209, 119),rgb(120, 226, 152)) */
-    
+body {
+
+     background-image: linear-gradient(to right, rgb(24, 228, 211), rgb(47, 245, 245), rgb(57, 236, 207), rgb(30, 210, 216)) 
+        /* background-image: linear-gradient(to right, rgb(135, 233, 179), rgb(59, 202, 114), rgb(63, 209, 119),rgb(120, 226, 152)) */
+   
 }
-
-
 /* configracion del menu*/
 
-header{
-    display: flex;
-    align-items: center;
- 
-    justify-content: space-between;
-    background-image: linear-gradient(to right, purple, rgb(216, 112, 190), rgb(132, 59, 155) );
+header {
+    
+   
+    
+    background-image: linear-gradient(to right, purple, rgb(216, 112, 190), rgb(216, 112, 190), rgb(132, 59, 155));
     border-bottom: solid 1vw rgba(226, 76, 219, 0.5);
 }
 
-.logo_flex{
+
+#nav{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  
+}
+
+.logo_flex {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 
 .topnav {
-    
+
     margin: 1em;
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
-    align-items: center; 
+    justify-content: space-between;
+    align-items: center;
     font-family: 'Gill Sans';
     font-size: 1em;
-    
+
+
+
 }
 
 
 
-.nav-list{
-    
+.nav-list {
+
     list-style-type: none;
     display: flex;
     gap: 2rem;
 }
 
-.nav-list a{
+.nav-list a {
     color: rgb(142, 247, 93);
 }
 
-.boton-hamburguesa{
+.boton-hamburguesa {
     height: 50%;
-    
+
     background-color: transparent;
 }
 
-.cerrar_menu{
+.cerrar_menu {
     background-color: transparent;
 }
 
 /*configuracion para que sea responsive*/
 
- .cerrar_menu, .boton-hamburguesa {
+.cerrar_menu,
+.boton-hamburguesa {
     display: none;
-} 
+
+}
 
 
-@media screen and (max-width: 1200px) {
 
-    .boton-hamburguesa, .cerrar_menu {
+
+
+
+
+
+/* Estilos para pantallas menores a 800px */
+@media screen and (max-width: 900px) {
+
+    .boton-hamburguesa,
+    .cerrar_menu {
         display: block;
     }
 
-    .topnav{
+    .topnav {
         opacity: 0;
-        visibility: hidden;
-
+        visibility: hidden; /* Agregado */
         position: absolute;
-        justify-content: left;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3); 
-        
+        justify-content: center;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
+        z-index: 1000;
     }
 
-    .topnav.visible{
+    .topnav.visible {
         opacity: 1;
         visibility: visible;
-
     }
 
-    .nav-list{
-        
-        
+    .nav-list {
         background-color: rgb(27, 27, 27);
-        position: absolute;
+        position: fixed;
+        transform: translate(100px, 0);
         align-items: center;
         flex-direction: column;
         padding: 27em 5em 2em 10em;
         z-index: 1000;
-       
     }
-
-    #buscador_header{
-        
-        max-width: 70vw;
-        height: 1.4em;
-    }
-  
-    #main-prin_seleccionador_genero{
-        margin: 4em;
-    }
-    
 }
+
+
 
 /***fin***/
 
 
+/* esto es para que el logo gire*/
 
- @-webkit-keyframes rotate-center {
+@-webkit-keyframes rotate-center {
     0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
     }
+
     100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
-  @keyframes rotate-center {
+
+@keyframes rotate-center {
     0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
     }
+
     100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
-  
-  
-.logo{
-	-webkit-animation: rotate-center 5s ease-in-out reverse both;
-	        animation: rotate-center 1s ease-in-out reverse both;
+
+
+.logo {
+    -webkit-animation: rotate-center 5s ease-in-out reverse both;
+    animation: rotate-center 1s ease-in-out reverse both;
 }
 
 
-.logo{
-    
+.logo {
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1em;
-    
-   
-    
+
+
+
 }
 
-.logo img{
-    
-    width: 9vh;   
+.logo img {
+
+    width: 9vh;
 }
 
-.menu_interno{
+.menu_interno {
     font-size: 1.5em;
     padding: 0.5vw;
 }
 
-.menu_interno:hover{
-    background-color: rgba(206, 236, 236,0.2) ;
-   
+.menu_interno:hover {
+    background-color: rgba(206, 236, 236, 0.2);
+
     border-radius: 17px;
     transition: 0.5s;
 }
 
-.corazon_compra{
-    width:1.5em;
+.corazon_compra {
+    color: red;
+    font-size: 2em;
+    width: 1.5em;
     margin: 0 0.5em;
 }
 
 /*configuramos el buscador del header*/
 
-#buscador_header_logico{
+#buscador_header_logico {
     display: flex;
-    justify-content: end;
-    margin-right:2em;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2em;
+    
 }
 
-#buscador_header{
-    
-    padding-right:1em;
+#buscador_header {
+
+    padding-right: 1em;
     border-radius: 17px;
     font-size: 1.5em;
-    padding-left: 0.8em; 
+    padding-left: 0.8em;
     width: 20vw;
+    border-width: 10px;
+    
+ 
 }
 
-footer{
+
+
+
+footer {
     margin-top: 3em;
-    background-image: linear-gradient(to right, rgb(139, 84, 139), rgb(158, 90, 141), rgb(166, 91, 189) );
+    background-image: linear-gradient(to right, rgb(92, 12, 92), rgb(131, 21, 103), rgb(148, 52, 151));
+}
+
+h2{
+    font-size: 2.5em;
+    color: rgb(17, 10, 0);
+}
+
+p, span{
+    font-size: 1.7em;
+    color: rgb(17, 10, 0);
 }
