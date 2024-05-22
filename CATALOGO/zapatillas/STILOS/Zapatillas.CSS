@@ -7,6 +7,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     box-shadow: inset 0 0 0 2000px #cdf0f080;
+    
 }
 
 /*configuramos el menu*/
@@ -22,20 +23,20 @@ h1 {
 .gallery {
     max-width: 90%;
     margin: auto;
+   
 
 }
 
 .gallery-cell {
     width: 100%;
     /* max-width: 50%;  */
-
     border-radius: 17px;
 }
 
 .gallery-cell.is-selected {
     display: flex;
     justify-content: center;
-    align-items: center;
+
 
 }
 
@@ -89,10 +90,11 @@ h1 {
     justify-content: center;
     align-items: center;
     margin-bottom: 6%;
-    padding: 2em;
-
-
+    
 }
+
+
+
 
 .form-control {
     font-size: 1.5em;
@@ -146,21 +148,21 @@ h1 {
 
 }
 
-.heart {
+.heart{
     font-size: 50px;
     margin-right: 0.3em;
     margin-top: 0.2em;
     color: green;
     position: fixed;
     transform: translateX(190px);
-
+    
 
 }
 
-.heart.red {
-    /*esto es del corazon faovrito*/
-    color: rgb(233, 10, 10);
+.heart.red{  /*esto es del corazon faovrito*/
+ color: rgb(233, 10, 10);
 }
+
 
 #contenedor_de_productos,
 .producto {
@@ -251,7 +253,13 @@ h1 {
     /* Agregar un poco de margen */
 
 
+        
+
+
 }
+
+
+
 
 .btn-exit:hover {
     color: green;
