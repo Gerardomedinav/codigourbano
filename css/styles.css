@@ -177,14 +177,10 @@ footer{
   display: flex; 
   justify-content: center; 
   padding: 20px;
-  
- 
 
-<<<<<<< HEAD
->>>>>>> felix
 }
-=======
-}
+
+
 .iconos a i {
   color: #fff; /* Color blanco */
 }
@@ -248,4 +244,4 @@ a {
  
   
 }
->>>>>>> 0ab92b36674b51b5e43afa2250d596a02c867f21
+
