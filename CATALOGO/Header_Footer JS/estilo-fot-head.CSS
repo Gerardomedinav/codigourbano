@@ -88,6 +88,11 @@ header {
 }
 
 /*configuracion para que sea responsive*/
+.boton-hamburguesaIMG{
+    width: 60px;
+    height: 60px;
+}
+
 
 .boton-hamburguesa{
     border: none;
@@ -101,7 +106,7 @@ header {
 
 
 /* Estilos para pantallas menores a 800px */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 970px) {
 
     .nav-list a {
         color: rgb(56, 238, 0);
@@ -206,9 +211,13 @@ header {
 
 .corazon_compra {
     color: red;
-    font-size: 2em;
-    width: 1em;
 
+    padding-right: 0.3em;
+}
+
+.carrito_compraIMG, .corazon_compraIMG{
+    width: 50px;
+    height: 50px;
 }
 
 /*configuramos el buscador del header*/
@@ -217,22 +226,11 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 150%;
+    font-size: 180%;
     margin-right: 2em;
     
 }
 
-#buscador_header {
-
-    padding-right: 1em;
-    border-radius: 17px;
-    font-size: 1.5em;
-    padding-left: 0.8em;
-    width: 20vw;
-    border-width: 10px;
-    
- 
-}
 
 
 
