@@ -188,7 +188,7 @@
         align-items: center;
         width: 100%;
         left: auto;
-        background-color: #04d7f3;
+        background: radial-gradient(at top, rgba(14, 220, 227, 0.363), rgba(89, 142, 217, 0.671)) !important;
         
       }
       .box_mapa {
@@ -351,7 +351,7 @@
         background-color: #EE78D1;  
         border: none;
         border-bottom: 5px solid #CB64B2; 
-        margin-top: 150px; 
+         
     
       }
     
@@ -423,17 +423,28 @@
         width: 100%;
       }
       .box1 , .box3 * {
-        font-size: 20px; 
+       
         color: white; 
         }
         .box1:hover , .box3:hover * {
           
           color: white; 
           }
+          #profile-image {
+            font-size: x-small;
+            line-height: inherit;
+            display: flex;
+        }
+        a, p{
+          font-size:large !important;
+        }
+        
+        
+
     }
 
       .box3 a {
-        font-size: 20px;
+        
         color: white;
         margin: 5px;
 
@@ -544,3 +555,4 @@ label#gene {
   display: flex;
   flex-direction: column;
 }
+
