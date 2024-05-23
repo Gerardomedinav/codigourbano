@@ -1,28 +1,32 @@
-document.querySelector("header").innerHTML=` 
+document.querySelector("header").innerHTML = ` 
+<div id="nav">
 <div class="logo_flex">
-<a class="logo" href="/index.html"><img src="../img/codigourbano2.png" alt=""></a>
+<a class="logo" href="/index.html"><img src="../CATALOGO/Header_Footer JS/img_head-foot/codigourbano2.png"></a>
 <button  class="boton-hamburguesa" id="abrir"><img src="../CATALOGO/Header_Footer JS/img_head-foot/icons8-menu-16.png" alt=""></button>
 </div>
 
 <div class="topnav" id="topnav">
     
     <ul class="nav-list">
-        <button class="cerrar_menu" id="cerrar"><img src="../CATALOGO/Header_Footer JS/img_head-foot/icons8-menu-16.png" alt=""></button>
+
+
+        <button class="cerrar_menu" id="cerrar"><img src="../Header_Footer JS/img_head-foot/icons8-close-16.png" alt=""></button>
         <li><a class="menu_interno" href="/index.html">Home</a></li>
-        <li><a class="menu_interno" href="../CATALOGO/zapatillas/zapatilla.html">Zapatillas</a></li>
-        <li><a class="menu_interno" href="../CATALOGO/ropa/ropa.html">Ropa</a></li>
-        <li><a class="menu_interno" href="../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
-        <li><a class="menu_interno" href="../ACERCA_DE/acerca_de.html">Nosotros</a></li>
-        <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li>
+        <li><a class="menu_interno" href="../../CATALOGO/zapatillas/zapatilla.html">Zapatillas</a></li>
+        <li><a class="menu_interno" href="../../CATALOGO/ropa/ropa.html">Ropa</a></li>
+        <li><a class="menu_interno" href="../../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
+        <li><a class="menu_interno" href="../../ACERCA_DE/acerca_de.html">Nosotros</a></li>
+        <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li> 
+
+
     </ul>
 </div>
+<form id="buscador_header_logico">
+<a href="#favorio" class="corazon_compra"><img  src="" alt="">&hearts;</a>
+<a href="#compra"><img src="../CATALOGO/Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
+</form>
 
-    <form id="buscador_header_logico">
-        
-       
-        <a href=""><img class="corazon_compra" src="../CATALOGO/Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
-        <a href=""><img class="corazon_compra" src="../CATALOGO/Header_Footer JS/img_head-foot/icons8-heart-32.png" alt=""></a>
-    </form>
+</div>
 
 `
 
