@@ -66,7 +66,15 @@ header {
 }
 
 .nav-list a {
-    color: rgb(142, 247, 93);
+    color: rgb(0, 0, 0);
+    font-size: 2em;
+   
+}
+
+@media (max-width: 1300px){
+    .nav-list a{
+        font-size: 140%;
+    }
 }
 
 .boton-hamburguesa {
@@ -81,6 +89,10 @@ header {
 
 /*configuracion para que sea responsive*/
 
+.boton-hamburguesa{
+    border: none;
+}
+
 .cerrar_menu,
 .boton-hamburguesa {
     display: none;
@@ -90,6 +102,10 @@ header {
 
 /* Estilos para pantallas menores a 800px */
 @media screen and (max-width: 900px) {
+
+    .nav-list a {
+        color: rgb(56, 238, 0);
+    }
 
     .boton-hamburguesa,
     .cerrar_menu {
@@ -191,8 +207,8 @@ header {
 .corazon_compra {
     color: red;
     font-size: 2em;
-    width: 1.5em;
-    margin: 0 0.5em;
+    width: 1em;
+
 }
 
 /*configuramos el buscador del header*/
@@ -201,6 +217,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 150%;
     margin-right: 2em;
     
 }
