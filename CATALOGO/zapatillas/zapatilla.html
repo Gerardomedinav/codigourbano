@@ -1,15 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Header_Footer JS/img_head-foot/codigourbano2.png" type="image/x-icon">
     <link rel="stylesheet" href="../Header_Footer JS/estilo-fot-head.CSS">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="STILOS/flickity.css"> <!-- libreria para el carruzel -->
     <link rel="stylesheet" href="STILOS/Zapatillas.CSS">
+
+
+
     <title>Ropa Deportiva - Codigo Urbano</title>
-    <link rel="shortcut icon" href="../../img/codigourbano2.png" type="image/x-icon">
 </head>
 
 <body>
@@ -24,7 +28,7 @@
 
         <h1>Zapatillas</h1>
 
-        <div class="gallery js-flickity" data-flickity-option='{"wrapAround":true}'>
+        <div class="gallery js-flickity" data-flickity-option='{"wrapAround": true}'>
 
             <div class="gallery-cell">
                 <img src="img/1.png" alt="">
@@ -38,71 +42,82 @@
                 <img src="img/3.png" alt="">
             </div>
 
-            <div class="gallery-cell">
-                <img src="img/1.png" alt="">
-            </div>
-
-            <div class="gallery-cell">
-                <img src="img/1.png" alt="">
-            </div>
-
-            <div class="gallery-cell">
-                <img src="img/1.png" alt="">
-            </div>
-
-
         </div>
+
 
 
         <div id="app">
 
 
             <div id="main-prin_seleccionador_genero">
-                <a style="margin-left: 1em;" class="genero" href="#" @click.prevent="fetchData('Todo')">Todo</a>
-                <a style="margin-left: 1em;" class="genero" href="#" @click.prevent="fetchData('niño')">niño</a>
-                <a style="margin-left: 1em;" class="genero" href="#" @click.prevent="fetchData('Hombre')">Hombre</a>
-                <a style="margin-left: 1em;" class="genero" href="#" @click.prevent="fetchData('Mujer')">Mujer</a>
+                <a style="margin-left: 1em;" onclick="activarBotonGeneros(this)" class="genero" href="#" @click.prevent="fetchData('Todo')">Todo</a>
+                <a style="margin-left: 1em;" onclick="activarBotonGeneros(this)" class="genero" href="#" @click.prevent="fetchData('niño')">Niño</a>
+                <a style="margin-left: 1em;" onclick="activarBotonGeneros(this)" class="genero" href="#" @click.prevent="fetchData('Hombre')">Hombre</a>
+                <a style="margin-left: 1em;" onclick="activarBotonGeneros(this)" class="genero" href="#" @click.prevent="fetchData('Mujer')">Mujer</a>
+
+            </div>
+            <div id="searchs">
                 <input type="text" class="form-control" id="search" v-model="buscador_zaptillaz"
                     @keyup.enter="fetchData(buscador_zaptillaz)" @click="fetchData(searchQuery)">
             </div>
 
-
             <div id="contenedor_de_productos">
                 <div class="producto" v-for="product in products">
-                    <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }" @click="toggleColor(product)"><img  src="" alt="">&hearts;</a>
-                    
-                    <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title" @click="showModal(product)">
+                    <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }"
+                        @click="toggleColor(product)"><img src="" alt="">&hearts;</a>
+                    <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title"
+                        @click="showModal(product)">
                     <h3>{{product.title}}</h3>
-                    
                 </div>
 
             </div>
 
             <dialog id="modal" class="procutoInterno" v-show="isModalOpen">
+                <img class="imagen_product_interno" v-if="selectedProduct" :src="getImageUrl(selectedProduct.thumbnail)"
+                    alt="">
                 <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
-                <img class="imagen_product_interno" v-if="selectedProduct" :src="getImageUrl(selectedProduct.thumbnail)" alt="">
                 <h2 v-if="selectedProduct">{{selectedProduct.title}}</h2>
-                <p>Contenido de ejemplo dentro de la ventana modal.</p>
-                <button id="comprar" @click="buyProduct">comprar</button>
-                <button id="añadir">añadir</button>
+                <div class="descripcion_de_producots">
+                    <p v-if="selectedProduct">Precio: ${{ selectedProduct.price }}</p>
+                    <p v-if="selectedProduct">Condicion del producto: {{selectedProduct.condition}} </p>
+                    <p v-if="selectedProduct">Pais:{{selectedProduct.currency_id}}</p>
+                    <p v-if="selectedProduct">{{official_store_name}}</p>
+                </div>
+                <div class="boton_agragar_compara">
+                    <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>
+                    <button class="boton_agragar_compara" @click="toggleCompras(selectedProduct)" id="añadir">{{ compras.includes(selectedProduct) ? 'sacar' : 'añadir' }}</button>
+                </div>
             </dialog>
 
-            <h3 style="text-align: center;">Carrito de compras</h3>
-
-            <div id="contenedor_de_productos">
-                
+            <h3 id="favorio">Favoritos</h3>
+            <div class="contenedor_de_productos_y_favoritos">
                 <div v-for="(product, index) in cart">
-                    
                     <div class="producto">
+                        <button class="elimnar_fav_Y_produc" @click="removeFromCart(index)">X</button>
                         <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
                         <h5>{{ product.title }}</h5>
                         <p>Precio: ${{ product.price }}</p>
-                        <button @click="removeFromCart(index)">Eliminar</button>
+                        
                     </div>
-
                 </div>
             </div>
 
+            <div id="contenedor_botones_prosucto">
+                <h3 id="compra">Compras</h3>
+                <p id="contador_precio" style="color: rgb(247, 247, 247);">Total: ${{ totalPrice() }}</p>
+                <button id="compra_producto" class="boton_agragar_compara" id="comprar" @click="buyProduct">Realizar Pedido</button>
+            </div>
+
+            <div class="contenedor_de_productos_y_favoritos">
+                <div v-for="(product, index) in compras">
+                    <div class="producto">
+                        <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
+                        <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
+                        <h5>{{ product.title }}</h5>
+                        <p>Precio: ${{ product.price }}</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -122,10 +137,11 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!-- para hacer un carrito -->
 
     <script src="../zapatillas/poruebas API/main.js"></script> <!-- esto es la prueba API -->
-    
+
 
 
 
 </body>
+
 
 </html>

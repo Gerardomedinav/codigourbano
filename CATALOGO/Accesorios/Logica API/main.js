@@ -18,6 +18,8 @@ createApp({
       mouseX: 0,
       mouseY: 0,
 
+      compras: [], //aca se almacenan las compras
+
 
     };
   },
@@ -44,6 +46,26 @@ createApp({
 
     addToCart(product) {
       this.cart.push(product);
+    },
+
+     //es para agregar productos al carrito
+     addToCompras(product) {
+      if (!this.compras.includes(product)) {
+        this.compras.push(product);
+      }
+    },
+    removeFromCompras(product) {
+      const index = this.compras.indexOf(product);
+      if (index !== -1) {
+        this.compras.splice(index, 1);
+      }
+    },
+    toggleCompras(product) {
+      if (this.compras.includes(product)) {
+        this.removeFromCompras(product);
+      } else {
+        this.addToCompras(product);
+      }
     },
 
     buyProduct() {
@@ -85,7 +107,7 @@ createApp({
     
 
     totalPrice() {
-      return this.cart.reduce((total, product) => total + product.price, 0);
+      return this.compras.reduce((total, product) => total + product.price, 0);
     },
     getImageUrl(thumbnail) {
       return thumbnail.replace(/\w\.jpg/gi, 'W.jpg');
@@ -95,6 +117,37 @@ createApp({
     this.fetchData(this.gender, this.subCategory);
   },
 }).mount('#app');
+
+
+let word = 'Accesorios'; //codigo para hacer el efecto comienzo del principio de la pagina
+let container = document.getElementById('myID');
+
+for(let i = 0; i < word.length; i++) {
+  let span = document.createElement('span');
+  span.textContent = word[i];
+  span.style.animationDelay = `${i * 0.13}s`; //  velocidad de la animación
+  container.appendChild(span);
+}
+
+let activarBotonGenero = null; //funcio para los botones de la seleccion de Genero
+function activarBotonGeneros(a) {
+    if(activarBotonGenero) {
+      activarBotonGenero.classList.remove('activar');
+    }
+    a.classList.add('activar');
+    activarBotonGenero = a;
+}
+
+
+
+let activarBoton = null; //funcio para los botones de la seleccion de SupGenero
+function cambiarColor(button) {
+    if(activarBoton) {
+        activarBoton.classList.remove('active');
+    }
+    button.classList.add('active');
+    activarBoton = button;
+}
 
 
 

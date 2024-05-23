@@ -1,4 +1,5 @@
 document.querySelector("header").innerHTML = ` 
+<div id="nav">
 <div class="logo_flex">
 <a class="logo" href="/index.html"><img src="../Header_Footer JS/img_head-foot/codigourbano2.png" alt=""></a>
 <button  class="boton-hamburguesa" id="abrir"><img src="../Header_Footer JS/img_head-foot/icons8-menu-16.png" alt=""></button>
@@ -8,6 +9,7 @@ document.querySelector("header").innerHTML = `
     
     <ul class="nav-list">
 
+
         <button class="cerrar_menu" id="cerrar"><img src="../Header_Footer JS/img_head-foot/icons8-close-16.png" alt=""></button>
         <li><a class="menu_interno" href="/index.html">Home</a></li>
         <li><a class="menu_interno" href="../../CATALOGO/zapatillas/zapatilla.html">Zapatillas</a></li>
@@ -15,6 +17,7 @@ document.querySelector("header").innerHTML = `
         <li><a class="menu_interno" href="../../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
         <li><a class="menu_interno" href="../../ACERCA_DE/acerca_de.html">Nosotros</a></li>
         <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li> 
+
 
     </ul>
 </div>
@@ -24,11 +27,11 @@ document.querySelector("header").innerHTML = `
 
 
     <form id="buscador_header_logico">
-        
-        <input placeholder="Search" id="buscador_header" type="text">
-        
-        <a href="" class="corazon_compra"><img  src="" alt="">&hearts;</a>
+        <a href="#favorio" class="corazon_compra"><img  src="" alt="">&hearts;</a>
+        <a href="#compra"><img src="../Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
     </form>
+
+</div>
 
 `
 
