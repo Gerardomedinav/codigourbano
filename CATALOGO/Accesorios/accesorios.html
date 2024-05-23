@@ -20,8 +20,8 @@
 <body>
 
     <header>
-
     </header>
+    
     <main>
 
 
@@ -31,14 +31,10 @@
         <div id="app">
             <div id="pintado">
                 <div id="main-prin_seleccionador_genero">
-                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" style="margin-left: 1em;" class="genero" href="#"
-                        @click="changeGender('Todo')">Todo</button>
-                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" style="margin-left: 1em;" class="genero" href="#"
-                        @click="changeGender('Niño')">Niño</a>
-                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" style="margin-left: 1em;" class="genero"
-                        @click="changeGender('Hombre')">Hombre</a>
-                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" style="margin-left: 1em;" class="genero"
-                        @click="changeGender('Mujer')">Mujer</a>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)"  class="genero" href="#" @click="changeGender('Todo')">Todo</button>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)"  class="genero" href="#" @click="changeGender('Niño')">Niño</a>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)"  class="genero" @click="changeGender('Hombre')">Hombre</a>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)"  class="genero" @click="changeGender('Mujer')">Mujer</a>
                 </div>
 
                 <div id="searchs">
@@ -58,7 +54,7 @@
                     <button href="javascript:void(0)" onclick="cambiarColor(this)" class="sidebar-link"
                         @click="changeSubCategory('Mochilas')">Mochilas</button>
                     <button href="javascript:void(0)" onclick="cambiarColor(this)" class="sidebar-link" @click="changeSubCategory('Relojes')">Relojes</button>
-                    <button href="javascript:void(0)" onclick="cambiarColor(this)" class="sidebar-link" @click="changeSubCategory('Bolso')">Bolso</abutton>
+                    <button href="javascript:void(0)" onclick="cambiarColor(this)" id="unico" class="sidebar-link" @click="changeSubCategory('Bolso')">Bolso</abutton>
                 </div>
 
 

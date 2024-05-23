@@ -22,7 +22,7 @@ h1 {
 /*conf del carruzel*/
 .gallery {
     max-width: 90%;
-    margin: auto;
+    margin: 5vw auto;
    
 
 }
@@ -83,6 +83,23 @@ h1 {
 
 }
 
+@media  (max-width:800px) {
+    #main-prin_seleccionador_genero{
+        flex-direction: column;
+        padding: 8em 0;
+        width: 50%;
+        gap: 10px;
+        background-color: azure;
+        border-radius: 17px;
+        margin: 5em auto;
+    }
+
+    #main-prin_seleccionador_genero a{
+        padding: 0;
+        margin: 0;
+    }
+}
+
 /*buscador del porductos*/
 
 #searchs {
@@ -111,6 +128,7 @@ h1 {
 
 .genero {
     font-size: 2em;
+    margin-left: 1em;
 }
 
 .genero:hover {
@@ -333,6 +351,12 @@ h2 {
     border-radius: 17px 17px 0 0;
     margin: 0 11px;
     padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+    #contenedor_botones_prosucto{
+        flex-direction: column;
+    }
 }
 
 .elimnar_fav_Y_produc{
