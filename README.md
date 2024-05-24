@@ -8,9 +8,9 @@
 
 ## Enlaces
 
-- Enlace de la página web
-- Enlace del repositorio de GitHub
-- Fetch API de Mercado Libre Argentina API link
+- [Enlace de la página web](https://codigourbano.vercel.app/)
+- [Enlace del repositorio de GitHub](https://github.com/Gerardomedinav/codigourbano)
+- [Fetch API de Mercado Libre Argentina API link](https://api.mercadolibre.com/sites/MLA/search?q=?)
 
 ## Resumen del Proyecto
 
