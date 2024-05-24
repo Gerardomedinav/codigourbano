@@ -7,7 +7,7 @@ createApp({
       productsAll: [],
       products: [],
       cart: [], //aca se almacenana los favoritos
-      searchQuery: 'sneakers, zapatillas de deporte, ropa, accesorios',
+      searchQuery: 'zapatillas de deporte, botines',
       buscador_zaptillaz: '',
       gender: 'Todo',
 
