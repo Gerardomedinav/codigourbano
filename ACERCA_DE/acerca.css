@@ -608,3 +608,17 @@ input#male, input#female{
   font-weight: normal;
   cursor: pointer;
 }
+
+
+#buscador_header_logico img{
+  width: 50px !important;
+  height: 50px !important;
+}
+#abrir > img {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+#buscador_header_logico > a.corazon_compra {
+ font-size: 50px;
+}
