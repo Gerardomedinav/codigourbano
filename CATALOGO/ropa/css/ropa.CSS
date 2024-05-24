@@ -137,8 +137,8 @@ h3 {
 .tipo-ropa {
     margin: 1rem;
     padding: 1rem;
-    width: 300px;
-    /* 200*/
+    width: 70%;  /*300px*/
+    min-width: 160px;
     height: 265px;
     /* 236  265*/
     font-size: 1.5rem;
@@ -175,6 +175,8 @@ h3 {
 
 /* sección de tarjetas*/
 .container-tarjeta {
+    width: 95%;
+    min-width: 150px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -189,21 +191,21 @@ h3 {
 
 .tarjeta {
     text-align: center;
-    width: 20em;
-    max-width: 30em;
-    min-width: 10em;
-    height: 22.2em;
+    width: 100%; /*2em*/
+    max-width: 20em;
+   /* min-width: 5em;*/
+    height: auto;
 
     background-color: rgba(204, 253, 245, 0.8);
     margin: 1vw;
     /* overflow: auto; */
     border-radius: 17px;
-
+    position: relative;
 
 }
 
 .imagen_product {
-    width: 15em;
+    width: 100%;
     margin-top: 1em;
     border-radius: 5px;
     /*object-fit:contain;*/
@@ -211,7 +213,7 @@ h3 {
 
 .tarjeta-texto {
     display: block;
-    width: 300px;
+    width: 100%;
     /* Establece el ancho deseado para la tarjeta */
     overflow: hidden;
     /* Oculta el contenido que desborda */
@@ -246,11 +248,6 @@ h3 {
     transform: translateY(-5px);
 }
 
-.imagen_product {
-    width: 15em;
-    margin-top: 1em;
-}
-
 .productoInterno {
 
     position: fixed;
@@ -282,13 +279,9 @@ h3 {
 
 .heart {
     font-size: 50px;
-    margin-right: 0.3em;
-    margin-top: 0.2em;
     color: green;
-    position: fixed;
-    transform: translateX(190px);
-
-
+    position: absolute;
+    left: 280px; /* Ajusta la posición horizontal según tus necesidades */
 }
 
 .heart.red {
@@ -354,18 +347,14 @@ h3 {
 
 }
 
-.titulo_de_productoSeleccionado {
+/*.titulo_de_productoSeleccionado {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
-#favorio,
-#compra {
-    font-size: 3em;
-}
+*/
 
 footer {
     margin-top: 10px;
@@ -374,16 +363,98 @@ footer {
 
 }
 
-#footer_del_todo {
+/*#footer_del_todo {
     background-color: rgb(194, 97, 97);
+}*/
+
+/* Estilos del contenedor de compras*/
+.contenedor_de_productos_y_favoritos{
+    background-color: rgba(70, 68, 68,0.5);
+    backdrop-filter: blur(6px); /* Desenfoque del fondo */
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 0 0 17px 17px;
+    margin: 0 0.7em;
+    margin-bottom: 9vw;
+}
+
+#favorio{
+    margin-left:11px;
+    margin-right:11px;
+    margin-top: 13vw;
+    background-color: rgba(70, 68, 68,0.5);
+    border-radius: 17px 17px 0 0;
+}
+
+#contenedor_botones_producto{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    background-color: rgba(70, 68, 68,0.5);
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+    border-radius: 17px 17px 0 0;
+    margin: 0 11px;
+    padding: 10px 0;
 }
 
 
 
+.elimnar_fav_Y_produc{
+    font-size: 5em;
+    /* Reducir el tamaño de la fuente */
+    color: red;
+    z-index: 1111;
+    position: fixed;
+    transform: translate(200px, -10px);
+    background-color: transparent;
+    border: none;
+}
 
+.elimnar_fav_Y_produc:hover{
+    color: rgb(23, 190, 1);
+}
+
+#compra_producto{
+    background-image: linear-gradient(to right, rgb(34, 173, 6),  rgb(39, 240, 32));
+    font-size: 2em;
+}
+
+#compra_producto:hover{
+    background-image: linear-gradient(to right,  rgb(39, 240, 32),rgb(34, 173, 6));
+}
+
+#compra{
+    background-color: antiquewhite;
+    padding: 0 10px;
+    color: rgb(0, 0, 0);
+}
+
+#favorio, #compra{
+   text-align: center;
+    font-size: 3em;
+    
+}
+
+#contador_precio{
+    font-weight: 800;
+    margin-left:11px;
+    margin-right:11px;
+    background-color: rgba(70, 68, 68,0.5);
+    font-size: 2em;
+    text-align: center;
+}
+
+.container-carrito {
+    background-color:rgba(70, 68, 68,0.5) ;
+}
+
+
+/* media queries generales*/
 
 /* Para tablets */
-@media only screen and (min-width: 412px) and (max-width: 664px) {
+@media only screen and (min-width: 1px) and (max-width: 664px) {
 
     #carousel-div {
         width: 80%;
@@ -441,3 +512,30 @@ footer {
 */
 }
 
+@media (min-width: 1px) and (max-width: 426px) {
+
+    .genero{
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+
+}
+
+@media (min-width: 1px) and (max-width: 426px) {
+
+    
+
+
+}
+
+@media (max-width: 600px) {
+    #contenedor_botones_producto{
+        flex-direction: column;
+    }
+}
