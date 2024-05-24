@@ -1,3 +1,8 @@
+@font-face {
+  src: url('../img/fifawelcome1.3.ttf') format('truetype');
+  font-family: "FIFA Welcome", 'Courier New', Courier, monospace;
+ 
+}
 .container {
     display: grid; 
     grid-template-columns: 4fr 4fr 0fr 0fr; 
@@ -189,7 +194,7 @@
         width: 100%;
         left: auto;
         background: radial-gradient(at top, rgba(14, 220, 227, 0.363), rgba(89, 142, 217, 0.671)) !important;
-        
+        backdrop-filter: blur(5px);
       }
       .box_mapa {
         display: flex;
@@ -233,7 +238,7 @@
       .titulo h1#titles {
         display: flex !important;
         margin: 0 auto;
-        margin-top: -50px;
+        margin-top: -81px;
         width: 100%;
         text-align: center;
         padding-bottom: 10px;
@@ -247,7 +252,7 @@
     /* This will center the form */
       .wrapper {
         width: 80%;
-        height: 80%;
+        height: 84%;
         margin: 5% auto 0 auto; 
       }
     
@@ -380,6 +385,7 @@
         color: #ffffff;
         margin-top: -10%;
         
+        
       }
       /*  Responsivo movil tablet  */
       @media (max-width: 767px) {
@@ -435,8 +441,8 @@
             line-height: inherit;
             display: flex;
         }
-        a, p{
-          font-size:large !important;
+        .box_mapa p , .box_mapa a {
+          font-size: 80%;
         }
         
         
@@ -466,19 +472,21 @@
   width: 80%;
   margin: 8%;
   padding: auto;
+  
 }
 
 /* Estilo para los botones de radio de género */
 .gender-radio {
   display: inline-block;
   margin-right: 10px;
+  width: 20%;
 }
 
 /* Estilo para la etiqueta de país */
 .country {
   display: flex;
-  margin: 8%;
   padding: auto;
+  width: 100%;
 }
 .country label{
   margin: 2%;
@@ -531,7 +539,7 @@
 .box3#contactos {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 98%;
 
 }
 
@@ -539,9 +547,8 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-
   padding: auto;
-  font-size: 18px; /* Aumentar el tamaño de fuente a 18px / font-size: 18px; Aumentar el tamaño de fuente a 18px */
+  font-size: 70%;
   line-height: 1.5; 
   color: #fcf9f9;
  
@@ -556,3 +563,48 @@ label#gene {
   flex-direction: column;
 }
 
+input#profile-image {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+
+.box_mapa {
+  border-radius: 10px;  
+  margin-top: -3%;
+}
+
+input#male, input#female{
+  display: flex;
+  width: 100%;
+}
+
+.masc input[type="radio"],
+.femen input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 5%;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin-right: 5px;
+}
+
+.masc input[type="radio"]:checked,
+.femen input[type="radio"]:checked {
+  border-color: #d5dae0;
+  background-color: #dfe4e9;
+}
+
+.masc label,
+.femen label {
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+}
