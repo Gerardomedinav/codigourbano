@@ -1,3 +1,26 @@
+window.addEventListener('load', () => {
+  new Vue({
+      el: '#app',
+      mounted() {
+          this.initMap();
+      },
+      methods: {
+          initMap() {
+              const map = new google.maps.Map(document.getElementById('map'), {
+                  center: { lat: -26.18335, lng: -58.17391 },
+                  zoom: 14,
+              });
+
+              const marker = new google.maps.Marker({
+                  position: { lat: -26.18335, lng: -58.17391 },
+                  map: map,
+                  title: "Código Urbano",
+              });
+          }
+      }
+  });
+});
+
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     var name = document.querySelector('.name').value;
     var email = document.querySelector('.email').value;
@@ -39,3 +62,6 @@ profileInput.addEventListener('change', (event) => {
     previewImage.appendChild(img);
   }
 });
+
+
+
