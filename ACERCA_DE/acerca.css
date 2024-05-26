@@ -212,8 +212,8 @@
         font-size: 30px; 
         color: white; 
         }
-        .box1:hover , .box3:hover * {
-          font-size: 30px; 
+        .box1:hover   {
+         
           color: white; 
           }
 
@@ -596,10 +596,14 @@ input#male, input#female{
   margin-right: 5px;
 }
 
-.masc input[type="radio"]:checked,
+.masc input[type="radio"]:checked {
+  border-color: #d5dae0;
+  background-color: #070bf1;
+}
+
 .femen input[type="radio"]:checked {
   border-color: #d5dae0;
-  background-color: #dfe4e9;
+  background-color: #f107f1;
 }
 
 .masc label,
@@ -623,6 +627,23 @@ input#male, input#female{
  font-size: 50px;
 }
 
+
+
+/* Estilo para el mapa */
 #map {
-  height: 100%;
+  display: flex;
+  width: 100%; 
+  height: 50%; 
+ 
+}
+
+@media screen and (max-width: 768px) {
+  #map {
+    height: 300px; /* Altura del mapa en dispositivos móviles */
+  }
+}
+#previewImage {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
