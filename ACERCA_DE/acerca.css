@@ -622,3 +622,7 @@ input#male, input#female{
 #buscador_header_logico > a.corazon_compra {
  font-size: 50px;
 }
+
+#map {
+  height: 100%;
+}
