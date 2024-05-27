@@ -6,25 +6,21 @@ createApp({
             url: 'https://api.mercadolibre.com/sites/MLA/search',
             productsAll: [],
             products: [],
-            cart: [],
-            searchQuery: 'Sportswear ropa deportiva',
+            cart: [], // se guardan los favoritos.
+            searchQuery: 'Sportswear ropa deportiva', // Filtro 
             selectorRopa: 'Todo',
             gender: 'todo',
 
             isModalOpen: false, //  propiedad para controlar la visibilidad del modal
             selectedProduct: null, // Agrega una nueva propiedad para el producto seleccionado
-
-            mouseX: 0,
-            mouseY: 0,
-
-            compras: [], //aca se almacenan las compras
+            compras: [], //acá se almacenan las compras
 
         };
     },
     methods: {
         async changeGender(gender) {
             this.gender = gender;
-            await this.fetchData();
+            await this.fetchData(); // se llama a la función fetchdata() y se espera hasta que este termine para seguir.
         },
         async changeRopa(selectorRopa) {
             this.selectorRopa = selectorRopa;
@@ -43,9 +39,7 @@ createApp({
         },
 
 
-        addToCart(product) {
-            this.cart.push(product);
-        },
+
 
         //es para agregar productos al carrito
         addToCompras(product) {
@@ -86,11 +80,54 @@ createApp({
             document.body.style.overflow = 'auto'; // Habilita el desplazamiento nuevamente
         },
 
-        removeFromCart(index) { //remover de favoritos
-            this.cart.splice(index, 1);
+        // revisa si en el local Storage se encuentran productos favoritos y los agraga a cart.
+        cardLocalStore() {
+            // Obtener la lista actual de favoritos del localStorage
+            const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+            // Comparar con los productos en el carrito (this.cart)
+            favoritos.forEach((productoFavorito) => {
+                // Verificar si el producto favorito no está en el carrito
+                if (!this.cart.some((item) => item.id === productoFavorito.id)) {
+                    // Agregar el producto favorito al carrito
+                    this.cart.push(productoFavorito);
+                }
+                
+            });
+            
+            // Actualizar el localStorage con los productos del carrito
+            localStorage.setItem('favoritos', JSON.stringify(this.cart));
+            
         },
 
-        toggleColor(product) { //funcionalidad de agregar y sacar corazon
+        addToCart(product) {
+            this.cart.push(product);
+            // Obtener la lista actual de favoritos o inicializarla si no existe
+            const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+            // Verificar si el producto ya está en la lista de favoritos
+            if (!favoritos.some((favProduct) => favProduct.id === product.id)) {
+                favoritos.push(product);
+                // Guardar la lista actualizada en localStorage
+                localStorage.setItem('favoritos', JSON.stringify(favoritos));
+            }
+        },
+
+        removeFromCart(index) { //remover de favoritos
+            this.cart.splice(index, 1);
+
+            // Obtener la lista actual de favoritos
+            const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+            // Eliminar el producto de la lista
+            if (index >= 0 && index < favoritos.length) {
+                favoritos.splice(index, 1);
+                // Guardar la lista actualizada en localStorage
+                localStorage.setItem('favoritos', JSON.stringify(favoritos));
+            }
+        },
+
+
+        // agregar o quitar corazon.
+        toggleColor(product) {
+            // Cambiar el estado de favorito
             product.isFavorite = !product.isFavorite;
 
             if (product.isFavorite) {
@@ -99,10 +136,10 @@ createApp({
                 const index = this.cart.indexOf(product);
                 if (index !== -1) {
                     this.removeFromCart(index);
+
                 }
             }
         },
-
 
 
 
@@ -114,9 +151,14 @@ createApp({
             return thumbnail.replace(/\w\.jpg/gi, 'W.jpg');
         },
 
+
+
+
+
     },
     created() {
         this.fetchData(this.gender);
+        this.cardLocalStore(); // Llama a la función cuando se carga la página
     },
 }).mount('#app');
 
@@ -134,7 +176,7 @@ var flkty = new Flickity(elem, {
 let activarBoton = null;
 
 function cambiarColor(button) {
-    if(activarBoton) {
+    if (activarBoton) {
         activarBoton.classList.remove('active');
     }
     button.classList.add('active');
@@ -145,9 +187,18 @@ function cambiarColor(button) {
 let activarLinea = null;
 
 function mantenerLinea(p) {
-    if(activarLinea) {
+    if (activarLinea) {
         activarLinea.classList.remove('active');
     }
     p.classList.add('active');
     activarLinea = p;
 }
+
+// pruebas con LocalStorage
+//localStorage.clear();
+
+//let usuario = {id:1, nombre:'Alberto', edad:60, genero: 'hombre'};
+
+//let cuenta = localStorage.setItem('cuenta', JSON.stringify(usuario)); //crea un item en el localStore y lo transforma en string.
+//onsole.log(localStorage.getItem('cuenta'));
+//let cuentaJson = console.log(JSON.parse(localStorage.getItem('cuenta')));

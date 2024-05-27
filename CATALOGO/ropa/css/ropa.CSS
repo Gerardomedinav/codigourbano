@@ -29,6 +29,16 @@ h3 {
     text-align: center;
 }
 
+.container_genero_buscador{
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: inset 0 0 0 2000px rgba(181, 188, 188, 0.5);
+    border-top:4px solid rgb(6,197,204);
+    border-bottom:4px solid rgb(6,197,204);
+    background-image: linear-gradient(to right, rgb(6,197,204),  rgb(246, 120, 242), rgb(6,197,204));
+
+}
+
 .genero {
     min-height: 100px;
     width: auto;
@@ -139,8 +149,7 @@ h3 {
     padding: 1rem;
     width: 70%;  /*300px*/
     min-width: 160px;
-    height: 265px;
-    /* 236  265*/
+    height: 406px;
     font-size: 1.5rem;
     min-height: 230px;
     /* Establece una altura mínima */
@@ -150,7 +159,7 @@ h3 {
 }
 
 .tipo-ropa .boton {
-    height: auto;
+    height: 3rem; /*auto*/
     width: 100%;
     margin: 0 0 5px 0;
     display: block;
