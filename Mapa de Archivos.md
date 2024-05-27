@@ -41,29 +41,9 @@ codigourbano
 │  │  │  ├─ icons8-basketball-jersey-50.png
 │  │  │  ├─ icons8-camisa-del-jugador-filled-100.png
 │  │  │  ├─ icons8-tracksuit-50.png
-│  │  │  ├─ imgFondo.png
-│  │  │  ├─ modelo.webp
-│  │  │  ├─ modelo_00 (2).jpg
-│  │  │  ├─ modelo_01.jpg
-│  │  │  ├─ modelo_02.png
-│  │  │  ├─ modelo_03.webp
-│  │  │  ├─ modelo_03_v2.png
-│  │  │  ├─ modelo_04.jpg
-│  │  │  ├─ modelo_05.jpg
-│  │  │  ├─ modelo_05_v2.jpg
-│  │  │  ├─ modelo_06.jpg
-│  │  │  ├─ modelo_06_v2.png
-│  │  │  ├─ modelo_07.jpg
-│  │  │  ├─ modelo_08.jpg
-│  │  │  ├─ modelo_08_v2.png
-│  │  │  ├─ modelo_09.jpg
-│  │  │  ├─ modelo_09_v2.png
-│  │  │  ├─ producto_00.webp
-│  │  │  ├─ producto_01.png
-│  │  │  ├─ producto_02.png
-│  │  │  ├─ producto_03.png
-│  │  │  ├─ producto_04.png
-│  │  │  └─ producto_05.webp
+│  │  │  ├─ imgFondo.png..
+│  │  │  
+│  │  │  
 │  │  ├─ js
 │  │  │  └─ ropa.js
 │  │  └─ ropa.html
