@@ -36,32 +36,42 @@ document.querySelector("header").innerHTML = `
 `
 
 
-document.querySelector("footer").innerHTML=`        
+document.querySelector("footer").innerHTML = `        
 <div class="footer-content">
-<div class="footer-section about">
-    <h1 class="logo-text"><span>Codigo</span>Urbano</h1>
-    <p>
-        Codigo Urbano es una tienda de ropa en línea que ofrece productos de alta calidad y a la moda. Nos esforzamos por ofrecer a nuestros clientes la mejor experiencia de compra posible.
-    </p>
-    <div class="contact">
-        <span><i class="fas fa-phone"></i>   123-456-7890</span>
-        <span><i class="fas fa-envelope"></i>   info@codigourbano.com</span>
-    </div>
+            <div class="footer-principal">
+                <h2 class="logo-text">Codigorbano</h2>
+                <p>
+                    Codigo Urbano es una tienda de ropa en línea que ofrece productos de alta calidad y a la moda. Nos
+                    esforzamos por ofrecer a nuestros clientes la mejor experiencia de compra posible.
+                </p>
+            </div>
+
+            <div class="contact">
+                <span><i class="fas fa-phone"></i>   123-456-7890</span>
+                <span><i class="fas fa-envelope"></i>   info@codigourbano.com</span>
+
+                <div class="icon">
+                <ul class="iconos">
+                    <a href="">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-brands fa-square-facebook"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-brands fa-square-whatsapp"></i>
+                    </a>
+                </ul>
+            </div>
 </div>
 
-<div class="footer-section links">
-    <h2>Enlaces rápidos</h2>
-    <br>
-    <ul>
-        <a href="#"><li>Eventos</li></a>
-        <a href="#"><li>Equipo</li></a>
-        <a href="#"><li>Galerías</li></a>
-        <a href="#"><li>Términos y Condiciones</li></a>
-    </ul>
-</div>
+`
 
-<div class="footer-bottom">
-  © codigourbano.com | Diseñado por Codigo Urbano
-</div>`
 
 

@@ -650,3 +650,49 @@ input#male, input#female{
   align-items: center;
   width: 100%;
 }
+
+.footer-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+
+}
+
+@media screen and (max-width: 900px){
+  .footer-content{
+      grid-template-columns: 1fr;
+  }
+
+  .contact{
+     margin-top: 1.5em; 
+  }
+}
+
+.footer-principal{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact{
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconos > a > i{
+
+  margin-top: 0.5em;
+  font-size: 3em;
+}
+
+.iconos > a > i:hover{
+  color: blue;
+}
+
+
