@@ -181,7 +181,7 @@ header {
 
 
 .logo {
-
+    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -236,8 +236,58 @@ header {
 
 
 footer {
-    margin-top: 3em;
-    background-image: linear-gradient(to right, rgb(92, 12, 92), rgb(131, 21, 103), rgb(148, 52, 151));
+    padding: 3em;
+    gap: 1em;
+    background-image: linear-gradient(to right, rgb(150, 29, 150), rgb(182, 36, 145), rgb(159, 51, 163));
+}
+
+.logo-text{
+    letter-spacing: 5px;
+}
+
+
+.footer-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+@media screen and (max-width: 900px){
+    .footer-content{
+        grid-template-columns: 1fr;
+    }
+
+    .contact{
+       margin-top: 1.5em; 
+    }
+}
+
+.footer-principal{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact{
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconos > a > i{
+
+    margin-top: 0.5em;
+    font-size: 3em;
+}
+
+.iconos > a > i:hover{
+    color: blue;
 }
 
 h2{

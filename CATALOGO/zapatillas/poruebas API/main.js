@@ -11,12 +11,8 @@ createApp({
       buscador_zaptillaz: '',
       gender: 'Todo',
 
-
       isModalOpen: false, //  propiedad para controlar la visibilidad del modal
       selectedProduct: null, // una nueva propiedad para el producto seleccionado
-
-      mouseX: 0,
-      mouseY: 0,
 
       compras: [], //aca se almacenan las compras
 
@@ -38,12 +34,12 @@ createApp({
     },
 
 
-    addToCart(product) {
+    addToCart(product) { //agrega un producto a la lista de compras si el producto no está ya en la lista.
       this.cart.push(product);
     },
 
     //es para agregar productos al carrito
-    addToCompras(product) {
+    addToCompras(product) { //elimina un producto de la lista de compras. Recibe como parámetro el producto que se desea eliminar.
       if (!this.compras.includes(product)) {
         this.compras.push(product);
       }
@@ -62,13 +58,11 @@ createApp({
       }
     },
 
-
-
     buyProduct() {
       alert('Has comprado el producto!');
     },
 
-    showModal(product) {
+    showModal(product) { //muestra un modal con los detalles de un producto y deshabilita el desplazamiento de la página.
       this.selectedProduct = product;
       this.isModalOpen = true;
 
@@ -106,7 +100,7 @@ createApp({
       return this.compras.reduce((total, product) => total + product.price, 0);
     },
 
-    getImageUrl(thumbnail) {
+    getImageUrl(thumbnail) { //recibe como parámetro la miniatura de una imagen y retorna la URL de la imagen en tamaño completo.
       return thumbnail.replace(/\w\.jpg/gi, 'W.jpg');
     },
   },
