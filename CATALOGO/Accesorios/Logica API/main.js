@@ -7,7 +7,7 @@ createApp({
       productsAll: [],
       products: [],
       cart: [],
-      searchQuery: 'ropa deportiva',
+      searchQuery: 'accesorio deportivo',
       buscador_zaptillaz: '',
       gender: 'Todo',
       subCategory: '',

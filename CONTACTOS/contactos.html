@@ -22,9 +22,18 @@
                             <h1>Contactanos</h1>
                         </div>
                         <form class="form" id="contactForm">
-                            <input type="text" class="name entry" placeholder="Ingrese su nombre" required />
-                            <input type="email" class="email entry" placeholder="Email" required />
-                            <textarea class="message entry" placeholder="Mensaje" required></textarea>
+                            <div>
+                                <input type="text" class="name entry" placeholder="Ingrese su nombre" required>
+                                <p class="name-error"></p>
+                            </div>
+                            <div>
+                                <input type="email" class="email entry" placeholder="Email" required>
+                                <p class="email-error"></p>
+                            </div>
+                            <div>
+                                <textarea class="message entry" placeholder="Mensaje" required></textarea>
+                                <p class="message-error"></p>
+                            </div>
                             <div class="gender">
                                 <label id="gene" for="gender">Género:</label>
                                 <div class="genero">
@@ -49,6 +58,7 @@
                                     <option value="chile">Chile</option>
                                     <option value="otro">otro</option>
                                 </select>
+                                <p class="country-error"></p>
                             </div>
                             <div class="profile-image">
                                 <label for="profile-image">Foto de perfil:</label>
@@ -64,7 +74,8 @@
                                 <h3>Captcha</h3>
                                 <img src="../img/captcha.png" alt="">
                                 <label for="captcha">Ingresa el código de validación:</label>
-                                <input type="text" id="captcha" name="captcha" required><br>
+                                <input type="text" id="captcha" name="captcha" required>
+                                <p class="captcha-error"></p>
                             </div>
                             <button class="submit entry" type="submit">Enviar</button>
                         </form>
@@ -104,7 +115,5 @@
     <script src="../ACERCA_DE/acerca.js"></script>
     <script src="../CATALOGO/Header_Footer JS/Menu.js"></script>
     <script src="contactos.js"></script>
-
-   
 </body>
 </html>

@@ -31,18 +31,70 @@ function initMap() {
   
   // Manejar el envío del formulario
   document.getElementById("contactForm").addEventListener("submit", function(event) {
-    var name = document.querySelector(".name").value;
-    var email = document.querySelector(".email").value;
-    var message = document.querySelector(".message").value;
-    var country = document.querySelector("#country").value;
-    var captcha = document.querySelector("#captcha").value;
-    if (name === "" || email === "" || message === "" || country === "" || captcha === "") {
-      alert("Por favor complete todos los campos obligatorios.");
+    var name = document.querySelector(".name");
+    var email = document.querySelector(".email");
+    var message = document.querySelector(".message");
+    var country = document.querySelector("#country");
+    var captcha = document.querySelector("#captcha");
+    var isValid = true;
+  
+    // Validación del campo de nombre
+    if (name.value === "") {
+      name.style.border = "1px solid red";
+      document.querySelector(".name-error").textContent = "Por favor, ingrese su nombre.";
+      isValid = false;
+    } else {
+      name.style.border = "1px solid #ccc";
+      document.querySelector(".name-error").textContent = "";
+    }
+  
+    // Validación del campo de correo electrónico
+    if (email.value === "") {
+      email.style.border = "1px solid red";
+      document.querySelector(".email-error").textContent = "Por favor, ingrese su correo electrónico.";
+      isValid = false;
+    } else {
+      email.style.border = "1px solid #ccc";
+      document.querySelector(".email-error").textContent = "";
+    }
+  
+    // Validación del campo de mensaje
+    if (message.value === "") {
+      message.style.border = "1px solid red";
+      document.querySelector(".message-error").textContent = "Por favor, ingrese su mensaje.";
+      isValid = false;
+    } else {
+      message.style.border = "1px solid #ccc";
+      document.querySelector(".message-error").textContent = "";
+    }
+  
+    // Validación del campo de país
+    if (country.value === "") {
+      country.style.border = "1px solid red";
+      document.querySelector(".country-error").textContent = "Por favor, seleccione un país.";
+      isValid = false;
+    } else {
+      country.style.border = "1px solid #ccc";
+      document.querySelector(".country-error").textContent = "";
+    }
+  
+    // Validación del campo de captcha
+    if (captcha.value === "") {
+      captcha.style.border = "1px solid red";
+      document.querySelector(".captcha-error").textContent = "Por favor, ingrese el código captcha.";
+      isValid = false;
+    } else {
+      captcha.style.border = "1px solid #ccc";
+      document.querySelector(".captcha-error").textContent = "";
+    }
+  
+    if (!isValid) {
       event.preventDefault();
     } else {
-      alert(`Envío exitoso. Su mensaje de:\n Nombre: ${name}\n Correo electrónico: ${email}\n Mensaje: ${message}\n País: ${country}\n ¡¡¡Será respondido a la brevedad.!!!!`);
+      alert(`Envío exitoso. Su mensaje de:\n Nombre: ${name.value}\n Correo electrónico: ${email.value}\n Mensaje: ${message.value}\n País: ${country.value}\n ¡¡¡Será respondido a la brevedad.!!!!`);
     }
   });
+  
   
   
 /* Previsualización de la imagen */
