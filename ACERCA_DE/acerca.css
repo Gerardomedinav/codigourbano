@@ -685,13 +685,13 @@ input#male, input#female{
   align-items: center;
 }
 
-.iconos > a > i{
+#ico_footer > a > i{
 
   margin-top: 0.5em;
   font-size: 3em;
 }
 
-.iconos > a > i:hover{
+#ico_footer > a > i:hover{
   color: blue;
 }
 

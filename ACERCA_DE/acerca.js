@@ -51,7 +51,7 @@ document.querySelector("footer").innerHTML = `
                 <span><i class="fas fa-envelope"></i>   info@codigourbano.com</span>
 
                 <div class="icon">
-                <ul class="iconos">
+                <ul class="iconos" id="ico_footer">
                     <a href="">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
@@ -64,7 +64,7 @@ document.querySelector("footer").innerHTML = `
                     <a href="">
                         <i class="fa-brands fa-x-twitter"></i>
                     </a>
-                    <a href="">
+                     <a href="">
                         <i class="fa-brands fa-square-whatsapp"></i>
                     </a>
                 </ul>
