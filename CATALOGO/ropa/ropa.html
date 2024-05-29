@@ -41,16 +41,17 @@
                     <img src="./img/modelo_09_v2.png" alt="">
                 </div>
             </div>
-
-            <div class="genero">
-                <p @click="changeGender('todo')" onclick="mantenerLinea(this)">Todo</p>
-                <p @click="changeGender('hombre')" onclick="mantenerLinea(this)">Hombre</p>
-                <p @click="changeGender('mujer')" onclick="mantenerLinea(this)">Mujer</p>
-                <p @click="changeGender('niño')" onclick="mantenerLinea(this)">Niños</p>
+            <div class="container_genero_buscador">
+                <div class="genero">
+                    <p @click="changeGender('todo')" onclick="mantenerLinea(this)">Todo</p>
+                    <p @click="changeGender('hombre')" onclick="mantenerLinea(this)">Hombre</p>
+                    <p @click="changeGender('mujer')" onclick="mantenerLinea(this)">Mujer</p>
+                    <p @click="changeGender('niño')" onclick="mantenerLinea(this)">Niños</p>
+                </div>
+                <label for="buscador"></label>
+                <input type="text" id="buscador" placeholder="Buscador" v-model="selectorRopa"
+                    @keyup.enter="fetchData(selectorRopa)">
             </div>
-            <label for="buscador"></label>
-            <input type="text" id="buscador" placeholder="Buscador" v-model="selectorRopa"
-                @keyup.enter="fetchData(selectorRopa)">
             <div class="grid-container">
                 <div class="tipo-ropa">
 
@@ -66,7 +67,7 @@
 
                 </div>
                 <div id="grid-columna_derecha">
-
+                    <!--Contenedor de tarjetas-->
                     <div class="container-tarjeta">
                         <div class="tarjeta" v-for="product in products">
                             <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }"
@@ -85,7 +86,7 @@
 
             <h3 id="favorio">Favoritos</h3>
             <div class="contenedor_de_productos_y_favoritos">
-                <div v-for="(product, index) in cart">
+                <div v-for="(product, index) in this.cart">
                     <div class="tarjeta">
                         <button class="elimnar_fav_Y_produc" @click="removeFromCart(index)">X</button>
                         <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
