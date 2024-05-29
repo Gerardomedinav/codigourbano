@@ -18,7 +18,7 @@
     </header>
     <main>
         <div id="app">
-            <h1>Ropa Deportiva</h1>
+            <h1 id="myID"></h1> <!-- Titulo de Ropa Deportiva en js-->
             <!--Carousel-->
             <div class="gallery js-flickity carousel" data-flickity-option='{"wrapAround":true}' id="carousel-div">
 
@@ -29,7 +29,7 @@
                     <img src="./img/modelo_04.jpg" alt="">
                 </div>
                 <div class="gallery-cell">
-                    <img src="./img/modelo_05.jpg" alt="">
+                    <img src="./img/modelo_13.jpg" alt="">
                 </div>
                 <div class="gallery-cell">
                     <img src="./img/modelo_06.jpg" alt="">
@@ -38,7 +38,7 @@
                     <img src="./img/modelo_08_v2.png" alt="">
                 </div>
                 <div class="gallery-cell">
-                    <img src="./img/modelo_09_v2.png" alt="">
+                    <img src="./img/modelo_09.jpg" alt="">
                 </div>
             </div>
             <div class="container_genero_buscador">
@@ -50,7 +50,7 @@
                 </div>
                 <label for="buscador"></label>
                 <input type="text" id="buscador" placeholder="Buscador" v-model="selectorRopa"
-                    @keyup.enter="fetchData(selectorRopa)">
+                    @keyup.enter="fetchData(selectorRopa)" onclick="manteneColorFondo(this)">
             </div>
             <div class="grid-container">
                 <div class="tipo-ropa">
@@ -70,7 +70,7 @@
                     <!--Contenedor de tarjetas-->
                     <div class="container-tarjeta">
                         <div class="tarjeta" v-for="product in products">
-                            <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }"
+                            <a href="javascript:void(0)" class="heart" :class="{ 'red': product.isFavorite }"
                                 @click="toggleColor(product)">&hearts;</a>
                             <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title"
                                 @click="showModal(product)">

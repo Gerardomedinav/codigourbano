@@ -84,6 +84,7 @@ createApp({
         cardLocalStore() {
             // Obtener la lista actual de favoritos del localStorage
             const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+
             // Comparar con los productos en el carrito (this.cart)
             favoritos.forEach((productoFavorito) => {
                 // Verificar si el producto favorito no está en el carrito
@@ -91,13 +92,18 @@ createApp({
                     // Agregar el producto favorito al carrito
                     this.cart.push(productoFavorito);
                 }
-                
+
+                // Establecer product.isFavorite en true si está en favoritos
+                const productIndex = this.cart.findIndex((item) => item.id === productoFavorito.id);
+                if (productIndex !== -1) {
+                    this.cart[productIndex].isFavorite = true;
+                }
             });
-            
+
             // Actualizar el localStorage con los productos del carrito
             localStorage.setItem('favoritos', JSON.stringify(this.cart));
-            
         },
+
 
         addToCart(product) {
             this.cart.push(product);
@@ -139,6 +145,7 @@ createApp({
 
                 }
             }
+            localStorage.setItem('favoritos', JSON.stringify(this.cart));
         },
 
 
@@ -194,11 +201,23 @@ function mantenerLinea(p) {
     activarLinea = p;
 }
 
-// pruebas con LocalStorage
-//localStorage.clear();
+// mantener color de fondo del buscador.
+let activarfondo = null;
 
-//let usuario = {id:1, nombre:'Alberto', edad:60, genero: 'hombre'};
+function manteneColorFondo(input) {
+    if (activarfondo) {
+        activarfondo.classList.remove('active');
+    }
+    input.classList.add('active');
+    activarfondo = input;
+}
 
-//let cuenta = localStorage.setItem('cuenta', JSON.stringify(usuario)); //crea un item en el localStore y lo transforma en string.
-//onsole.log(localStorage.getItem('cuenta'));
-//let cuentaJson = console.log(JSON.parse(localStorage.getItem('cuenta')));
+let word = 'Ropa Deportiva'; //codigo para hacer el efecto comienzo del principio de la pagina
+let container = document.getElementById('myID');
+
+for(let i = 0; i < word.length; i++) {
+  let span = document.createElement('span');
+  span.textContent = word[i];
+  span.style.animationDelay = `${i * 0.13}s`; //  velocidad de la animación
+  container.appendChild(span);
+}
