@@ -356,7 +356,7 @@
         background-color: #EE78D1;  
         border: none;
         border-bottom: 5px solid #CB64B2; 
-         
+        margin-top: 50%;
     
       }
     
@@ -445,7 +445,10 @@
           font-size: 80%;
         }
         
+        .submit{
         
+          margin-top: 70%;
+        }
 
     }
 
