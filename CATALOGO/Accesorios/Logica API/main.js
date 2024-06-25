@@ -3,7 +3,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      url: 'http://127.0.0.1:5000/productos',
+      url: 'https://felixcanosa.pythonanywhere.com/productos',
       productsAll: [],
       products: [],
       cart: [],
@@ -29,11 +29,17 @@ createApp({
       try {
         let queryUrl = this.url;
         const params = [];
-        
-        if (this.searchQuery) params.push(`nombre=${encodeURIComponent(this.searchQuery)}`);
-        if (this.gender !== 'Todo') params.push(`genero=${encodeURIComponent(this.gender)}`);
-        if (this.subCategory) params.push(`tipoProducto=${encodeURIComponent(this.subCategory)}`);
-        
+
+        if (this.gender !== 'Todo') {
+          params.push(`genero=${encodeURIComponent(this.gender)}`);
+        }
+        if (this.subCategory) {
+          params.push(`subCategoria=${encodeURIComponent(this.subCategory)}`);
+        }
+        if (this.searchQuery) {
+          params.push(`nombre=${encodeURIComponent(this.searchQuery)}`);
+        }
+
         if (params.length > 0) {
           queryUrl += '?' + params.join('&');
         }
@@ -48,21 +54,23 @@ createApp({
       }
     },
     addToCart(product) {
-      this.cart.push(product);
+      if (!this.cart.some(p => p.id === product.id)) {
+        this.cart.push(product);
+      }
     },
     addToCompras(product) {
-      if (!this.compras.includes(product)) {
+      if (!this.compras.some(p => p.id === product.id)) {
         this.compras.push(product);
       }
     },
     removeFromCompras(product) {
-      const index = this.compras.indexOf(product);
+      const index = this.compras.findIndex(p => p.id === product.id);
       if (index !== -1) {
         this.compras.splice(index, 1);
       }
     },
     toggleCompras(product) {
-      if (this.compras.includes(product)) {
+      if (this.compras.some(p => p.id === product.id)) {
         this.removeFromCompras(product);
       } else {
         this.addToCompras(product);
@@ -88,7 +96,7 @@ createApp({
       if (product.isFavorite) {
         this.addToCart(product);
       } else {
-        const index = this.cart.indexOf(product);
+        const index = this.cart.findIndex(p => p.id === product.id);
         if (index !== -1) {
           this.removeFromCart(index);
         }

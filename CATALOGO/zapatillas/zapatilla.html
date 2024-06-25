@@ -66,8 +66,7 @@
 
             <div id="contenedor_de_productos">
                 <div class="producto" v-for="product in products">
-                    <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }"
-                        @click="toggleColor(product)"><img src="" alt="">&hearts;</a>
+                    <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }" @click="toggleColor(product)"><img src="" alt="">&hearts;</a>
                     <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title"
                         @click="showModal(product)">
                     <h3>{{product.title}}</h3>

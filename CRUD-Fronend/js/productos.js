@@ -3,7 +3,7 @@ createApp({
     data() {
         return {
             productos: [],
-            url: 'http://127.0.0.1:5000/productos',
+            url: 'https://felixcanosa.pythonanywhere.com/productos',
             error: false,
             cargando: true,
             id: 0,
@@ -67,7 +67,7 @@ createApp({
         },
         filtrarPorTipo() {
             if (this.tipoSeleccionado) {
-                this.fetchData(`${this.url}?tipo=${this.tipoSeleccionado}`);
+                this.fetchData(`${this.url}?tipoProducto=${this.tipoSeleccionado}`);
             } else {
                 this.fetchData(this.url);
             }
