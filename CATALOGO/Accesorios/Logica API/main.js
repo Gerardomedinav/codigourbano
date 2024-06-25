@@ -44,16 +44,14 @@ createApp({
     },
 
 
-    addToCart(product) {
-      this.cart.push(product);
-    },
 
-     //es para agregar productos al carrito
-     addToCompras(product) {
+    //es para agregar productos al carrito
+    addToCompras(product) { //elimina un producto de la lista de compras. Recibe como parámetro el producto que se desea eliminar.
       if (!this.compras.includes(product)) {
         this.compras.push(product);
       }
     },
+
     removeFromCompras(product) {
       const index = this.compras.indexOf(product);
       if (index !== -1) {
@@ -86,9 +84,56 @@ createApp({
       document.body.style.overflow = 'auto'; // Habilita el desplazamiento nuevamente
     },
 
-    removeFromCart(index) { //remover de favoritos
-      this.cart.splice(index, 1);
+       // revisa si en el local Storage se encuentran productos favoritos y los agraga a cart.
+       cardLocalStore() {
+        // Obtener la lista actual de favoritos del localStorage
+        const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+
+        // Comparar con los productos en el carrito (this.cart)
+        favoritos.forEach((productoFavorito) => {
+            // Verificar si el producto favorito no está en el carrito
+            if (!this.cart.some((item) => item.id === productoFavorito.id)) {
+                // Agregar el producto favorito al carrito
+                this.cart.push(productoFavorito);
+            }
+
+            // Establecer product.isFavorite en true si está en favoritos
+            const productIndex = this.cart.findIndex((item) => item.id === productoFavorito.id);
+            if (productIndex !== -1) {
+                this.cart[productIndex].isFavorite = true;
+            }
+        });
+
+        // Actualizar el localStorage con los productos del carrito
+        localStorage.setItem('favoritos', JSON.stringify(this.cart));
     },
+
+
+    addToCart(product) {
+        this.cart.push(product);
+        // Obtener la lista actual de favoritos o inicializarla si no existe
+        const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+        // Verificar si el producto ya está en la lista de favoritos
+        if (!favoritos.some((favProduct) => favProduct.id === product.id)) {
+            favoritos.push(product);
+            // Guardar la lista actualizada en localStorage
+            localStorage.setItem('favoritos', JSON.stringify(favoritos));
+        }
+    },
+
+    removeFromCart(index) { //remover de favoritos
+        this.cart.splice(index, 1);
+
+        // Obtener la lista actual de favoritos
+        const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+        // Eliminar el producto de la lista
+        if (index >= 0 && index < favoritos.length) {
+            favoritos.splice(index, 1);
+            // Guardar la lista actualizada en localStorage
+            localStorage.setItem('favoritos', JSON.stringify(favoritos));
+        }
+    },
+
 
     toggleColor(product) { //funcionalidad de agregar y sacar corazon
       product.isFavorite = !product.isFavorite;
@@ -115,6 +160,7 @@ createApp({
   },
   created() {
     this.fetchData(this.gender, this.subCategory);
+    this.cardLocalStore(); // Llama a la función cuando se carga la página
   },
 }).mount('#app');
 
