@@ -3,29 +3,22 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      url: 'https://api.mercadolibre.com/sites/MLA/search',
+      url: 'http://127.0.0.1:5000/productos',
       productsAll: [],
       products: [],
       cart: [],
-      searchQuery: 'accesorio deportivo',
-      buscador_zaptillaz: '',
+      searchQuery: '',
       gender: 'Todo',
       subCategory: '',
-
-      isModalOpen: false, //  propiedad para controlar la visibilidad del modal
-      selectedProduct: null, // Agrega una nueva propiedad para el producto seleccionado
-
-      mouseX: 0,
-      mouseY: 0,
-
-      compras: [], //aca se almacenan las compras
-
-
+      isModalOpen: false,
+      selectedProduct: null,
+      compras: [],
     };
   },
-  methods:{
+  methods: {
     async changeGender(gender) {
       this.gender = gender;
+      this.subCategory = '';  // Restablecer la subcategoría al cambiar de género
       await this.fetchData();
     },
     async changeSubCategory(subCategory) {
@@ -34,22 +27,30 @@ createApp({
     },
     async fetchData() {
       try {
-        const response = await fetch(`${this.url}?q=${this.searchQuery} ${this.buscador_zaptillaz} ${this.gender !== 'Todo' ? this.gender : ''} ${this.subCategory}`);
+        let queryUrl = this.url;
+        const params = [];
+        
+        if (this.searchQuery) params.push(`nombre=${encodeURIComponent(this.searchQuery)}`);
+        if (this.gender !== 'Todo') params.push(`genero=${encodeURIComponent(this.gender)}`);
+        if (this.subCategory) params.push(`tipoProducto=${encodeURIComponent(this.subCategory)}`);
+        
+        if (params.length > 0) {
+          queryUrl += '?' + params.join('&');
+        }
+        
+        const response = await fetch(queryUrl);
         const data = await response.json();
-        this.productsAll = data.results;
-        this.products = data.results;
+        this.products = data;
+        this.noProducts = this.products.length === 0;
       } catch (error) {
-        alert(`Ups... se produjo un error: ${error}`);
+        console.error(`Error: ${error}`);
+        this.noProducts = true;
       }
     },
-
-
     addToCart(product) {
       this.cart.push(product);
     },
-
-     //es para agregar productos al carrito
-     addToCompras(product) {
+    addToCompras(product) {
       if (!this.compras.includes(product)) {
         this.compras.push(product);
       }
@@ -67,32 +68,23 @@ createApp({
         this.addToCompras(product);
       }
     },
-
     buyProduct() {
       alert('Has comprado el producto!');
     },
-
     showModal(product) {
       this.selectedProduct = product;
       this.isModalOpen = true;
-
-      document.body.style.overflow = 'hidden'; // Deshabilita el desplazamiento de la página
-      
+      document.body.style.overflow = 'hidden';
     },
-
     closeModal() {
       this.isModalOpen = false;
-
-      document.body.style.overflow = 'auto'; // Habilita el desplazamiento nuevamente
+      document.body.style.overflow = 'auto';
     },
-
-    removeFromCart(index) { //remover de favoritos
+    removeFromCart(index) {
       this.cart.splice(index, 1);
     },
-
-    toggleColor(product) { //funcionalidad de agregar y sacar corazon
+    toggleColor(product) {
       product.isFavorite = !product.isFavorite;
-  
       if (product.isFavorite) {
         this.addToCart(product);
       } else {
@@ -102,21 +94,16 @@ createApp({
         }
       }
     },
-
-
-    
-
     totalPrice() {
-      return this.compras.reduce((total, product) => total + product.price, 0);
-    },
-    getImageUrl(thumbnail) {
-      return thumbnail.replace(/\w\.jpg/gi, 'W.jpg');
+      return this.compras.reduce((total, product) => total + product.precio, 0);
     },
   },
   created() {
-    this.fetchData(this.gender, this.subCategory);
+    this.fetchData();
   },
 }).mount('#app');
+
+// ... código para los efectos visuales ...
 
 
 let word = 'Accesorios'; //codigo para hacer el efecto comienzo del principio de la pagina
