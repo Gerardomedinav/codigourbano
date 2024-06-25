@@ -130,3 +130,25 @@ button:hover {
     border-color: #fff;
     background-color: rgba(255, 255, 255, 0.15);
 }
+
+.wrapper {
+    position: relative;
+    /* otros estilos */
+}
+
+.back-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.back-icon i {
+    transition: transform 0.3s ease;
+}
+
+.back-icon:hover i {
+    transform: translateX(-5px);
+}
