@@ -17,6 +17,7 @@ document.querySelector("header").innerHTML = `
         <li><a class="menu_interno" href="../../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
         <li><a class="menu_interno" href="../../ACERCA_DE/acerca_de.html">Nosotros</a></li>
         <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li> 
+       <li><a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user"></i></a></li>
 
 
     </ul>
