@@ -15,11 +15,24 @@
             <h1>Productos</h1>
 
             <div>
-                <select v-model="tipoSeleccionado" @change="filtrarPorTipo">
-                    <option value="">Todos los tipos</option>
-                    <option v-for="tipo in tiposFiltro" :value="tipo">{{ tipo }}</option>
-                </select>
+
             </div>
+
+            <div class="mb-3">
+
+                <select v-model="tipoSeleccionado" @change="filtrarPorTipo" class="form-select d-inline-block w-auto me-2">
+                    <option value="">Todos los tipos</option>
+                    <option v-for="tipo in tiposFiltro" :key="tipo" :value="tipo">{{ tipo }}</option>
+                </select>
+
+                <select v-model="campoBusqueda" class="form-select d-inline-block w-auto me-2">
+                    <option value="">Buscar por...</option>
+                    <option value="id">ID</option>
+                    <option value="nombre">Nombre</option>
+                </select>
+                <input v-model="valorBusqueda" @input="buscar" class="form-control d-inline-block w-auto" type="text" placeholder="Buscar...">
+            </div>
+            
             <br>
             <a  class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
             <br><br>

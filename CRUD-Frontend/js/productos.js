@@ -3,7 +3,7 @@ createApp({
     data() {
         return {
             productos: [],
-            url: 'http://127.0.0.1:5000/productos',
+            url: 'https://felixcanosa.pythonanywhere.com/productos',
             error: false,
             cargando: true,
             id: 0,
@@ -15,20 +15,25 @@ createApp({
             marca:"",
             origen:"",
             tiposFiltro: [],
-            tipoSeleccionado: ""
+            tipoSeleccionado: "",
+            campoBusqueda: '',
+            valorBusqueda: '',
         }
     },
     methods: {
         fetchData(url) {
+            this.cargando = true;
+            this.error = false;
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     this.productos = data;
-                    this.cargando = false
+                    this.cargando = false;
                 })
                 .catch(err => {
                     console.error(err);
-                    this.error = true
+                    this.error = true;
+                    this.cargando = false;
                 })
         },
         eliminar(id) {
@@ -69,15 +74,24 @@ createApp({
                     alert("Error al Grabar")
                 })
         },
-        filtrarPorTipo() {
-            if (this.tipoSeleccionado) {
-                this.fetchData(`${this.url}?tipo=${this.tipoSeleccionado}`);
-            } else {
-                this.fetchData(this.url);
+
+        buscar(){
+            let url = this.url;
+            if (this.campoBusqueda && this.valorBusqueda) {
+                url += `?${this.campoBusqueda}=${this.valorBusqueda}`;
             }
+            this.fetchData(url);
+        },
+
+        filtrarPorTipo() {
+            let url = this.url;
+            if (this.tipoSeleccionado) {
+                url += `?tipoProducto=${this.tipoSeleccionado}`;
+            }
+            this.fetchData(url);
         },
         obtenerTipos() {
-            fetch(`${this.url}/tipos`)
+            fetch(this.url + '/tipos')
                 .then(response => response.json())
                 .then(data => {
                     this.tiposFiltro = data;
@@ -86,6 +100,7 @@ createApp({
                     console.error(err);
                 })
         }
+        
     },
     created() {
         this.fetchData(this.url);
