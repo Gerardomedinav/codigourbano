@@ -11,7 +11,7 @@ const { createApp } = Vue
         stock:0,
         precio:0,
         tipoProducto:0,
-        url:'http://127.0.0.1:5000/productos/'+id,
+        url:'https://felixcanosa.pythonanywhere.com/productos/'+id,
        }  
     },
     methods: {

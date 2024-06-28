@@ -56,28 +56,29 @@
             <div class="grid-container">
                 <div class="tipo-ropa">
 
-                    <button @click="changeRopa('Remera')" class="boton" onclick="cambiarColor(this)">Remeras</button>
-                    <button @click="changeRopa('Camisetas')" class="boton"
-                        onclick="cambiarColor(this)">Camisetas</button>
-                    <button @click="changeRopa('Pantalones')" class="boton"
-                        onclick="cambiarColor(this)">Pantalones</button>
-                    <button @click="changeRopa('Calzas')" class="boton" onclick="cambiarColor(this)">Calzas</button>
-                    <button @click="changeRopa('Shorts')" class="boton" onclick="cambiarColor(this)">Shorts</button>
-                    <button @click="changeRopa('Buzos')" class="boton" onclick="cambiarColor(this)">Buzos</button>
-                    <button @click="changeRopa('Camperas')" class="boton" onclick="cambiarColor(this)">Camperas</button>
+                    <button @click="changeSubCategory('Remera')" class="boton" onclick="cambiarColor(this)">Remeras</button>
+                    <button @click="changeSubCategory('Camisetas')" class="boton"onclick="cambiarColor(this)">Camisetas</button>
+                    <button @click="changeSubCategory('Pantalones')" class="boton"onclick="cambiarColor(this)">Pantalones</button>
+                    <button @click="changeSubCategory('Calzas')" class="boton" onclick="cambiarColor(this)">Calzas</button>
+                    <button @click="changeSubCategory('Shorts')" class="boton" onclick="cambiarColor(this)">Shorts</button>
+                    <button @click="changeSubCategory('Buzos')" class="boton" onclick="cambiarColor(this)">Buzos</button>
+                    <button @click="changeSubCategory('Camperas')" class="boton" onclick="cambiarColor(this)">Camperas</button>
 
                 </div>
                 <div id="grid-columna_derecha">
                     <!--Contenedor de tarjetas-->
                     <div class="container-tarjeta">
+                        <div v-if="noProducts" class="no-products-message">
+                            <p>No se encontraron productos que coincidan con los criterios de búsqueda.</p>
+                        </div>
                         <div class="tarjeta" v-for="product in products">
                             <a href="javascript:void(0)" class="heart" :class="{ 'red': product.isFavorite }"
                                 @click="toggleColor(product)">&hearts;</a>
-                            <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title"
+                            <img class="imagen_product" :src="product.imagen" :alt="product.nombre"
                                 @click="showModal(product)">
                             <div class="tarjeta-texto" id="miTarjeta">
-                                <p class="card-text">Precio: ${{ product.price }}</p>
-                                <h5 class="card-title">{{ product.title }}</h5>
+                                <p class="card-text">Precio: ${{ product.precio }}</p>
+                                <h5 class="card-title">{{ product.nombre }}</h5>
                             </div>
                         </div>
                     </div>
@@ -90,9 +91,9 @@
                 <div v-for="(product, index) in this.cart">
                     <div class="tarjeta">
                         <button class="elimnar_fav_Y_produc" @click="removeFromCart(index)">X</button>
-                        <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
-                        <h5>{{ product.title }}</h5>
-                        <p>Precio: ${{ product.price }}</p>
+                        <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
+                        <h5>{{ product.nombre }}</h5>
+                        <p>Precio: ${{ product.precio }}</p>
                     </div>
                 </div>
             </div>
@@ -110,24 +111,23 @@
                 <div v-for="(product, index) in compras">
                     <div class="tarjeta">
                         <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
-                        <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
-                        <h5>{{ product.title }}</h5>
-                        <p>Precio: ${{ product.price }}</p>
+                        <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
+                        <h5>{{ product.nombre }}</h5>
+                        <p>Precio: ${{ product.precio }}</p>
                     </div>
                 </div>
             </div>
 
             <!-- ventana emergente-->
             <dialog id="modal" class="productoInterno" v-show="isModalOpen">
-                <img class="imagen_product_interno" v-if="selectedProduct" :src="getImageUrl(selectedProduct.thumbnail)"
+                <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen"
                     alt="">
                 <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
-                <h2 v-if="selectedProduct">{{selectedProduct.title}}</h2>
+                <h2 v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
                 <div class="descripcion_de_producots">
-                    <p v-if="selectedProduct">Precio: ${{ selectedProduct.price }}</p>
-                    <p v-if="selectedProduct">Condicion del producto: {{selectedProduct.condition}} </p>
-                    <p v-if="selectedProduct">Pais:{{selectedProduct.currency_id}}</p>
-                    <p v-if="selectedProduct">{{official_store_name}}</p>
+                    <p v-if="selectedProduct">Precio: ${{ selectedProduct.precio }}</p>
+                    <p v-if="selectedProduct">Stock: {{selectedProduct.stock}} </p>
+                    <p v-if="selectedProduct">Tipo: {{selectedProduct.tipoProducto}}</p>
                 </div>
                 <div class="boton_agragar_compara">
                     <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>
