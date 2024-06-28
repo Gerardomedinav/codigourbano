@@ -39,9 +39,11 @@
                                     <th scope="col">Id</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Precio</th>
+                                    <th scope="col">Marca</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">Tipo Producto</th>
                                     <th scope="col">Imagen</th>
+                                    <th scope="col">origen</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
@@ -50,11 +52,13 @@
                                     <td scope="row">{{producto.id}}</td>
                                     <td>{{producto.nombre}}</td>
                                     <td>{{producto.precio}}</td>
+                                    <td>{{producto.marca}}</td>
                                     <td>{{producto.stock}}</td>
                                     <td>{{producto.tipoProducto}}</td>
                                     <td>
                                         <img width="60"  :src="producto.imagen" :alt="producto.nombre">
                                     </td>
+                                    <td>{{producto.origen}}</td>
                                     <td>
                     			<a class="btn btn-primary" :href="'producto_update.html?id='+ producto.id" >Editar</a>
                                       <button type="button" class="btn btn-danger" v-on:click="eliminar(producto.id)" >Eliminar</button>

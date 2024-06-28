@@ -3,7 +3,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            url: 'https://api.mercadolibre.com/sites/MLA/search',
+            //url: 'https://api.mercadolibre.com/sites/MLA/search',
+            url:'https://felixcanosa.pythonanywhere.com/productos',
             productsAll: [],
             products: [],
             cart: [], // se guardan los favoritos.
@@ -14,6 +15,7 @@ createApp({
             isModalOpen: false, //  propiedad para controlar la visibilidad del modal
             selectedProduct: null, // Agrega una nueva propiedad para el producto seleccionado
             compras: [], //acá se almacenan las compras
+
 
         };
     },
@@ -30,6 +32,7 @@ createApp({
         async fetchData() {
             try {
                 const response = await fetch(`${this.url}?q=${this.searchQuery} ${this.selectorRopa} ${this.gender !== 'todo' ? this.gender : ''}`);
+                //const response = await fetch(url);
                 const data = await response.json();
                 this.productsAll = data.results;
                 this.products = data.results;

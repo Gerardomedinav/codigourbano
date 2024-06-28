@@ -12,6 +12,8 @@ createApp({
             stock: 0,
             tipoProducto: "",
             precio: 0,
+            marca:"",
+            origen:"",
             tiposFiltro: [],
             tipoSeleccionado: ""
         }
@@ -45,9 +47,11 @@ createApp({
             let producto = {
                 nombre: this.nombre,
                 precio: this.precio,
+                marca: this.marca,
                 stock: this.stock,
                 tipoProducto: this.tipoProducto,
-                imagen: this.imagen
+                imagen: this.imagen,
+                origen: this.origen
             }
             var options = {
                 body: JSON.stringify(producto),

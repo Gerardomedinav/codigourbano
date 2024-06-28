@@ -297,6 +297,7 @@ h3 {
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.9);
     overflow: auto;
     /* Agrega desplazamiento si el contenido es más grande que el modal */
+    border-radius: 10px;
 }
 
 
@@ -320,7 +321,7 @@ h3 {
 
 .boton_agragar_compara {
     font-size: 1em;
-
+    border-radius: 10px;
 }
 
 /* Botones de abir, cerrar ventana emergente*/
@@ -353,26 +354,27 @@ h3 {
 
 .imagen_product_interno {
     max-width: 50%;
+    border-radius: 10px;
 
 }
 
 #comprar {
     margin: 1em;
     font-size: 2em;
-    background-color: green;
+    background-color: rgb(111, 199, 111);
 }
 
 #añadir {
     margin: 1em;
     font-size: 2em;
-    background-color: rgb(226, 226, 0);
+    background-color: rgb(232, 232, 92);
 }
 
 
 #sacar {
     margin: 1em;
     font-size: 2em;
-    background-color: rgb(226, 226, 0);
+    background-color: rgb(232, 232, 92);
 
 }
 

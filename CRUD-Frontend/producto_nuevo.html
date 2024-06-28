@@ -28,6 +28,11 @@
         </div>
 
         <div class="mb-3">
+          <label for="marca">Marca</label>
+          <input type="text" name="marca" id="marca" v-model="marca">
+        </div>
+
+        <div class="mb-3">
           <label for="tipoProducto">Tipo Producto</label>
           <input type="text" name="tipoProducto" id="tipoProducto" v-model="tipoProducto">
         </div>
@@ -43,6 +48,11 @@
           <label for="imagen">Imagen</label>
           <input type="text" name="imagen" id="imagen" v-model="imagen">
           <img width="100" :src="imagen" alt="">
+        </div>
+
+        <div class="mb-3">
+          <label for="origen">Origen</label>
+          <input type="text" name="origen" id="origen" v-model="origen">
         </div>
           <button type="button" class="btn btn-success" v-on:click="grabar()">Grabar</button>
       </form>
