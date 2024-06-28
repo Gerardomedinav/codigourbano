@@ -58,6 +58,7 @@ createApp({
         this.compras.push(product);
       }
     },
+
     removeFromCompras(product) {
       const index = this.compras.findIndex(p => p.id === product.id);
       if (index !== -1) {
