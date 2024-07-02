@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Productos</title>
+    <title>Comentarios</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -12,19 +12,13 @@
     </header>
     <main>
         <div id="app" class="container">
-            <h1>Productos</h1>
+            <h1>Comentarios</h1>
 
             <div>
 
             </div>
 
             <div class="mb-3">
-
-                <select v-model="tipoSeleccionado" @change="filtrarPorTipo" class="form-select d-inline-block w-auto me-2">
-                    <option value="">Todos los tipos</option>
-                    <option v-for="tipo in tiposFiltro" :key="tipo" :value="tipo">{{ tipo }}</option>
-                </select>
-
                 <select v-model="campoBusqueda" class="form-select d-inline-block w-auto me-2">
                     <option value="">Buscar por...</option>
                     <option value="id">ID</option>
@@ -34,15 +28,14 @@
             </div>
             
             <br>
-            <a  class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
-            <br><br>
+            <br>
             <div v-if="error">
-                <p>Lo sentimos , ........</p>
+                <p>Lo sentimos, no se pudo mostrar los comentarios........</p>
             </div>
             <div v-else>
                 <section v-if="cargando">
                     <div class="spinner-border"></div>
-                    <p>Cargando .....</p>
+                    <p>Cargando Comentarios .....</p>
                 </section>
                 <section v-else>
                     <div class="table-responsive">
@@ -51,30 +44,22 @@
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Marca</th>
-                                    <th scope="col">Stock</th>
-                                    <th scope="col">Tipo Producto</th>
-                                    <th scope="col">Imagen</th>
-                                    <th scope="col">origen</th>
-                                    <th scope="col">Acciones</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mensaje</th>
+                                    <th scope="col">Genero</th>
+                                    <th scope="col">Pais</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class=""  v-for="producto in productos">
-                                    <td scope="row">{{producto.id}}</td>
-                                    <td>{{producto.nombre}}</td>
-                                    <td>{{producto.precio}}</td>
-                                    <td>{{producto.marca}}</td>
-                                    <td>{{producto.stock}}</td>
-                                    <td>{{producto.tipoProducto}}</td>
+                                <tr class=""  v-for="comentario in comentarios">
+                                    <td scope="row">{{comentario.id}}</td>
+                                    <td>{{comentario.nombre}}</td>
+                                    <td>{{comentario.email}}</td>
+                                    <td>{{comentario.mensaje}}</td>
+                                    <td>{{comentario.genero}}</td>
+                                    <td>{{comentario.pais}}</td>
                                     <td>
-                                        <img width="60"  :src="producto.imagen" :alt="producto.nombre">
-                                    </td>
-                                    <td>{{producto.origen}}</td>
-                                    <td>
-                    			<a class="btn btn-primary" :href="'producto_update.html?id='+ producto.id" >Editar</a>
-                                      <button type="button" class="btn btn-danger" v-on:click="eliminar(producto.id)" >Eliminar</button>
+                                      <button type="button" class="btn btn-danger" v-on:click="eliminar(comentario.id)" >Eliminar</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -90,8 +75,7 @@
     <!--Link de Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-    <script src="./js/main.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
-    <script src="./js/productos.js"></script>
+    <script src="./js/comentarios.js"></script>
 </body>
 </html>
