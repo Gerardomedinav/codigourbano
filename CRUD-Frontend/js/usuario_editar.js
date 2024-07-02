@@ -7,7 +7,7 @@ const { createApp } = Vue
       return {
         id:0,
         nombre:"",
-        contraseña:"",
+        contrasena:"",
         email:"",
         tipoUsuario:"",
         url:'https://felixcanosa.pythonanywhere.com/usuarios/'+id,
@@ -21,7 +21,7 @@ const { createApp } = Vue
                     console.log(data)
                     this.id=data.id
                     this.nombre = data.nombre;
-                    this.contraseña=data.contrasena
+                    this.contrasena=data.contrasena
                     this.email=data.email
                     this.tipoUsuario=data.tipo_usuario          
                 })
@@ -31,12 +31,12 @@ const { createApp } = Vue
                 })
         },
         modificar() {
-            let usuario = {
-                nombre:this.nombre,
-                contraseña: this.contraseña,
-                email: this.email,
-                tipo_usuario: this.tipoUsuario ? 0 : 1
-            }
+            let usuario = {}
+            if (this.nombre) usuario.nombre = this.nombre
+            if (this.contrasena) usuario.contrasena = this.contraseña
+            if (this.email) usuario.email = this.email
+            if (this.tipoUsuario !== undefined) usuario.tipo_usuario = this.tipoUsuario
+        
             var options = {
                 body: JSON.stringify(usuario),
                 method: 'PUT',
@@ -44,14 +44,21 @@ const { createApp } = Vue
                 redirect: 'follow'
             }
             fetch(this.url, options)
-                .then(function () {
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(err => { throw err; });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Respuesta del servidor:", data);
                     alert("Registro modificado")
-                    window.location.href = "./usuarios.html"; // navega a usuarios.html          
+                    window.location.href = "./usuarios.html";
                 })
                 .catch(err => {
-                    console.error(err);
-                    alert("Error al Modificar")
-                })      
+                    console.error("Error detallado:", err);
+                    alert("Error al Modificar: " + (err.error || err.message || "Error desconocido"))
+                })
         }
     },
     created() {

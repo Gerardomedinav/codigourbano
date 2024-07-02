@@ -8,7 +8,7 @@ createApp({
             cargando: true,
             id: 0,
             nombre: "",
-            contraseña: "",
+            contrasena: "",
             email:"",
             tipoUsuario:"",
             campoBusqueda: '',
@@ -46,7 +46,7 @@ createApp({
         grabar() {
             let usuario = {
                 nombre: this.nombre,
-                contraseña: this.contraseña,
+                contrasena: this.contrasena,
                 email: this.email,
                 tipo_usuario: this.tipoUsuario ? 0 : 1
             }
