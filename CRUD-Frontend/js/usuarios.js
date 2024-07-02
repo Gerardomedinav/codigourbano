@@ -77,6 +77,7 @@ createApp({
                 this.fetchData(this.url);
             }
         },
+
         /*
         filtrarPorTipo() {
             let url = this.url;
