@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans: wght@200; 300; 400; 500; 600;700&display swap");
+
 
 
 * {
@@ -152,3 +152,9 @@ button:hover {
 .back-icon:hover i {
     transform: translateX(-5px);
 }
+.error-message {
+    color: #FFFFFF; /* Color blanco */
+    background-color: #ff00004d; /* Fondo rojo para resaltar el error */
+    padding: 10px;
+    border-radius: 5px;
+  }
