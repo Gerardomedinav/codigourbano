@@ -1,63 +1,80 @@
-console.log(location.search)     // lee los argumentos pasados a este formulario
-var id=location.search.substr(4)  // producto_update.html?id=1
+console.log(location.search)
+var id = location.search.substr(4)
 console.log(id)
+
 const { createApp } = Vue
-  createApp({
-    data() {
-      return {
-        id:0,
-        nombre:"",
-        imagen:"",
-        stock:0,
-        precio:0,
-        tipoProducto:0,
-        url:'https://felixcanosa.pythonanywhere.com/productos/'+id,
-       }  
+
+createApp({
+  data() {
+    return {
+      id: 0,
+      nombre: "",
+      imagen: "",
+      marca: "",
+      stock: 0,
+      precio: 0,
+      tipoProducto: "",
+      descripcion: "",
+      origen: "",
+      url: 'https://felixcanosa.pythonanywhere.com/productos/' + id,
+    }
+  },
+  methods: {
+    fetchData(url) {
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.id = data.id
+          this.nombre = data.nombre
+          this.imagen = data.imagen
+          this.stock = data.stock
+          this.tipoProducto = data.tipoProducto
+          this.precio = data.precio
+          this.descripcion = data.descripcion
+          this.marca = data.marca
+          this.origen = data.origen
+        })
+        .catch(err => {
+          console.error(err)
+          this.error = true
+        })
     },
-    methods: {
-        fetchData(url) {
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data)
-                    this.id=data.id
-                    this.nombre = data.nombre;
-                    this.imagen=data.imagen
-                    this.stock=data.stock
-                    this.tipoProducto=data.tipoProducto
-                    this.precio=data.precio                    
-                })
-                .catch(err => {
-                    console.error(err);
-                    this.error=true              
-                })
-        },
-        modificar() {
-            let producto = {
-                nombre:this.nombre,
-                precio: this.precio,
-                stock: this.stock,
-                tipoProducto: this.tipoProducto,
-                imagen: this.imagen
-            }
-            var options = {
-                body: JSON.stringify(producto),
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                redirect: 'follow'
-            }
-            fetch(this.url, options)
-                .then(function () {
-                    alert("Registro modificado")
-                    window.location.href = "./productos.html"; // navega a productos.html          
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert("Error al Modificar")
-                })      
-        }
-    },
-    created() {
-        this.fetchData(this.url)
-    },
-  }).mount('#app')
+    modificar() {
+      let producto = {
+        nombre: this.nombre,
+        precio: this.precio,
+        stock: this.stock,
+        tipoProducto: this.tipoProducto,
+        imagen: this.imagen,
+        descripcion: this.descripcion,
+        marca: this.marca,
+        origen: this.origen
+      }
+      var options = {
+        body: JSON.stringify(producto),
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        redirect: 'follow'
+      }
+      fetch(this.url, options)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          alert("Registro modificado")
+          window.location.href = "./productos.html"
+        })
+        .catch(err => {
+          console.error('Error:', err)
+          alert("Error al Modificar: " + err.message)
+        })
+    }
+  },
+  created() {
+    this.fetchData(this.url)
+  },
+}).mount('#app')

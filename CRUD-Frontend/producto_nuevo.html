@@ -54,6 +54,13 @@
           <label for="origen">Origen</label>
           <input type="text" name="origen" id="origen" v-model="origen">
         </div>
+
+        <div class="mb-3">
+          <label for="descripcion">Descripción</label>
+          <textarea name="descripcion" id="descripcion" v-model="descripcion" cols="30" rows="10"></textarea>
+        </div>
+
+        
           <button type="button" class="btn btn-success" v-on:click="grabar()">Grabar</button>
       </form>
     </div>

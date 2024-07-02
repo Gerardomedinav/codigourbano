@@ -13,6 +13,7 @@ createApp({
             tipoProducto: "",
             precio: 0,
             marca:"",
+            descripcion: "",
             origen:"",
             tiposFiltro: [],
             tipoSeleccionado: "",
@@ -56,6 +57,7 @@ createApp({
                 stock: this.stock,
                 tipoProducto: this.tipoProducto,
                 imagen: this.imagen,
+                descripcion: this.descripcion,
                 origen: this.origen
             }
             var options = {
@@ -65,13 +67,19 @@ createApp({
                 redirect: 'follow'
             }
             fetch(this.url, options)
-                .then(function () {
-                    alert("Registro grabado")
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(err => { throw err; });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    alert("Registro grabado correctamente")
                     window.location.href = "./productos.html";
                 })
                 .catch(err => {
-                    console.error(err);
-                    alert("Error al Grabar")
+                    console.error('Error:', err);
+                    alert("Error al Grabar: " + (err.error || err.message || JSON.stringify(err)));
                 })
         },
 

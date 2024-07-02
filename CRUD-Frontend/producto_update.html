@@ -39,7 +39,7 @@
 
           <div class="mb-3">
             <label for="tipoProducto">Tipo Producto</label>
-            <input type="number" name="tipoProducto" id="tipoProducto" v-model="tipoProducto">
+            <input type="text" name="tipoProducto" id="tipoProducto" v-model="tipoProducto">
           </div>
 
           <div class="mb-3">
@@ -51,6 +51,13 @@
             <label for="origen">Origen</label>
             <input type="text" name="origen" id="origen" v-model="origen">
           </div>
+
+          <div class="mb-3">
+            <label for="descripcion">Descripción</label>
+            <textarea name="descripcion" id="descripcion" v-model="descripcion" cols="30" rows="10"></textarea>
+          </div>
+
+          
           <button type="button" class="btn btn-success" v-on:click="modificar()">Grabar</button>
           </form>
         </div>
