@@ -7,7 +7,6 @@ body {
     min-height: 100vh;  
 }
 
-
 #header {
     border: 1px solid rgb(232, 232, 232);
     position: -webkit-sticky; /* Para Safari */
@@ -15,9 +14,16 @@ body {
     top: 0; /* La distancia desde la parte superior de la ventana del navegador */    
 }
 
-
 #editar {
-    margin-bottom:5px;
+    margin-right:10px;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: rgb(255,255,255);
 }
 
 
@@ -42,36 +48,7 @@ body {
     background-size: cover;
   }
 
-    /*tabla responsiva*/
-
-  .table-responsive {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    background-color: rgb(255,255,255);
-}
-
-.table-responsive > .table {
-    margin-bottom: 0;
-}
-
-@media screen and (max-width: 767px) {
-    .table-responsive > .table {
-        border: 0;
-    }
-
-    .table-responsive > .table > thead > tr > th,
-    .table-responsive > .table > tbody > tr > th,
-    .table-responsive > .table > tfoot > tr > th,
-    .table-responsive > .table > thead > tr > td,
-    .table-responsive > .table > tbody > tr > td,
-    .table-responsive > .table > tfoot > tr > td {
-        white-space: nowrap;
-    }
-}
-
-/*animación del logo*/
+  /*animación del logo*/
 
 @-webkit-keyframes rotate-center {
     0% {
