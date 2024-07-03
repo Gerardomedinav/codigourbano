@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="STILOS/Zapatillas.CSS">
     <title>Ropa Deportiva - Codigo Urbano</title>
 </head>
+
 <body>
     <header></header>
     <main>
@@ -30,15 +32,19 @@
 
             <div id="pintado">
                 <div id="main-prin_seleccionador_genero">
-                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero" @click="changeGender('Todo')">Todo</a>
-                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero" @click="changeGender('Niño')">Niño</a>
-                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero" @click="changeGender('Hombre')">Hombre</a>
-                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero" @click="changeGender('Mujer')">Mujer</a>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero"
+                        @click="changeGender('Todo')">Todo</a>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero"
+                        @click="changeGender('Niño')">Niño</a>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero"
+                        @click="changeGender('Hombre')">Hombre</a>
+                    <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero"
+                        @click="changeGender('Mujer')">Mujer</a>
                 </div>
-        
+
                 <div id="searchs">
-                    <input placeholder="Buscar..." type="text" class="form-control" id="search"
-                        v-model="searchQuery" @keyup.enter="fetchData">
+                    <input placeholder="Buscar..." type="text" class="form-control" id="search" v-model="searchQuery"
+                        @keyup.enter="fetchData">
                 </div>
             </div>
 
@@ -46,57 +52,61 @@
 
             <div id="contenedor_de_productos">
                 <div class="producto" v-for="product in products" :key="product.id">
-                    <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }" @click="toggleColor(product)">&hearts;</a>
-                    <img class="imagen_product" :src="product.imagen" :alt="product.nombre"
-                        @click="showModal(product)">
+                    <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }"
+                        @click="toggleColor(product)">&hearts;</a>
+                    <img class="imagen_product" :src="product.imagen" :alt="product.nombre" @click="showModal(product)">
                     <h3>{{product.nombre}}</h3>
                 </div>
             </div>
 
-            
+
             <dialog id="modal" class="procutoInterno" v-show="isModalOpen">
-                <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen" alt="">
-                    <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
-                <h2 v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
                 <div class="descripcion_de_producots">
-                    <p v-if="selectedProduct">Precio: ${{ selectedProduct.precio }}</p>
-                    <p v-if="selectedProduct">Stock: {{selectedProduct.stock}} </p>
-                    <p v-if="selectedProduct">Tipo: {{selectedProduct.tipoProducto}}</p>
-                </div>
-                <div class="boton_agragar_compara">
-                    <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>
-                    <button class="boton_agragar_compara" @click="toggleCompras(selectedProduct)" id="añadir">{{ compras.includes(selectedProduct) ? 'sacar' : 'añadir' }}</button>
-                </div>
-            </dialog>
+                <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen" alt="">
+                <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
+                
+                <h2 style="text-align: center;" v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
 
-            <h3 id="favorio">Favoritos</h3>
-            <div class="contenedor_de_productos_y_favoritos">
-                <div v-for="(product, index) in cart" :key="product.id">
-                    <div class="producto">
-                        <button class="elimnar_fav_Y_produc" @click="removeFromCart(index)">X</button>
-                        <img class="imagen_product" :src="product.imagen" :alt="product.title">
-                        <h5>{{product.nombre}}</h5>
-                        <p>Precio: ${{ product.price }}</p>
-                    </div>
+                <p v-if="selectedProduct">Precio: ${{ selectedProduct.precio }}</p>
+                <p v-if="selectedProduct">Stock: {{selectedProduct.stock}} </p>
+                <p v-if="selectedProduct">Tipo: {{selectedProduct.tipoProducto}}</p>
+                </div>
+        <div class="boton_agragar_compara">
+            <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>
+            <button class="boton_agragar_compara" @click="toggleCompras(selectedProduct)" id="añadir">{{
+                compras.includes(selectedProduct) ? 'sacar' : 'añadir' }}</button>
+        </div>
+        </dialog>
+
+        <h3 id="favorio">Favoritos</h3>
+        <div class="contenedor_de_productos_y_favoritos">
+            <div v-for="(product, index) in cart" :key="product.id">
+                <div class="producto">
+                    <button class="elimnar_fav_Y_produc" @click="removeFromCart(index)">X</button>
+                    <img class="imagen_product" :src="product.imagen" :alt="product.title">
+                    <h5>{{product.nombre}}</h5>
+                    <p>Precio: ${{ product.price }}</p>
                 </div>
             </div>
+        </div>
 
-            <div id="contenedor_botones_prosucto">
-                <h3 id="compra">Compras</h3>
-                <p id="contador_precio" style="color: rgb(247, 247, 247);">Total: ${{ totalPrice() }}</p>
-                <button id="compra_producto" class="boton_agragar_compara" id="comprar" @click="buyProduct">Realizar Pedido</button>
-            </div>
+        <div id="contenedor_botones_prosucto">
+            <h3 id="compra">Compras</h3>
+            <p id="contador_precio" style="color: rgb(247, 247, 247);">Total: ${{ totalPrice() }}</p>
+            <button id="compra_producto" class="boton_agragar_compara" id="comprar" @click="buyProduct">Realizar
+                Pedido</button>
+        </div>
 
-            <div class="contenedor_de_productos_y_favoritos">
-                <div v-for="(product, index) in compras" :key="product.id">
-                    <div class="producto">
-                        <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
-                        <img class="imagen_product" :src="product.imagen" :alt="product.title">
-                        <h5>{{product.nombre}}</h5>
-                        <p>Precio: ${{product.precio}}</p>
-                    </div>
+        <div class="contenedor_de_productos_y_favoritos">
+            <div v-for="(product, index) in compras" :key="product.id">
+                <div class="producto">
+                    <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
+                    <img class="imagen_product" :src="product.imagen" :alt="product.title">
+                    <h5>{{product.nombre}}</h5>
+                    <p>Precio: ${{product.precio}}</p>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 

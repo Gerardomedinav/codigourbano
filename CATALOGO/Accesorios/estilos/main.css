@@ -326,13 +326,15 @@ body{
 #comprar{
     margin: 1em;
     font-size: 2em;
-    background-color: green;
+    border-radius: 17px;
+    background-color: rgb(37, 208, 37);
 }
 
 #añadir{
     margin: 1em;
+    border-radius: 17px;
     font-size: 2em; 
-    background-color: rgb(226, 226, 0);
+    background-color:  rgb(255, 99, 99);
 }
 
 .contenedor_de_productos_y_favoritos{
