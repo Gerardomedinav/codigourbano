@@ -2,21 +2,15 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            productos: [],
-            url: 'https://felixcanosa.pythonanywhere.com/productos',
+            usuarios: [],
+            url: 'https://felixcanosa.pythonanywhere.com/usuarios',
             error: false,
             cargando: true,
             id: 0,
             nombre: "",
-            imagen: "",
-            stock: 0,
-            tipoProducto: "",
-            precio: 0,
-            marca:"",
-            descripcion: "",
-            origen:"",
-            tiposFiltro: [],
-            tipoSeleccionado: "",
+            contrasena: "",
+            email:"",
+            tipoUsuario:"",
             campoBusqueda: '',
             valorBusqueda: '',
         }
@@ -28,7 +22,7 @@ createApp({
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    this.productos = data;
+                    this.usuarios = data;
                     this.cargando = false;
                 })
                 .catch(err => {
@@ -50,47 +44,41 @@ createApp({
                 })
         },
         grabar() {
-            let producto = {
+            let usuario = {
                 nombre: this.nombre,
-                precio: this.precio,
-                marca: this.marca,
-                stock: this.stock,
-                tipoProducto: this.tipoProducto,
-                imagen: this.imagen,
-                descripcion: this.descripcion,
-                origen: this.origen
+                contrasena: this.contrasena,
+                email: this.email,
+                tipo_usuario: this.tipoUsuario ? 0 : 1
             }
+            console.log(usuario);
             var options = {
-                body: JSON.stringify(producto),
+                body: JSON.stringify(usuario),
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow'
             }
             fetch(this.url, options)
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(err => { throw err; });
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    alert("Registro grabado correctamente")
-                    window.location.href = "./productos.html";
+                .then(function () {
+                    alert("Registro grabado")
+                    window.location.href = "./usuarios.html";
                 })
                 .catch(err => {
-                    console.error('Error:', err);
-                    alert("Error al Grabar: " + (err.error || err.message || JSON.stringify(err)));
+                    console.error(err);
+                    alert("Error al Grabar")
                 })
         },
 
-        buscar(){
-            let url = this.url;
+        buscar() {
             if (this.campoBusqueda && this.valorBusqueda) {
-                url += `?${this.campoBusqueda}=${this.valorBusqueda}`;
+                let url = new URL(this.url);
+                url.searchParams.append(this.campoBusqueda, this.valorBusqueda);
+                this.fetchData(url);
+            } else {
+                this.fetchData(this.url);
             }
-            this.fetchData(url);
         },
 
+        /*
         filtrarPorTipo() {
             let url = this.url;
             if (this.tipoSeleccionado) {
@@ -108,10 +96,10 @@ createApp({
                     console.error(err);
                 })
         }
-        
+        */
     },
     created() {
         this.fetchData(this.url);
-        this.obtenerTipos();
+        
     },
 }).mount('#app')
