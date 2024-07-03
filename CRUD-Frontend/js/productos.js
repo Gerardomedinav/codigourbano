@@ -50,6 +50,41 @@ createApp({
                 })
         },
         grabar() {
+            // Validación de campos
+            if (!this.nombre.trim()) {
+                alert("El nombre del producto es obligatorio");
+                return;
+            }
+            if (this.precio <= 0) {
+                alert("El precio debe ser mayor que 0");
+                return;
+            }
+            if (!this.marca.trim()) {
+                alert("La marca es obligatoria");
+                return;
+            }
+            if (this.stock < 0) {
+                alert("El stock no puede ser negativo");
+                return;
+            }
+            if (!this.tipoProducto.trim()) {
+                alert("El tipo de producto es obligatorio");
+                return;
+            }
+            if (!this.imagen.trim()) {
+                alert("La URL de la imagen es obligatoria");
+                return;
+            }
+            if (!this.origen.trim()) {
+                alert("El origen es obligatorio");
+                return;
+            }
+            if (!this.descripcion.trim()) {
+                alert("La descripción es obligatoria");
+                return;
+            }
+        
+        
             let producto = {
                 nombre: this.nombre,
                 precio: this.precio,
