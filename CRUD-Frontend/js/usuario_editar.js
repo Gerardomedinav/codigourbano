@@ -1,17 +1,17 @@
 console.log(location.search)     // lee los argumentos pasados a este formulario
-var id=location.search.substr(4)  // producto_update.html?id=1
+var id = location.search.substr(4)  // producto_update.html?id=1
 console.log(id)
 const { createApp } = Vue
-  createApp({
+createApp({
     data() {
-      return {
-        id:0,
-        nombre:"",
-        contrasena:"",
-        email:"",
-        tipoUsuario:"",
-        url:'https://felixcanosa.pythonanywhere.com/usuarios/'+id,
-       }  
+        return {
+            id: 0,
+            nombre: "",
+            contrasena: "",
+            email: "",
+            tipoUsuario: "",
+            url: 'https://felixcanosa.pythonanywhere.com/usuarios/' + id,
+        }
     },
     methods: {
         fetchData(url) {
@@ -19,24 +19,30 @@ const { createApp } = Vue
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)
-                    this.id=data.id
+                    this.id = data.id
                     this.nombre = data.nombre;
-                    this.contrasena=data.contrasena
-                    this.email=data.email
-                    this.tipoUsuario=data.tipo_usuario          
+                    this.contrasena = data.contrasena
+                    this.email = data.email
+                    this.tipoUsuario = data.tipo_usuario
                 })
                 .catch(err => {
                     console.error(err);
-                    this.error=true              
+                    this.error = true
                 })
         },
         modificar() {
+            // Verificar si todos los campos requeridos están llenos
+            if (!this.nombre || !this.contrasena || !this.email || !this.tipo_usuario) {
+                alert("Por favor, complete todos los campos obligatorios.");
+                return;
+            }
+
             let usuario = {}
             if (this.nombre) usuario.nombre = this.nombre
             if (this.contrasena) usuario.contrasena = this.contraseña
             if (this.email) usuario.email = this.email
             if (this.tipoUsuario !== undefined) usuario.tipo_usuario = this.tipoUsuario
-        
+
             var options = {
                 body: JSON.stringify(usuario),
                 method: 'PUT',
@@ -64,4 +70,4 @@ const { createApp } = Vue
     created() {
         this.fetchData(this.url)
     },
-  }).mount('#app')
+}).mount('#app')

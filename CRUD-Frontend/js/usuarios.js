@@ -9,8 +9,8 @@ createApp({
             id: 0,
             nombre: "",
             contrasena: "",
-            email:"",
-            tipoUsuario:"",
+            email: "",
+            tipoUsuario: "",
             campoBusqueda: '',
             valorBusqueda: '',
         }
@@ -44,6 +44,13 @@ createApp({
                 })
         },
         grabar() {
+
+            // Verificar si todos los campos requeridos están llenos
+            if (!this.nombre || !this.contrasena || !this.email || !this.tipo_usuario) {
+                alert("Por favor, complete todos los campos obligatorios.");
+                return;
+            }
+            
             let usuario = {
                 nombre: this.nombre,
                 contrasena: this.contrasena,
@@ -100,6 +107,6 @@ createApp({
     },
     created() {
         this.fetchData(this.url);
-        
+
     },
 }).mount('#app')
