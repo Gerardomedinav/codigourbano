@@ -126,8 +126,9 @@
                 <h2 v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
                 <div class="descripcion_de_producots">
                     <p v-if="selectedProduct">Precio: ${{ selectedProduct.precio }}</p>
-                    <p v-if="selectedProduct">Stock: {{selectedProduct.stock}} </p>
-                    <p v-if="selectedProduct">Tipo: {{selectedProduct.tipoProducto}}</p>
+                    <p v-if="selectedProduct">Stock: {{selectedProduct.stock}}</p>
+                    <p v-if="selectedProduct">Descripción: {{selectedProduct.descricion}}</p>
+                    <p v-if="selectedProduct">Marca: {{selectedProduct.marca}}</p>
                 </div>
                 <div class="boton_agragar_compara">
                     <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>

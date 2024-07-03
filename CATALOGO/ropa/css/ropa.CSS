@@ -237,7 +237,7 @@ h3 {
     width: 100%;
     margin-top: 1em;
     border-radius: 5px;
-    /*object-fit:contain;*/
+    object-fit:cover;
 }
 
 .tarjeta-texto {
@@ -262,7 +262,7 @@ h3 {
 .tarjeta:hover {
     transform: translateY(-5px);
     transition: 500ms;
-    background-color: rgba(197, 95, 237, 0.5);
+    background-color: rgb(6,197,204);
 }
 
 .container-tarjeta,
@@ -278,33 +278,36 @@ h3 {
 }
 
 .productoInterno {
-
     position: fixed;
-
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 40em;
     height: 95%;
-
-    display: flex;
+    display: block;
+   /* display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: antiquewhite;
+    */background-color: antiquewhite;
     z-index: 1000;
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.9);
     overflow: auto;
     /* Agrega desplazamiento si el contenido es más grande que el modal */
     border-radius: 10px;
+    text-align: center;
 }
 
+.productoInterno h2,.boton_agragar_compara{
+    text-align: center;
+}
 
 .descripcion_de_producots {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
+    text-align:left;
 }
 
 
@@ -355,26 +358,26 @@ h3 {
 .imagen_product_interno {
     max-width: 50%;
     border-radius: 10px;
-
+    
 }
 
 #comprar {
     margin: 1em;
     font-size: 2em;
-    background-color: rgb(111, 199, 111);
+    background-color: rgb(37, 208, 37);
 }
 
 #añadir {
     margin: 1em;
     font-size: 2em;
-    background-color: rgb(232, 232, 92);
+    background-color:  rgb(255, 99, 99);
 }
 
 
 #sacar {
     margin: 1em;
     font-size: 2em;
-    background-color: rgb(232, 232, 92);
+    background-color: rgb(205, 84, 51);
 
 }
 
@@ -431,7 +434,6 @@ footer {
 }
 
 
-
 .elimnar_fav_Y_produc{
     font-size: 5em;
     /* Reducir el tamaño de la fuente */
@@ -460,6 +462,7 @@ footer {
     background-color: antiquewhite;
     padding: 0 10px;
     color: rgb(0, 0, 0);
+    border-radius: 5px;
 }
 
 #favorio, #compra{
@@ -475,6 +478,8 @@ footer {
     background-color: rgba(70, 68, 68,0.5);
     font-size: 2em;
     text-align: center;
+    border-radius: 5px;
+    padding: 0 10px;
 }
 
 .container-carrito {
