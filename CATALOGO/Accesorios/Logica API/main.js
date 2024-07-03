@@ -43,10 +43,16 @@ createApp({
         if (params.length > 0) {
           queryUrl += '?' + params.join('&');
         }
+
+
         
         const response = await fetch(queryUrl);
         const data = await response.json();
-        this.products = data;
+
+        this.products = data.filter(product => 
+          product.tipoProducto.toLowerCase().includes('accesorio')
+        );
+        
         this.noProducts = this.products.length === 0;
       } catch (error) {
         console.error(`Error: ${error}`);
