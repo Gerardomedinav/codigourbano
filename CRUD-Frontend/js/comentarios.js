@@ -39,11 +39,19 @@ createApp({
                 method: 'DELETE',
             }
             fetch(url, options)
-                .then(res => res.text())
                 .then(res => {
-                    alert('Registro Eliminado')
-                    location.reload();
+                    if (!res.ok) throw new Error('Failed to delete');
+                    return res.json();
                 })
+                .then(data => {
+                    alert('Registro Eliminado');
+                    // Remove the deleted comment from the local array
+                    this.comentarios = this.comentarios.filter(c => c.id !== id);
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert('Error al eliminar el registro');
+                });
         },
        
 
