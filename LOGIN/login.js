@@ -29,7 +29,7 @@ const app = new Vue({
     },
     login() {
       this.fetchData(this.url);
-      const usuario = this.usuarios.find(usuario => usuario.email === this.email && usuario.contraseña === this.password);
+      const usuario = this.usuarios.find(usuario => usuario.email === this.email && usuario.contrasena === this.password);
       if (usuario) {
         window.location.href = "../CRUD-Frontend/productos.html";
       } else {
