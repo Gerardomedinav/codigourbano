@@ -41,6 +41,18 @@ createApp({
         })
     },
     modificar() {
+      // Verificar si todos los campos requeridos están llenos
+      if (!this.nombre || !this.precio || !this.stock || !this.tipoProducto || !this.imagen || !this.marca || !this.origen || !this.descripcion) {
+        alert("Por favor, complete todos los campos obligatorios.");
+        return;
+      }
+    
+      // Verificar que precio y stock sean números positivos
+      if (this.precio <= 0 || this.stock < 0) {
+        alert("El precio debe ser mayor que 0 y el stock no puede ser negativo.");
+        return;
+      }
+    
       let producto = {
         nombre: this.nombre,
         precio: this.precio,
