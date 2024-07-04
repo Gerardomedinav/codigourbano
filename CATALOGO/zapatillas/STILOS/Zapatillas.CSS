@@ -252,8 +252,9 @@ h1 {
 
 .descripcion_de_producots{
     display: flex;
+flex-direction: column;
     flex-wrap: nowrap;
-    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -304,19 +305,22 @@ h2 {
 #comprar {
     margin: 1em;
     font-size: 2em;
-    background-color: green;
+    border-radius: 17px;
+    background-color: rgb(37, 208, 37);
 }
 
 #añadir {
     margin: 1em;
     font-size: 2em;
-    background-color: rgb(226, 226, 0);
+    border-radius: 17px;
+    background-color:  rgb(255, 99, 99);
 }
 
 #sacar{
     margin: 1em;
     font-size: 2em;
-    background-color: rgb(226, 226, 0);
+    border-radius: 17px;
+    background-color: rgb(230, 230, 230);
 
 }
 

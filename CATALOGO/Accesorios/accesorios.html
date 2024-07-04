@@ -72,9 +72,10 @@
                 <dialog id="modal" class="procutoInterno" v-show="isModalOpen">
                     <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen" alt="">
                         <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
-                    <h2 v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
                     <div class="descripcion_de_producots">
-                        <p v-if="selectedProduct">Precio: ${{ selectedProduct.precio }}</p>
+                    <h2 style="text-align: center;" v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
+                    
+                        <p style="padding-top: 3px;" v-if="selectedProduct">Precio: ${{ selectedProduct.precio }}</p>
                         <p v-if="selectedProduct">Stock: {{selectedProduct.stock}} </p>
                         <p v-if="selectedProduct">Tipo: {{selectedProduct.tipoProducto}}</p>
                     </div>
