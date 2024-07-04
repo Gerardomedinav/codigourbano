@@ -18,19 +18,33 @@
     <div id="app">
         <div class="wrapper">
             <h2> Login </h2>
-            <div class="input-field"> <input type="text" id="email" v-model="email" required> <label for="email">Introduce tu email</label> </div>
-            <div class="input-field"> <input type="password" id="password" v-model="password" required> <label for="password">Introduce tu contraseña</label>
+            <div class="input-field"> 
+                <input type="text" id="email" v-model="email" required> 
+                <label for="email">Introduce tu email</label> 
+            </div>
+            <div class="input-field"> 
+                <input type="password" id="password" v-model="password" required> 
+                <label for="password">Introduce tu contraseña</label>
             </div>
          
-            <div class="forget"> <label for="remember"> <input type="checkbox" id="remember">
+            <div class="forget"> 
+                <label for="remember"> 
+                    <input type="checkbox" id="remember">
                     <p>Recordarme</p>
-                </label> <a href="#">Olvido su contraseña?</a> </div>
+                </label> 
+                <a href="#">Olvido su contraseña?</a> 
+            </div>
             <button type="button" @click="login">Entrar</button>
             <a href="../index.html" class="back-icon" title="Volver al home">
                 <i class="fas fa-arrow-left"></i>
                 <span>Volver</span>
             </a>
             <div v-if="error" class="error-message">{{ mensajeError }}</div>
+            
+            <!-- Nuevo enlace para registrarse -->
+            <div class="register">
+                <p>¿No tienes una cuenta? <a href="./usuario_nuevo_cliente.html">Regístrate aquí</a></p>
+            </div>
 
         </div>
     </div>

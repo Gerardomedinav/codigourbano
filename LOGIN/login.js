@@ -2,13 +2,13 @@ const app = new Vue({
   el: '#app',
   data() {
     return {
-      usuarios: [],
+      usuarios: {},
       url: 'https://felixcanosa.pythonanywhere.com/usuarios',
       error: false,
       cargando: true,
       email: '',
       password: '',
-      mensajeError: '' // Agregamos una variable para almacenar el mensaje de error
+      mensajeError: ''
     }
   },
   methods: {
@@ -29,12 +29,18 @@ const app = new Vue({
     },
     login() {
       this.fetchData(this.url);
-      const usuario = this.usuarios.find(usuario => usuario.email === this.email && usuario.contrasena === this.password);
-      if (usuario) {
+      let usuario = null;
+      for (const key in this.usuarios) {
+        if (this.usuarios[key].email === this.email && this.usuarios[key].contrasena === this.password) {
+          usuario = this.usuarios[key];
+          break;
+        }
+      }
+      if (usuario && usuario.tipo_usuario === 1) { // Aquí se corrige la referencia a la propiedad 'tipo'
         window.location.href = "../CRUD-Frontend/productos.html";
       } else {
         this.error = true;
-        this.mensajeError = 'Error al ingresar email o contraseña. Por favor, ingrese correctamente.'; // Mostramos el mensaje de error
+        this.mensajeError = 'Error al ingresar email o contraseña. Por favor, ingrese correctamente.';
       }
     }
   },
