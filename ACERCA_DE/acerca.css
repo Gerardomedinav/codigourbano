@@ -347,11 +347,6 @@
             text-align: center;
             justify-content: space-around
           }
-
-          .box_mapa  {
-            /* min-height: 100%; */
-          }
-
  /* formulario contactos */
 
       .contactBody{
@@ -496,9 +491,7 @@
         margin-top: 50%;
     
       }
-    
-    
-    
+
       @keyframes bounce{
         0%{
           
