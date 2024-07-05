@@ -28,7 +28,7 @@ document.querySelector("header").innerHTML = `
 
 
     <form id="buscador_header_logico">
-        <a href="#favorio" class="corazon_compra">&hearts;</a>
+         <a href="#favorio" class="corazon_compra"><img  class="corazon_compraIMG" src="../../CATALOGO/Header_Footer JS/img_head-foot/icons8-heart-32.png" alt=""></a>
         <a href="#compra"><img src="../../CATALOGO/Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
     </form>
 
