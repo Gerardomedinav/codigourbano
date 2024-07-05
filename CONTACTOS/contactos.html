@@ -17,16 +17,15 @@
 <body>
     <header></header>
     <main>
-        <div class="container">
-            <div class="box1" id="app">
+        <div class="container" id="app" >
+            <div class="box1" >
                 <div class="contactBody">
                     <div class="wrapper">
                         <div class="title">
                             <h1>Contactanos</h1>
                         </div>
                         <div class="app">
-                           
-                                <form id="contactForm" class="form" @submit.prevent="guardarComentario">
+                            <form id="contactForm" class="form" @submit.prevent="guardarComentario">
                                 <div>
                                     <input type="text" class="name entry" v-model="nombre" placeholder="Ingrese su nombre">
                                     <p class="name-error"></p>
@@ -94,8 +93,31 @@
                             <a href=""><i class="fa-brands fa-x-twitter"></i></a>
                         </ul>
                     </div>
+                    
                 </div>
             </div>
+            <div class="box4">
+                <h1>Comentarios de Clientes</h1>
+                <div v-if="cargando">Cargando comentarios...</div>
+                <div v-else-if="error">Error al cargar los comentarios.</div>
+                <div v-else>
+                    <div class="row">
+                        <div class="col-md-4 mb-4" v-for="comentario in comentarios" :key="comentario.id">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-user mr-3"></i>
+                                        <h4 class="enclosed">{{ comentario.nombre }}</h4>
+                                    </div>
+                                    <p class="card-text">{{ comentario.mensaje }}</p>
+                                    <p class="card-text">País: {{ comentario.pais }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </main>
     <footer></footer>

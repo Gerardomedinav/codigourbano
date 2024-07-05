@@ -38,7 +38,7 @@ const app = new Vue({
       }
       if (usuario && usuario.tipo_usuario === 1) { // Aquí se corrige la referencia a la propiedad 'tipo'
         window.location.href = "../CRUD-Frontend/productos.html";
-      } else {
+      } else {  //necesito un if else{}
         this.error = true;
         this.mensajeError = 'Error al ingresar email o contraseña. Por favor, ingrese correctamente.';
       }
