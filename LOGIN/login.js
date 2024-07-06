@@ -48,3 +48,5 @@ const app = new Vue({
     this.fetchData(this.url);
   }
 });
+
+

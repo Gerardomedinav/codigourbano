@@ -118,3 +118,5 @@ function activarBotonGeneros(a) {
   a.classList.add('activar');
   activarBotonGenero = a;
 }
+
+
