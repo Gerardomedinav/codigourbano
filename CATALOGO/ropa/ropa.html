@@ -129,7 +129,16 @@
                     <p v-if="selectedProduct">Stock: {{selectedProduct.stock}}</p>
                     <p v-if="selectedProduct">Descripción: {{selectedProduct.descricion}}</p>
                     <p v-if="selectedProduct">Marca: {{selectedProduct.marca}}</p>
+                
+                    <div class="cantidad-selector">
+                        <label for="cantidad">Cantidad a Comprar:</label>
+                        <input width="70px" type="number" id="cantidad" v-model.number="cantidad" min="1" :max="selectedProduct ? selectedProduct.stock : 1" v-modal="cantidad_producto">
+                    </div>
+                
                 </div>
+
+                
+
                 <div class="boton_agragar_compara">
                     <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>
                     <button class="boton_agragar_compara" @click="toggleCompras(selectedProduct)" id="añadir">{{

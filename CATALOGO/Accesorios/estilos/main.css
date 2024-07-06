@@ -225,7 +225,7 @@ body{
     font-size: 60px;
     margin-right: 0.3em;
     margin-top: 0.2em;
-    color: green;
+    color: rgb(130, 136, 130);
     position: fixed;
     transform: translateX(190px);
     
@@ -291,7 +291,7 @@ body{
 }
 
 .btn-exit:hover {
-    color: green;
+    color: rgb(125, 128, 125);
 }
 
 
@@ -323,12 +323,7 @@ body{
 
 }
 
-#comprar{
-    margin: 1em;
-    font-size: 2em;
-    border-radius: 17px;
-    background-color: rgb(37, 208, 37);
-}
+
 
 #añadir{
     margin: 1em;
@@ -386,22 +381,29 @@ body{
 }
 
 .elimnar_fav_Y_produc:hover{
-    color: rgb(23, 190, 1);
+    color: rgb(165, 165, 165);
 }
 
 #compra_producto{
-    background-image: linear-gradient(to right, rgb(34, 173, 6),  rgb(39, 240, 32));
+    background-image: linear-gradient(to right, rgb(177, 81, 172),  rgb(198, 32, 240));
     font-size: 2em;
 }
 
 #compra_producto:hover{
-    background-image: linear-gradient(to right,  rgb(39, 240, 32),rgb(34, 173, 6));
+    background-image: linear-gradient(to right, rgb(198, 32, 240),rgb(177, 81, 172));
 }
 
 #compra{
-    background-color: antiquewhite;
-    padding: 0 10px;
+    background-image: linear-gradient(to right, rgb(177, 81, 172),  rgb(198, 32, 240));
+    font-size: 2em !important;
     color: rgb(0, 0, 0);
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+#compra:hover {
+    background-image: linear-gradient(to right, rgb(198, 32, 240),rgb(177, 81, 172));
 }
 
 #favorio, #compra{
@@ -417,4 +419,8 @@ body{
     background-color: rgba(70, 68, 68,0.5);
     font-size: 2em;
     text-align: center;
+}
+
+.imagen_product {
+    max-height: 250px;
 }

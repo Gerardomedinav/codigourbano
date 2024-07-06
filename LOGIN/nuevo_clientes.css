@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscurecido */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  
+  .wrapper {
+    width: 400px;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: relative;
+    z-index: 1;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff; /* Color de texto blanco */
+  }
+  
+  .bloque1,
+  .bloque2 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .mb-3 {
+    margin-bottom: 15px;
+  }
+  
+  .mb-3 label {
+    font-size: 16px;
+    color: #fff; /* Color de texto blanco */
+    margin-bottom: 5px;
+  }
+  
+  .mb-3 input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333; /* Color de texto gris oscuro */
+  }
+  
+  .btn-success {
+    background-color: #28a745; /* Color verde */
+    color: #fff; /* Color de texto blanco */
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    transition: 0.35s ease;
+    width: 100%;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838; /* Color verde más oscuro */
+  }
+
+  button {
+    background: #fff;
+    font-weight: 600;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: 0.35s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+button:hover {
+    color: #fff;
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+  
+  .error-message {
+    color: #ff0000; /* Color rojo */
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
