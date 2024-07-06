@@ -4,15 +4,31 @@
  
 }
 .container {
-    display: grid; 
-    grid-template-columns: 4fr 4fr 0fr 0fr; 
-    grid-template-rows: 0fr 0fr 0fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-      ". . . "
-      ". . . "
-      ". . . "; 
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Definimos 4 columnas de igual ancho */
+  grid-template-rows: auto auto; /* Definimos filas automáticas */
+  gap: 10px; /* Espacio entre las celdas del grid */
+
+  /* Opcional: Si quieres asignar áreas específicas, puedes hacerlo así */
+  grid-template-areas:
+      "box1 box1 box3 box3"
+      "box4 box4 box4 box4";
+}
+
+
+
+/* Asignamos las áreas a los divs */
+.box1 {
+  grid-area: box1; /* Este div ocupará las dos primeras columnas en la primera fila */
+}
+
+.box3{
+  grid-area: box3; /* Este div ocupará las dos últimas columnas en la primera fila */
+}
+
+.box4 {
+  grid-area: box4; /* Este div ocupará las dos primeras columnas en la segunda fila */
+}
   .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -24,7 +40,112 @@
     min-width: 0;
     min-height: 0;
     }
+    .box4 {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+  }
+  
 
+  
+
+  .card {
+    position: relative;
+    perspective: 40em;
+    display: grid;
+    align-items: center;
+    transform-style: preserve-3d;
+    background-color: #00000000 !important;
+    --bs-card-border-width: none !important;
+    border-radius: 50% !important;
+    
+  }
+  
+  .card-body {
+    grid-area: 1 / 1;
+    height: 200px;
+    width: 350px;
+    transform: translateX(10px) rotateY(25deg) rotateX(10deg);
+    background: rgba(247, 7, 227, 0.836);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items:center;
+    padding: 30px;
+    color: #00000000;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 900;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 30px -3px rgba(0, 0, 0, 0);
+    border-radius: 50% !important;
+    box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
+  }
+  
+  h1 {
+    font-size: 20px;
+    font-weight: 900;
+  }
+  
+  .card-body .enclosed {
+    background: #00000000;
+    line-height: 1;
+    color: rgba(117, 7, 103, 0.87);
+    padding: 0 5px;
+    display: inline-block;
+    transform: translate(-1px, 1px) scale(0.75);
+    transform-origin: right center;
+  }
+  
+  .card:before {
+    --bw: 9px;
+    grid-area: 1 / 1;
+    content: '';
+    backface-visibility: hidden;
+    height: 100%;
+    width: 100%;
+    margin-top: calc(-1 * var(--bw));
+    margin-left: calc(-1 * var(--bw));
+    background: transparent;
+    transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
+    pointer-events: none;
+    border: var(--bw) solid #00000000;
+    box-sizing: content-box;
+  }
+  
+  
+  .card:hover > div,
+  .card:hover:before {
+    transform: none;
+  }
+  
+  
+  .card > div,
+  .card:before {
+    will-change: transform;
+    transition: .3s transform cubic-bezier(.25,.46,.45,1);
+  }
+  
+  .card-title {
+      margin-bottom: 10px;
+  }
+  
+  .card-text {
+      margin-bottom: 5px;
+  }
+  
+  .fas.fa-user {
+      font-size: 24px;
+      margin-bottom: 10px;
+  }
+  .fas.fa-user {
+    margin-right: 0.5rem; /* Agrega un margen de 0.5 rem a la derecha del icono */
+}
+  
 
 
 /* Estilos para pantallas medianas */
@@ -71,10 +192,11 @@
     width: auto;
     margin: 2%;
     border: 10px solid darkorchid;
+    box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
  
     }
 
-    .box1 {
+    .box1, .box4 {
      
       background: radial-gradient(at top, rgba(14, 220, 227, 0.363), rgba(89, 142, 217, 0.346)) !important;
       backdrop-filter: blur(5px);
@@ -84,6 +206,7 @@
       outline: none;
       position: relative;
       padding: 10px;
+      box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
       
       
       }
@@ -107,7 +230,7 @@
     }
     
   
-    .box2 video,.box3 {
+    .box2 video,.box3, .box4 {
       width: 100%;
       height: auto;
       object-fit: cover;
@@ -174,6 +297,7 @@
     .box3 {
 
       margin-top: 2% !important;
+
     }
   
 
@@ -199,7 +323,7 @@
       .box_mapa {
         display: flex;
         width: 80%;
-        height: 83%;
+        height: 80%;
         background-color: #049bf3;
         box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
         flex-direction: column;
@@ -217,6 +341,12 @@
           color: white; 
           }
 
+          .title  > h1 {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: space-around
+          }
  /* formulario contactos */
 
       .contactBody{
@@ -237,6 +367,8 @@
       }
       .titulo h1#titles {
         display: flex !important;
+        flex-direction: column;
+        position:static;
         margin: 0 auto;
         margin-top: -81px;
         width: 100%;
@@ -263,7 +395,7 @@
         box-shadow: 0px 0px 20px 5px #AAA; 
         border-radius: 10px;  
         width: 100%; 
-        height: 100%;
+        height: 95%;
         margin: 30px auto 0 auto;
         padding: 10px 10px;  
         
@@ -300,23 +432,23 @@
        
       }
       .message {   
-        background-color: rgb(230, 108, 15);
-        border-bottom: 5px solid rgb(195, 35, 17);
+        background-color: rgb(245, 17, 195);
+        border-bottom: 5px solid rgb(143, 13, 110);
         overflow: hidden;
         height: 100px;  
         width:82%;
       }
     
       .message:hover{
-        background-color: #2DD7BB;
-        border-bottom: 5px solid #2BB09A;
+        background-color: #e960e2;
+        border-bottom: 5px solid #4d0857;
        
       }
     
       .submit{
         border-radius:5px;
         padding:10px;
-        background-color: #2DD7BB;  
+        background-color: #600b75;  
         border: none;
         border-bottom: 5px solid #CB64B2; 
         transform: translateY(-120px); 
@@ -359,9 +491,7 @@
         margin-top: 50%;
     
       }
-    
-    
-    
+
       @keyframes bounce{
         0%{
           
