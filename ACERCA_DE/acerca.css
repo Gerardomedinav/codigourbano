@@ -844,3 +844,28 @@ input#male, input#female{
   white-space: nowrap;
   z-index: 1;
 }
+ 
+#logoutButton {
+  display: none;
+}
+
+#cerrarSesionBtn {
+  display: inline-block;
+  background-color: #cf22b8;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: xx-small;
+}
+
+#cerrarSesionBtn:hover {
+  background-color: #6b0842;
+}
+.carrito_compraIMG, .corazon_compraIMG {
+  
+  display: flex !important;
+  position: relative !important;
+  top: -8px !important;
+}  

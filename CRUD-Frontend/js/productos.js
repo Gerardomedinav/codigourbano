@@ -150,3 +150,10 @@ createApp({
         this.obtenerTipos();
     },
 }).mount('#app')
+
+function cerrarSesion() {
+    sessionStorage.removeItem('isLoged');
+    sessionStorage.removeItem('id_cliente_logeado');
+    // Redirigir a la página de login o a la página principal
+    window.location.href = "../../LOGIN/login.html";
+}
