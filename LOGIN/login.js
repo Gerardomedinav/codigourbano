@@ -36,9 +36,16 @@ const app = new Vue({
           break;
         }
       }
-      if (usuario && usuario.tipo_usuario === 1) { // Aquí se corrige la referencia a la propiedad 'tipo'
-        window.location.href = "../CRUD-Frontend/productos.html";
-      } else {  //necesito un if else{}
+      if (usuario) {
+        if (usuario.tipo_usuario === 1) { // Redireccionar si es administrador
+          window.location.href = "../CRUD-Frontend/productos.html";
+        } else { // Cliente logueado
+          sessionStorage.setItem('isLoged', 'true');
+          sessionStorage.setItem('id_cliente_logeado', usuario.id);
+          alert(`Usuario ${usuario.nombre} inició sesión con éxito.`);
+          window.location.href = "../CATALOGO/ropa/ropa.html"; // Reemplaza con la URL para clientes logueados
+        }
+      } else {
         this.error = true;
         this.mensajeError = 'Error al ingresar email o contraseña. Por favor, ingrese correctamente.';
       }
@@ -48,5 +55,3 @@ const app = new Vue({
     this.fetchData(this.url);
   }
 });
-
-

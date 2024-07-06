@@ -17,9 +17,9 @@ document.querySelector("header").innerHTML = `
         <li><a class="menu_interno" href="../../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
         <li><a class="menu_interno" href="../../ACERCA_DE/acerca_de.html">Nosotros</a></li>
         <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li>
-        <li><a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user"></i></a></li>
-
-
+        <li id="userIconContainer"><a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user"></i></a></li>
+        <li id="logoutButton" style="display: none;"><a class="menu_interno" id="cerrarSesionBtn" href="#" onclick="cerrarSesion()">Cerrar Sesión</a></li>
+    
     </ul>
 </div>
 
@@ -29,7 +29,7 @@ document.querySelector("header").innerHTML = `
 
     <form id="buscador_header_logico">
          <a href="#favorio" class="corazon_compra"><img  class="corazon_compraIMG" src="../../CATALOGO/Header_Footer JS/img_head-foot/icons8-heart-32.png" alt=""></a>
-        <a href="#compra"><img src="../../CATALOGO/Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
+        <a href="#compra"><img class="carrito_compraIMG"  src="../../CATALOGO/Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
     </form>
 
 </div>
@@ -75,4 +75,29 @@ document.querySelector("footer").innerHTML = `
 `
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    const isLoged = sessionStorage.getItem('isLoged') === 'true';
+    const id_cliente_logeado = sessionStorage.getItem('id_cliente_logeado');
+    
+    const userIconContainer = document.getElementById('userIconContainer');
+    const logoutButton = document.getElementById('logoutButton');
 
+    if (isLoged) {
+        // Usuario logueado: icono en color rosa y mensaje de bienvenida
+        userIconContainer.innerHTML = `<a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user" style="color: pink;"></i></a>`;
+        userIconContainer.setAttribute('title', `Bienvenido Sesión Abierta`);
+        logoutButton.style.display = 'inline-block'; // Mostrar botón de cerrar sesión
+    } else {
+        // Usuario no logueado: icono en negro
+        userIconContainer.innerHTML = `<a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user" style="color: black;"></i></a>`;
+        userIconContainer.setAttribute('title', `Acceso Restringido`);
+        logoutButton.style.display = 'none'; // Ocultar botón de cerrar sesión
+    }
+});
+
+function cerrarSesion() {
+    sessionStorage.removeItem('isLoged');
+    sessionStorage.removeItem('id_cliente_logeado');
+    // Redirigir a la página de login o a la página principal
+    window.location.href = "../../LOGIN/login.html";
+}
