@@ -151,14 +151,63 @@ createApp({
       })
       .then(data => {
         console.log('Transacción exitosa:', data);
-        return data;
+        // Actualizar el stock después de una transacción exitosa
+        return this.actualizarStock(idProducto, cantidadProducto);
       })
       .catch(error => {
         console.error('Error en la transacción:', error);
         alert('Error al realizar la compra: ' + error.message);
         throw error;
       });
+      
+
     },
+    actualizarStock(idProducto, cantidadComprada) {
+      const url = `https://felixcanosa.pythonanywhere.com/productos/${idProducto}`;
+      
+      return fetch(url)
+        .then(response => response.json())
+        .then(producto => {
+          const nuevoStock = Math.max(producto.stock - cantidadComprada, 0);
+          
+          return fetch(url, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ stock: nuevoStock })
+          });
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al actualizar el stock');
+          }
+          return response.json();
+        })
+        .then(productoActualizado => {
+          console.log('Stock actualizado:', productoActualizado);
+          this.actualizarStockEnUI(idProducto, productoActualizado.stock);
+          return productoActualizado;
+        });
+    },
+    
+    actualizarStockEnUI(idProducto, nuevoStock) {
+      const producto = this.products.find(p => p.id === idProducto);
+      if (producto) {
+        producto.stock = nuevoStock;
+        if (nuevoStock === 0) {
+          producto.agotado = true;
+        }
+      }
+    
+      if (this.selectedProduct && this.selectedProduct.id === idProducto) {
+        this.selectedProduct.stock = nuevoStock;
+        if (nuevoStock === 0) {
+          this.selectedProduct.agotado = true;
+        }
+      }
+    },
+
 
     showModal(product) {
       this.selectedProduct = {...product};
