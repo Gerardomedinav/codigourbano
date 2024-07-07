@@ -42,7 +42,6 @@ createApp({
                 })
         },
         grabar() {
-
             // Verificar si todos los campos requeridos están llenos
             if (!this.nombre || !this.contrasena || !this.email ) {
                 alert("Por favor, complete todos los campos obligatorios.");
@@ -62,12 +61,13 @@ createApp({
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow'
             }
-            /* xxxxxxxxxxxxxxxxxxxxxx  */
+            
             fetch(this.url, options)
-                .then(function () {
+                .then(response => response.json())
+                .then(data => {
                     alert("Registro Exitoso, será redirecionado al Catalogo")
                     sessionStorage.setItem('isLoged', 'true');
-                    sessionStorage.setItem('id_cliente_logeado', usuario.id);
+                    sessionStorage.setItem('id_cliente_logeado', data.id);
                     window.location.href = "../CATALOGO/ropa/ropa.html";
                 })
                 .catch(err => {
