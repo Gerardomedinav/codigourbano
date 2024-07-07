@@ -15,28 +15,28 @@
         <source src="../img/video_fondo.mp4" type="video/mp4">
     </video>
    <main>
-    <div class="container" id="app">
+    <div class="container wrapper" id="app">
        <form>
-        <h1>Cliente Nuevo</h1>
+        <h2>Cliente Nuevo</h2>
         <div class="bloque1">
-          <div class="mb-3">
+          <div class="input-field mb-3">
+            <input type="text" name="nombre" id="nombre" v-model="nombre" required>
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" v-model="nombre">
           </div>
-          <div class="mb-3">
-            <label for="contraseña">Contraseña</label>
-            <input type="password" name="contrasena" id="contrasena" v-model="contrasena">
+
+          <div class="input-field mb-3">
+            <input type="password" name="contrasena" id="contrasena" v-model="contrasena" required>
+            <label for="contrasena">Contraseña</label>
           </div>  
         </div>
 
         <div class="bloque2">
-          <div class="mb-3">
+          <div class="input-field mb-3">
+            <input type="email" name="email" id="email" v-model="email" required>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" v-model="email">
           </div>
-          
         </div>
-          <button type="button" class="btn btn-success" v-on:click="grabar()" id="grabar">Grabar</button>
+          <button type="button" class="btn" v-on:click="grabar()" id="grabar">Grabar</button>
       </form>
     </div>
   </main>
