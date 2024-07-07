@@ -104,6 +104,10 @@ createApp({
     getImageUrl(thumbnail) {
       return `path/to/your/images/${thumbnail}`;
     }
+
+    
+
+
   },
   created() {
     this.fetchData();
