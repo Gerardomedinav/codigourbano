@@ -16,6 +16,7 @@ createApp({
       selectedProduct: null,
       compras: [],
       cantidad: 1,
+      cantidadSeleccionada: 1,
     };
   },
   methods: {
@@ -77,16 +78,40 @@ createApp({
         this.compras.splice(index, 1);
       }
     },
-    toggleCompras(product) {
-      if (this.compras.some(p => p.id === product.id)) {
-        this.removeFromCompras(product);
-      } else {
-        this.addToCompras(product);
+    removeFromCart(index) {
+      const removedProduct = this.cart[index];
+      this.cart.splice(index, 1);
+      
+      // Encuentra el producto en la lista completa de productos y actualiza su estado
+      const productInList = this.products.find(p => p.id === removedProduct.id);
+      if (productInList) {
+        productInList.isFavorite = false;
       }
     },
+    toggleCompras(product, cantidad) {
+      if (!product) return;
+      const index = this.compras.findIndex(p => p.id === product.id);
+      if (index !== -1) {
+        // Si ya está en el carrito, actualiza la cantidad o elimínalo si la cantidad es 0
+        if (cantidad > 0) {
+          this.compras[index].cantidad = cantidad;
+        } else {
+          this.compras.splice(index, 1);
+        }
+      } else {
+        // Si no está en el carrito y la cantidad es mayor que 0, añádelo
+        if (cantidad > 0) {
+          this.compras.push({...product, cantidad: cantidad});
+        }
+      }
+      this.closeModal();
+    },
+    isInCompras(product) {
+      return this.compras.some(p => p.id === product.id);
+    },
     comprar() {
-      if (this.selectedProduct && this.cantidad > 0 && this.cantidad <= this.selectedProduct.stock) {
-        this.realizarTransaccion(this.selectedProduct.id, this.cantidad)
+      if (this.selectedProduct && this.cantidadSeleccionada > 0 && this.cantidadSeleccionada <= this.selectedProduct.stock) {
+        this.realizarTransaccion(this.selectedProduct.id, this.cantidadSeleccionada)
           .then(() => {
             this.closeModal();
             alert('Compra realizada con éxito');
@@ -145,9 +170,9 @@ createApp({
     },
 
     showModal(product) {
-      this.selectedProduct = product;
+      this.selectedProduct = {...product};
+      this.cantidadSeleccionada = 1; // Reinicia la cantidad
       this.isModalOpen = true;
-      document.body.style.overflow = 'hidden';
     },
 
     closeModal() {
@@ -155,8 +180,11 @@ createApp({
       document.body.style.overflow = 'auto';
     },
 
-    removeFromCart(index) {
-      this.cart.splice(index, 1);
+    removeFromCompras(product) {
+      const index = this.compras.findIndex(p => p.id === product.id);
+      if (index !== -1) {
+        this.compras.splice(index, 1);
+      }
     },
     
     toggleColor(product) {
