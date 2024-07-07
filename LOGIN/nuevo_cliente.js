@@ -62,9 +62,12 @@ createApp({
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow'
             }
+            /* xxxxxxxxxxxxxxxxxxxxxx  */
             fetch(this.url, options)
                 .then(function () {
-                    alert("Registro grabado")
+                    alert("Registro Exitoso, será redirecionado al Catalogo")
+                    sessionStorage.setItem('isLoged', 'true');
+                    sessionStorage.setItem('id_cliente_logeado', usuario.id);
                     window.location.href = "../CATALOGO/ropa/ropa.html";
                 })
                 .catch(err => {
