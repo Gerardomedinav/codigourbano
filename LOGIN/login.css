@@ -130,6 +130,12 @@ button:hover {
     border-color: #fff;
     background-color: rgba(255, 255, 255, 0.15);
 }
+div.register {
+    margin-top: 4px;
+}
+div.register > p {
+    color: #AAA !important;
+  }
 
 .wrapper {
     position: relative;
