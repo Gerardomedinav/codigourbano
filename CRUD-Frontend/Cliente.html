@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Usuarios</title>
+    <title>Mi Cuenta y Transacciones</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -31,16 +31,19 @@
                                 <span class="visually-hidden">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./productos.html">Productos</a>
+                            <a class="nav-link" href="../../CATALOGO/zapatillas/zapatilla.html">Zapatillas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./usuarios.html">Usuarios</a>
+                            <a class="nav-link" href="../../CATALOGO/ropa/ropa.html">Ropa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./comentarios.html">Comentarios</a>
+                            <a class="nav-link" href="../../CATALOGO/Accesorios/accesorios.html">Accesorios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./transacciones.html">Transacciones</a>
+                            <a class="nav-link" href="../../ACERCA_DE/acerca_de.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../CONTACTOS/contactos.html">Contactos</a>
                         </li>
 
                     </ul>
@@ -53,78 +56,66 @@
     </header>
     <main>
         <div id="app" class="container">
-            <h1>Usuarios</h1>
+            <h1>Mi Cuenta y Transacciones</h1>
 
-            <div>
-
-            </div>
-
-            <div class="mb-3">
-                <select v-model="campoBusqueda" @change="buscar" class="form-select d-inline-block w-auto me-2">
-                    <option value="">Buscar por...</option>
-                    <option value="id">ID</option>
-                    <option value="nombre">Nombre</option>
-                    <option value="email">Email</option>
-                    <option value="tipo_usuario">Tipo de usuario</option>
-                </select>
-                <input v-model="valorBusqueda" @input="buscar" class="form-control d-inline-block w-auto" type="text"
-                    placeholder="Buscar...">
-            </div>
-
-            <br>
-            <a class="btn btn-primary" href="usuarios_nuevo.html">Nuevo</a>
-            <br><br>
             <div v-if="error">
-                <p>Lo sentimos, intentelo más tarde........</p>
+                <p>Lo sentimos, ha ocurrido un error. Por favor, inténtelo más tarde...</p>
+            </div>
+            <div v-else-if="cargando">
+                <p>Cargando ...</p>
             </div>
             <div v-else>
-                <section id="cargando" v-if="cargando">
-                    <div class="mi-imagen-con-spinner"></div>
-                    <p>Cargando .....</p>
-                </section>
-                <section v-else>
+                <section>
+                    <h2>Información del Cliente</h2>
+                    <div v-if="cliente">
+                        <p><strong>ID:</strong> {{cliente.id}}</p>
+                        <p><strong>Nombre:</strong> {{cliente.nombre}}</p>
+                        <p><strong>Email:</strong> {{cliente.email}}</p>
+                    </div>
+
+                    <h2>Mis Transacciones</h2>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Contraseña</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Tipo de Usuario</th>
+                                    <th scope="col">Id de Transacción</th>
+                                    <th scope="col">Id de Producto</th>
+                                    <th scope="col">Nombre del Producto</th>
+                                    <th scope="col">Cantidad del Producto</th>
+                                    <th scope="col">Precio total</th>
+                                    <th scope="col">Hora de transacción</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="usuario in usuarios" :key="usuario.id">
-                                    <td>{{usuario.id}}</td>
-                                    <td>{{usuario.nombre}}</td>
-                                    <td>{{usuario.contrasena}}</td>
-                                    <td>{{usuario.email}}</td>
-                                    <td>{{usuario.tipo_usuario}}</td>
-                                    <td>
-                                        <a class="btn btn-primary" :href="'usuarios_update.html?id='+ usuario.id" id="editar">Editar</a>
-                                        <button type="button" class="btn btn-danger" @click="eliminar(usuario.id)" id="eliminar">Eliminar</button>
-                                    </td>
+                                <tr v-for="transaccion in transacciones" :key="transaccion.id">
+                                    <td>{{transaccion.id}}</td>
+                                    <td>{{transaccion.id_transaccion}}</td>
+                                    <td>{{transaccion.id_producto}}</td>
+                                    <td>{{transaccion.nombre_producto}}</td>
+                                    <td>{{transaccion.cantidad_producto}}</td>
+                                    <td>{{transaccion.precio_total}}</td>
+                                    <td>{{transaccion.hora_transaccion}}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </section>
             </div>
+            <button @click="cerrarSesion" class="btn btn-danger mt-3">Cerrar Sesión</button>
         </div>
     </main>
     <footer>
         <!-- place footer here -->
     </footer>
-    <!--Link de Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
         crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
-    <script src="./js/usuarios.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/cliente.js"></script>
 </body>
 
 </html>

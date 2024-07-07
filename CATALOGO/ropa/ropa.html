@@ -18,6 +18,8 @@
 
     </header>
     <main>
+        
+
         <div id="app">
             <h1 id="myID"></h1> <!-- Titulo de Ropa Deportiva en js-->
             <!--Carousel-->
@@ -103,17 +105,20 @@
             <div id="contenedor_botones_producto">
                 <h3 id="compra">Compras</h3>
                 <p id="contador_precio" style="color: rgb(247, 247, 247);">Total: ${{ totalPrice() }}</p>
-                <button id="compra_producto" class="boton_agragar_compara" id="comprar" @click="buyProduct">Realizar
-                    Pedido</button>
+                <button id="compra_producto" class="boton_agragar_compara" @click="realizarPedido">Realizar Pedido</button>
             </div>
-
+            
             <div class="contenedor_de_productos_y_favoritos">
-                <div v-for="(product, index) in compras">
+                <div v-for="(product, index) in compras" :key="product.id">
                     <div class="tarjeta">
                         <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
                         <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
                         <h5>{{ product.nombre }}</h5>
                         <p>Precio: ${{ product.precio }}</p>
+                        <div class="cantidad-selector">
+                            <label for="cantidad">Cantidad:</label>
+                            <input type="number" v-model.number="product.cantidad" min="1" :max="product.stock">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,10 +142,8 @@
                 
                 </div>
 
-                
-
                 <div class="boton_agragar_compara">
-                    <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>
+                    <button class="boton_agragar_compara" id="comprar" @click="comprar" :disabled="!cantidad || cantidad > (selectedProduct ? selectedProduct.stock : 0)">Comprar</button>
                     <button class="boton_agragar_compara" @click="toggleCompras(selectedProduct)" id="añadir">{{
                         compras.includes(selectedProduct) ? 'sacar' : 'añadir' }}</button>
                 </div>
@@ -158,6 +161,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- VUE -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!-- para hacer un carrito -->
     <script src="./js/ropa.js"></script> <!-- JS Ropa -->
+    
 </body>
 
 </html>
