@@ -48,8 +48,7 @@
 
                     </ul>
                     <div class="d-flex">
-                        <a class="btn btn-outline-danger" href="../index.html" onclick="cerrarSesion()">Cerrar
-                            sesión</a>
+                        <a id="logoutButton" class="btn btn-outline-danger" id="cerrarSesionBtn" href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
                     </div>
                 </div>
             </div>
@@ -128,6 +127,33 @@
     <script src="./js/cliente.js"></script>
 
     <script src="./js/cliente_transacciones.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoged = sessionStorage.getItem('isLoged') === 'true';
+            const id_cliente_logeado = sessionStorage.getItem('id_cliente_logeado');
+            
+            const userIconContainer = document.getElementById('userIconContainer');
+            const logoutButton = document.getElementById('logoutButton');
+    
+            if (isLoged) {
+                userIconContainer.innerHTML = `<a class="nav-link" href="../../CRUD-Frontend/Cliente.html" title="Mi Cuenta"> <i class="fa-solid fa-user" style="color: pink;"></i></a>`;
+                userIconContainer.setAttribute('title', `Bienvenido Sesión Abierta`);
+                logoutButton.style.display = 'inline-block';
+            } else {
+                userIconContainer.innerHTML = `<a class="nav-link" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user" style="color: black;"></i></a>`;
+                userIconContainer.setAttribute('title', `Acceso Restringido`);
+                logoutButton.style.display = 'none';
+            }
+        });
+    
+        function cerrarSesion() {
+            sessionStorage.removeItem('isLoged');
+            sessionStorage.removeItem('id_cliente_logeado');
+            window.location.href = "../../LOGIN/login.html";
+        }
+        </script>
 </body>
 
 </html>
