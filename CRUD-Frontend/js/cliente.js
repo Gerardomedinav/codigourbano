@@ -51,12 +51,14 @@ createApp({
         cerrarSesion() {
             sessionStorage.removeItem('isLoged');
             sessionStorage.removeItem('id_cliente_logeado');
-            window.location.href = "../index.html";
+            window.location.href = "../../LOGIN/login.html";
         },
     },
     created() {
-        if (sessionStorage.getItem('isLoged') !== 'true' || !sessionStorage.getItem('id_cliente_logeado')) {
-            window.location.href = "../index.html";
+        const isLoged = localStorage.getItem('isLoged') === 'true';
+        const clienteId = localStorage.getItem('id_cliente_logeado');
+        if (!isLoged || !clienteId) {
+            window.location.href = "../../LOGIN/login.html";
             return;
         }
         this.fetchClienteData();

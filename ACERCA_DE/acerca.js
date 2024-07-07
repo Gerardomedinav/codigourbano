@@ -81,17 +81,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const userIconContainer = document.getElementById('userIconContainer');
     const logoutButton = document.getElementById('logoutButton');
+    const clienteLink = document.getElementById('clienteLink');
 
     if (isLoged) {
-        // Usuario logueado: icono en color rosa y mensaje de bienvenida
-        userIconContainer.innerHTML = `<a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user" style="color: pink;"></i></a>`;
+        // Usuario logueado: icono en color rosa y enlace a la página de Cliente
+        userIconContainer.innerHTML = `<a class="menu_interno" href="../../CRUD-Frontend/Cliente.html" title="Mi Cuenta"> <i class="fa-solid fa-user" style="color: pink;"></i></a>`;
         userIconContainer.setAttribute('title', `Bienvenido Sesión Abierta`);
         logoutButton.style.display = 'inline-block'; // Mostrar botón de cerrar sesión
+        if (clienteLink) {
+            clienteLink.style.display = 'inline-block'; // Mostrar enlace a Cliente
+        }
     } else {
-        // Usuario no logueado: icono en negro
+        // Usuario no logueado: icono en negro y enlace a login
         userIconContainer.innerHTML = `<a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user" style="color: black;"></i></a>`;
         userIconContainer.setAttribute('title', `Acceso Restringido`);
         logoutButton.style.display = 'none'; // Ocultar botón de cerrar sesión
+        if (clienteLink) {
+            clienteLink.style.display = 'none'; // Ocultar enlace a Cliente
+        }
     }
 });
 
