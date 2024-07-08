@@ -14,6 +14,7 @@ createApp({
       selectedProduct: null,
       compras: [],
       cantidad: 1,
+      favorites: {},
     };
   },
 
@@ -160,14 +161,63 @@ createApp({
       })
       .then(data => {
         console.log('Transacción exitosa:', data);
-        return data;
+        // Actualizar el stock después de una transacción exitosa
+        return this.actualizarStock(idProducto, cantidadProducto);
       })
       .catch(error => {
         console.error('Error en la transacción:', error);
         alert('Error al realizar la compra: ' + error.message);
         throw error;
       });
+      
+
     },
+    actualizarStock(idProducto, cantidadComprada) {
+      const url = `https://felixcanosa.pythonanywhere.com/productos/${idProducto}`;
+      
+      return fetch(url)
+        .then(response => response.json())
+        .then(producto => {
+          const nuevoStock = Math.max(producto.stock - cantidadComprada, 0);
+          
+          return fetch(url, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ stock: nuevoStock })
+          });
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al actualizar el stock');
+          }
+          return response.json();
+        })
+        .then(productoActualizado => {
+          console.log('Stock actualizado:', productoActualizado);
+          this.actualizarStockEnUI(idProducto, productoActualizado.stock);
+          return productoActualizado;
+        });
+    },
+    
+    actualizarStockEnUI(idProducto, nuevoStock) {
+      const producto = this.products.find(p => p.id === idProducto);
+      if (producto) {
+        producto.stock = nuevoStock;
+        if (nuevoStock === 0) {
+          producto.agotado = true;
+        }
+      }
+    
+      if (this.selectedProduct && this.selectedProduct.id === idProducto) {
+        this.selectedProduct.stock = nuevoStock;
+        if (nuevoStock === 0) {
+          this.selectedProduct.agotado = true;
+        }
+      }
+    },
+
 
     showModal(product) {
       this.selectedProduct = {...product};
@@ -188,7 +238,7 @@ createApp({
     },
     
     toggleColor(product) {
-      product.isFavorite = !product.isFavorite;
+      this.toggleFavorite(product);
       if (product.isFavorite) {
         this.addToCart(product);
       } else {
@@ -229,9 +279,52 @@ createApp({
           console.error('Error al realizar el pedido:', error);
         });
     },
+    /* Metodos para control de favoritos y gaurdado en Local Storage de los mismos*/ 
+    toggleFavorite(product) {
+      const userId = this.getCurrentUserId();
+      if (!userId) return;
+  
+      if (!this.favorites[userId]) {
+        this.favorites[userId] = [];
+      }
+  
+      const index = this.favorites[userId].findIndex(p => p.id === product.id);
+      if (index === -1) {
+        this.favorites[userId].push(product);
+      } else {
+        this.favorites[userId].splice(index, 1);
+      }
+  
+      this.saveFavoritesToLocalStorage();
+      product.isFavorite = !product.isFavorite;
+    },
+  
+    isFavorite(product) {
+      const userId = this.getCurrentUserId();
+      if (!userId || !this.favorites[userId]) return false;
+      return this.favorites[userId].some(p => p.id === product.id);
+    },
+  
+    saveFavoritesToLocalStorage() {
+      localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    },
+  
+    loadFavoritesFromLocalStorage() {
+      const storedFavorites = localStorage.getItem('favorites');
+      if (storedFavorites) {
+        this.favorites = JSON.parse(storedFavorites);
+      }
+    },
+  
+    getCurrentUserId() {
+      return sessionStorage.getItem('id_cliente_logeado');
+    },
+
+
   },
   created() {
     this.fetchData();
+    this.loadFavoritesFromLocalStorage();
   },
 }).mount('#app');
 

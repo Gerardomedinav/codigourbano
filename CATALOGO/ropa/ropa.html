@@ -74,8 +74,7 @@
                             <p>No se encontraron productos que coincidan con los criterios de búsqueda.</p>
                         </div>
                         <div class="tarjeta" v-for="product in products">
-                            <a href="javascript:void(0)" class="heart" :class="{ 'red': product.isFavorite }"
-                                @click="toggleColor(product)">&hearts;</a>
+                            <a href="javascript:void(0)" class="heart" :class="{ 'red': isFavorite(product) }"@click="toggleColor(product)">&hearts;</a>
                             <img class="imagen_product" :src="product.imagen" :alt="product.nombre"
                                 @click="showModal(product)">
                             <div class="tarjeta-texto" id="miTarjeta">
@@ -89,19 +88,19 @@
             <!-- Contenedor de favoritos-->
             
                 
-                <div id="contenedor_botones_producto">
-                    <h3 id="favorio">Favoritos</h3>
+            <div id="contenedor_botones_producto">
+                <h3 id="favorio">Favoritos</h3>
+              </div>
+              <div class="contenedor_de_productos_y_favoritos">
+                <div v-for="product in favorites[getCurrentUserId()] || []" :key="product.id">
+                  <div class="tarjeta">
+                    <button class="elimnar_fav_Y_produc" @click="toggleFavorite(product)">X</button>
+                    <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
+                    <h5>{{ product.nombre }}</h5>
+                    <p>Precio: ${{ product.precio }}</p>
+                  </div>
                 </div>
-                <div class="contenedor_de_productos_y_favoritos">
-                    <div v-for="(product, index) in cart" :key="product.id">
-                        <div class="tarjeta">
-                            <button class="elimnar_fav_Y_produc" @click="removeFromCart(index)">X</button>
-                            <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
-                            <h5>{{ product.nombre }}</h5>
-                            <p>Precio: ${{ product.precio }}</p>
-                        </div>
-                    </div>
-                </div>
+              </div>
             
             <!-- contenedor del carrito-->
 
