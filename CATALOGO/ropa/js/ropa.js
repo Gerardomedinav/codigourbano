@@ -17,6 +17,7 @@ createApp({
       compras: [],
       cantidad: 1,
       cantidadSeleccionada: 1,
+      favorites: {},
     };
   },
   methods: {
@@ -237,7 +238,7 @@ createApp({
     },
     
     toggleColor(product) {
-      product.isFavorite = !product.isFavorite;
+      this.toggleFavorite(product);
       if (product.isFavorite) {
         this.addToCart(product);
       } else {
@@ -278,9 +279,52 @@ createApp({
           console.error('Error al realizar el pedido:', error);
         });
     },
+    /* Metodos para control de favoritos y gaurdado en Local Storage de los mismos*/ 
+    toggleFavorite(product) {
+      const userId = this.getCurrentUserId();
+      if (!userId) return;
+  
+      if (!this.favorites[userId]) {
+        this.favorites[userId] = [];
+      }
+  
+      const index = this.favorites[userId].findIndex(p => p.id === product.id);
+      if (index === -1) {
+        this.favorites[userId].push(product);
+      } else {
+        this.favorites[userId].splice(index, 1);
+      }
+  
+      this.saveFavoritesToLocalStorage();
+      product.isFavorite = !product.isFavorite;
+    },
+  
+    isFavorite(product) {
+      const userId = this.getCurrentUserId();
+      if (!userId || !this.favorites[userId]) return false;
+      return this.favorites[userId].some(p => p.id === product.id);
+    },
+  
+    saveFavoritesToLocalStorage() {
+      localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    },
+  
+    loadFavoritesFromLocalStorage() {
+      const storedFavorites = localStorage.getItem('favorites');
+      if (storedFavorites) {
+        this.favorites = JSON.parse(storedFavorites);
+      }
+    },
+  
+    getCurrentUserId() {
+      return sessionStorage.getItem('id_cliente_logeado');
+    },
+
+
   },
   created() {
     this.fetchData();
+    this.loadFavoritesFromLocalStorage();
   },
 }).mount('#app');
 
