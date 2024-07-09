@@ -29,7 +29,7 @@
         <h1 id="myID"></h1>
 
 
-        <div id="app">
+        <div id="app" v-cloak>
             <div id="pintado">
                 <div id="main-prin_seleccionador_genero">
                     <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero" @click="changeGender('Todo')">Todo</a>
@@ -59,60 +59,76 @@
                         <p>No se encontraron productos que coincidan con los criterios de búsqueda.</p>
                     </div>
                     <div class="producto" v-for="product in products">
-                        <a href="javascript:void(0)" class="heart" :class="{ red: product.isFavorite }" @click="toggleColor(product)">&hearts;</a>
+                        <a href="javascript:void(0)" class="heart" :class="{ 'red': isFavorite(product) }"@click="toggleColor(product)">&hearts;</a>
                         <img class="imagen_product" :src="product.imagen" :alt="product.nombre"
                             @click="showModal(product)">
                         <h3>{{product.nombre}}</h3>
                         <p>Precio: ${{ product.precio }}</p>
                     </div>
                 </div>
+                <transition name="fade">
 
-
-
-                <dialog id="modal" class="procutoInterno" v-show="isModalOpen">
-                    <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen" alt="">
+                   
+                    <dialog id="modal" class="productoInterno" v-show="isModalOpen">
+                        <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen"
+                            alt="">
                         <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
-                    <div class="descripcion_de_producots">
-                    <h2 style="text-align: center;" v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
-                    
-                        <p style="padding-top: 3px;" v-if="selectedProduct">Precio: ${{ selectedProduct.precio }}</p>
-                        <p v-if="selectedProduct">Stock: {{selectedProduct.stock}} </p>
-                        <p v-if="selectedProduct">Tipo: {{selectedProduct.tipoProducto}}</p>
-                    </div>
-                    <div class="boton_agragar_compara">
-                        <button class="boton_agragar_compara" id="comprar" @click="buyProduct">comprar</button>
-                        <button class="boton_agragar_compara" @click="toggleCompras(selectedProduct)" id="añadir">{{ compras.includes(selectedProduct) ? 'sacar' : 'añadir' }}</button>
-                    </div>
-                </dialog>
-
+                        <h2 v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
+                        <div class="descripcion_de_producots">
+                            <p v-if="selectedProduct">Precio: ${{ selectedProduct.precio }}</p>
+                            <p v-if="selectedProduct">Stock: {{selectedProduct.stock}}</p>
+                            <p v-if="selectedProduct">Descripción: {{selectedProduct.descricion}}</p>
+                            <p v-if="selectedProduct">Marca: {{selectedProduct.marca}}</p>
+                        </div>
+                        <hr>
+                        <div class="cantidad-selector">
+                            <label for="cantidad">Cantidad a Comprar:</label>
+                            <input width="70px" type="number" id="cantidad" v-model.number="cantidadSeleccionada" min="1" :max="selectedProduct ? selectedProduct.stock : 1" v-modal="cantidad_producto">
+                        </div>
+                        <div class="boton_agragar_compara">
+                            <button class="boton_agragar_compara" id="compra" @click="comprar" :disabled="!cantidad || cantidad > (selectedProduct ? selectedProduct.stock : 0)">Comprar</button>
+                            <button class="boton_agragar_compara" :class="{ 'boton-anadir': !isInCompras(selectedProduct), 'boton-sacar': isInCompras(selectedProduct) }"@click="toggleCompras(selectedProduct, cantidadSeleccionada)" id="añadir">
+                                {{ isInCompras(selectedProduct) ? 'Actualizar' : 'Añadir' }}
+                            </button>
+                        </div>
+                    </dialog>
+                </transition>
+                
             </div>
 
-                <h3 id="favorio">Favoritos</h3>
-                <div class="contenedor_de_productos_y_favoritos">
-                    <div v-for="(product, index) in cart">
-                        <div class="producto">
-                            <button class="elimnar_fav_Y_produc" @click="removeFromCart(index)">X</button>
-                            <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
-                            <h5>{{ product.title }}</h5>
-                            <p>Precio: ${{ product.price }}</p>
-                            
+                    <!-- contenedor de favoritos -->
+                    <div id="contenedor_botones_producto">
+                        <h3 id="favorio">Favoritos</h3>
+                      </div>
+                      <div class="contenedor_de_productos_y_favoritos">
+                        <div v-for="product in favorites[getCurrentUserId()] || []" :key="product.id">
+                          <div class="producto">
+                            <button class="elimnar_fav_Y_produc" @click="toggleFavorite(product)">X</button>
+                            <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
+                            <h5>{{ product.nombre }}</h5>
+                            <p>Precio: ${{ product.precio }}</p>
+                          </div>
                         </div>
-                    </div>
-                </div>
+                      </div>
 
-                <div id="contenedor_botones_prosucto">
-                    <h3 id="compra">Compras</h3>
+                     <!-- contenedor del carrito -->  
+                <div id="contenedor_botones_producto">
+                    <h3 id="titulo_carrito">Carrito</h3>
                     <p id="contador_precio" style="color: rgb(247, 247, 247);">Total: ${{ totalPrice() }}</p>
-                    <button id="compra_producto" class="boton_agragar_compara" id="comprar" @click="buyProduct">Realizar Pedido</button>
+                    <button id="compra_producto" class="boton_agragar_compara" @click="realizarPedido">Realizar Compra</button>
                 </div>
-
+                
                 <div class="contenedor_de_productos_y_favoritos">
-                    <div v-for="(product, index) in compras">
+                    <div v-for="(product, index) in compras" :key="product.id">
                         <div class="producto">
                             <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
-                            <img class="imagen_product" :src="getImageUrl(product.thumbnail)" :alt="product.title">
-                            <h5>{{ product.title }}</h5>
-                            <p>Precio: ${{ product.price }}</p>
+                            <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
+                            <h5>{{ product.nombre }}</h5>
+                            <p>Precio: ${{ product.precio }}</p>
+                            <div class="cantidad-selector">
+                                <label for="cantidad">Cantidad:</label>
+                                <input type="number" v-model.number="product.cantidad" min="1" :max="product.stock" >
+                            </div>
                         </div>
                     </div>
                 </div>

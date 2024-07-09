@@ -31,11 +31,11 @@ createApp({
                 })
         },
         modificar() {
-            // Verificar si todos los campos requeridos están llenos
-            if (!this.nombre || !this.contrasena || !this.email || !this.tipo_usuario) {
-                alert("Por favor, complete todos los campos obligatorios.");
-                return;
-            }
+            // // Verificar si todos los campos requeridos están llenos
+            // if (!this.nombre || !this.contrasena || !this.email || !this.tipo_usuario) {
+            //     alert("Por favor, complete todos los campos obligatorios.");
+            //     return;
+            // }
 
             let usuario = {}
             if (this.nombre) usuario.nombre = this.nombre

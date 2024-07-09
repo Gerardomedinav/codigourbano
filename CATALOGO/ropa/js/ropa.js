@@ -16,6 +16,8 @@ createApp({
       selectedProduct: null,
       compras: [],
       cantidad: 1,
+      cantidadSeleccionada: 1,
+      favorites: {},
     };
   },
   methods: {
@@ -77,16 +79,40 @@ createApp({
         this.compras.splice(index, 1);
       }
     },
-    toggleCompras(product) {
-      if (this.compras.some(p => p.id === product.id)) {
-        this.removeFromCompras(product);
-      } else {
-        this.addToCompras(product);
+    removeFromCart(index) {
+      const removedProduct = this.cart[index];
+      this.cart.splice(index, 1);
+      
+      // Encuentra el producto en la lista completa de productos y actualiza su estado
+      const productInList = this.products.find(p => p.id === removedProduct.id);
+      if (productInList) {
+        productInList.isFavorite = false;
       }
     },
+    toggleCompras(product, cantidad) {
+      if (!product) return;
+      const index = this.compras.findIndex(p => p.id === product.id);
+      if (index !== -1) {
+        // Si ya está en el carrito, actualiza la cantidad o elimínalo si la cantidad es 0
+        if (cantidad > 0) {
+          this.compras[index].cantidad = cantidad;
+        } else {
+          this.compras.splice(index, 1);
+        }
+      } else {
+        // Si no está en el carrito y la cantidad es mayor que 0, añádelo
+        if (cantidad > 0) {
+          this.compras.push({...product, cantidad: cantidad});
+        }
+      }
+      this.closeModal();
+    },
+    isInCompras(product) {
+      return this.compras.some(p => p.id === product.id);
+    },
     comprar() {
-      if (this.selectedProduct && this.cantidad > 0 && this.cantidad <= this.selectedProduct.stock) {
-        this.realizarTransaccion(this.selectedProduct.id, this.cantidad)
+      if (this.selectedProduct && this.cantidadSeleccionada > 0 && this.cantidadSeleccionada <= this.selectedProduct.stock) {
+        this.realizarTransaccion(this.selectedProduct.id, this.cantidadSeleccionada)
           .then(() => {
             this.closeModal();
             alert('Compra realizada con éxito');
@@ -135,19 +161,68 @@ createApp({
       })
       .then(data => {
         console.log('Transacción exitosa:', data);
-        return data;
+        // Actualizar el stock después de una transacción exitosa
+        return this.actualizarStock(idProducto, cantidadProducto);
       })
       .catch(error => {
         console.error('Error en la transacción:', error);
         alert('Error al realizar la compra: ' + error.message);
         throw error;
       });
+      
+
+    },
+    actualizarStock(idProducto, cantidadComprada) {
+      const url = `https://felixcanosa.pythonanywhere.com/productos/${idProducto}`;
+      
+      return fetch(url)
+        .then(response => response.json())
+        .then(producto => {
+          const nuevoStock = Math.max(producto.stock - cantidadComprada, 0);
+          
+          return fetch(url, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ stock: nuevoStock })
+          });
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al actualizar el stock');
+          }
+          return response.json();
+        })
+        .then(productoActualizado => {
+          console.log('Stock actualizado:', productoActualizado);
+          this.actualizarStockEnUI(idProducto, productoActualizado.stock);
+          return productoActualizado;
+        });
+    },
+    
+    actualizarStockEnUI(idProducto, nuevoStock) {
+      const producto = this.products.find(p => p.id === idProducto);
+      if (producto) {
+        producto.stock = nuevoStock;
+        if (nuevoStock === 0) {
+          producto.agotado = true;
+        }
+      }
+    
+      if (this.selectedProduct && this.selectedProduct.id === idProducto) {
+        this.selectedProduct.stock = nuevoStock;
+        if (nuevoStock === 0) {
+          this.selectedProduct.agotado = true;
+        }
+      }
     },
 
+
     showModal(product) {
-      this.selectedProduct = product;
+      this.selectedProduct = {...product};
+      this.cantidadSeleccionada = 1; // Reinicia la cantidad
       this.isModalOpen = true;
-      document.body.style.overflow = 'hidden';
     },
 
     closeModal() {
@@ -155,12 +230,15 @@ createApp({
       document.body.style.overflow = 'auto';
     },
 
-    removeFromCart(index) {
-      this.cart.splice(index, 1);
+    removeFromCompras(product) {
+      const index = this.compras.findIndex(p => p.id === product.id);
+      if (index !== -1) {
+        this.compras.splice(index, 1);
+      }
     },
     
     toggleColor(product) {
-      product.isFavorite = !product.isFavorite;
+      this.toggleFavorite(product);
       if (product.isFavorite) {
         this.addToCart(product);
       } else {
@@ -201,9 +279,52 @@ createApp({
           console.error('Error al realizar el pedido:', error);
         });
     },
+    /* Metodos para control de favoritos y gaurdado en Local Storage de los mismos*/ 
+    toggleFavorite(product) {
+      const userId = this.getCurrentUserId();
+      if (!userId) return;
+  
+      if (!this.favorites[userId]) {
+        this.favorites[userId] = [];
+      }
+  
+      const index = this.favorites[userId].findIndex(p => p.id === product.id);
+      if (index === -1) {
+        this.favorites[userId].push(product);
+      } else {
+        this.favorites[userId].splice(index, 1);
+      }
+  
+      this.saveFavoritesToLocalStorage();
+      product.isFavorite = !product.isFavorite;
+    },
+  
+    isFavorite(product) {
+      const userId = this.getCurrentUserId();
+      if (!userId || !this.favorites[userId]) return false;
+      return this.favorites[userId].some(p => p.id === product.id);
+    },
+  
+    saveFavoritesToLocalStorage() {
+      localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    },
+  
+    loadFavoritesFromLocalStorage() {
+      const storedFavorites = localStorage.getItem('favorites');
+      if (storedFavorites) {
+        this.favorites = JSON.parse(storedFavorites);
+      }
+    },
+  
+    getCurrentUserId() {
+      return sessionStorage.getItem('id_cliente_logeado');
+    },
+
+
   },
   created() {
     this.fetchData();
+    this.loadFavoritesFromLocalStorage();
   },
 }).mount('#app');
 
