@@ -20,10 +20,14 @@ body {
 
 header {
     
-   
+    margin-top: 1%;
+    background: radial-gradient(at top, rgba(227, 14, 149, 0.363), rgba(221, 87, 199, 0.346)) !important;
+    backdrop-filter: blur(5px);
+    z-index: 0;
     
-    background-image: linear-gradient(to right, purple, rgb(216, 112, 190), rgb(216, 112, 190), rgb(132, 59, 155));
-    border-bottom: solid 1vw rgba(226, 76, 219, 0.5);
+    border-radius: 25px;
+   
+   
 }
 
 
@@ -66,7 +70,7 @@ header {
 }
 
 .nav-list a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 2em;
    
 }
@@ -236,9 +240,14 @@ header {
 
 
 footer {
+       margin-top: 1%;
+    background: radial-gradient(at top, rgba(227, 14, 149, 0.363), rgba(221, 87, 199, 0.346)) !important;
+    backdrop-filter: blur(5px);
+    z-index: 0;
+    
+    border-radius: 25px;
     padding: 3em;
     gap: 1em;
-    background-image: linear-gradient(to right, rgb(150, 29, 150), rgb(182, 36, 145), rgb(159, 51, 163));
 }
 
 .logo-text{
@@ -287,7 +296,7 @@ footer {
 }
 
 .iconos > a > i:hover{
-    color: blue;
+    color: rgb(194, 9, 231);
 }
 
 h2{

@@ -21,7 +21,7 @@ document.querySelector("header").innerHTML = `
         <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li> 
 
      <li>
-   <li id="userIconContainer"><a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user"></i></a></li>
+   <li id="userIconContainer"><a class="menu_interno" href="../../LOGIN/login.html" > <i class="fa-solid fa-user"></i></a></li>
         <li id="logoutButton" style="display: none;"><a class="menu_interno" id="cerrarSesionBtn" href="#" onclick="cerrarSesion()">Cerrar Sesión</a></li>
     
 </li>
