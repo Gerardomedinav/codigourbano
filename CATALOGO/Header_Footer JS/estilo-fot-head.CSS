@@ -20,7 +20,7 @@ body {
 
 header {
     
-    margin-top: 1%;
+
     background: radial-gradient(at top, rgba(227, 14, 149, 0.363), rgba(221, 87, 199, 0.346)) !important;
     backdrop-filter: blur(5px);
     z-index: 0;
@@ -113,7 +113,7 @@ header {
 
 @media screen and (max-width: 970px) {
     .nav-list a {
-        color: rgb(56, 238, 0);
+        color: #cf83cd;
     }
     .boton-hamburguesa,
     .cerrar_menu {
@@ -261,7 +261,7 @@ footer {
     background: radial-gradient(at top, rgba(227, 14, 149, 0.363), rgba(221, 87, 199, 0.346)) !important;
     backdrop-filter: blur(5px);
     z-index: 0;
-    
+    color: rgb(160 83 165);
     border-radius: 25px;
     padding: 3em;
     gap: 1em;
@@ -318,12 +318,15 @@ footer {
 
 h2{
     font-size: 2.5em;
-    color: rgb(17, 10, 0);
+    color: rgb(123, 63, 128);
 }
 
 p, span{
     font-size: 1.7em;
-    color: rgb(17, 10, 0);
+    color: rgb(160 83 165);
+}
+.producto > p {
+    color: rgb(233, 193, 236);
 }
 
 [title] {
