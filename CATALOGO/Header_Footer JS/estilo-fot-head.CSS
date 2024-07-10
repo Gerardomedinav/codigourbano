@@ -35,7 +35,8 @@ header {
     display: flex;
     justify-content:space-between;
     align-items: center;
-  
+   
+    
 }
 
 .logo_flex {
@@ -55,7 +56,7 @@ header {
     align-items: center;
     font-family: 'Gill Sans';
     font-size: 1em;
-
+   
 
 
 }
@@ -67,6 +68,7 @@ header {
     list-style-type: none;
     display: flex;
     gap: 2rem;
+    
 }
 
 .nav-list a {
@@ -109,43 +111,58 @@ header {
 }
 
 
-/* Estilos para pantallas menores a 800px */
 @media screen and (max-width: 970px) {
-
     .nav-list a {
         color: rgb(56, 238, 0);
     }
-
     .boton-hamburguesa,
     .cerrar_menu {
         display: block;
     }
-
     .topnav {
         opacity: 0;
-        visibility: hidden; /* Agregado */
-        position: absolute;
-        justify-content: center;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
         z-index: 1000;
+        display: flex;
+        justify-content: flex-end;
     }
-
     .topnav.visible {
         opacity: 1;
         visibility: visible;
     }
-
     .nav-list {
-        background-color: rgb(27, 27, 27);
+        background-color: rgb(87, 56, 95);
         position: fixed;
-        transform: translate(100px, 0);
-        align-items: center;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 250px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
         flex-direction: column;
-        padding: 27em 5em 2em 10em;
-        z-index: 1000;
+        padding: 6em 2em;
+        margin: 0;
+        z-index: 1001;
+    }
+    .topnav.visible .nav-list {
+        transform: translateX(0);
+    }
+    #nav {
+        z-index: 1002;
+    }
+    .cerrar_menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
     }
 }
-
 
 
 /***fin***/
