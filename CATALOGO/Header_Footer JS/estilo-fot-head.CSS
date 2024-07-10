@@ -2,20 +2,12 @@
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: "FIFA Welcome";
+
 }
 
-@font-face {
-    font-family: "FIFA Welcome";
-    src: url('/img/fifawelcome1.3.ttf') format('truetype');
-}
 
-body {
 
-     background-image: linear-gradient(to right, rgb(24, 228, 211), rgb(47, 245, 245), rgb(57, 236, 207), rgb(30, 210, 216)) 
-        /* background-image: linear-gradient(to right, rgb(135, 233, 179), rgb(59, 202, 114), rgb(63, 209, 119),rgb(120, 226, 152)) */
-   
-}
+
 /* configracion del menu*/
 
 header {
@@ -77,6 +69,20 @@ header {
    
 }
 
+/* Ajustes para la visibilidad de .nav-list */
+.nav-list {
+    z-index: 1000 !important;
+    position: relative; /* Asegura que el z-index se aplique correctamente */
+}
+
+/* Asegurar que el carrusel esté detrás de la nav-list */
+.gallery {
+    z-index: 1;
+    position: relative; /* Asegura que el z-index se aplique correctamente */
+}
+
+
+
 @media (max-width: 1300px){
     .nav-list a{
         font-size: 140%;
@@ -137,6 +143,7 @@ header {
         visibility: visible !important;
     }
     .nav-list {
+
         background-color: rgb(87, 56, 95) !important;
         position: fixed !important;
         top: 0 !important;
@@ -150,6 +157,7 @@ header {
         padding: 6em 2em !important;
         margin: 0 !important;
         z-index: 1001 !important;
+
     }
     .topnav.visible .nav-list {
         transform: translateX(0) !important;
