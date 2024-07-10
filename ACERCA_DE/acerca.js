@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     } else {
         // Usuario no logueado: icono en negro y enlace a login
-        userIconContainer.innerHTML = `<a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user" style="color: black;"></i></a>`;
+        userIconContainer.innerHTML = `<a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user" style="color: write;"></i></a>`;
         userIconContainer.setAttribute('title', `Acceso Restringido`);
         logoutButton.style.display = 'none'; // Ocultar botón de cerrar sesión
         if (clienteLink) {

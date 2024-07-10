@@ -196,7 +196,7 @@
  
     }
 
-    .box1, .box4 {
+     .box4 {
      
       background: radial-gradient(at top, rgba(14, 220, 227, 0.363), rgba(89, 142, 217, 0.346)) !important;
       backdrop-filter: blur(5px);
@@ -210,8 +210,23 @@
       
       
       }
+      .box1 {
+
+        background: radial-gradient(at top, rgba(220, 14, 227, 0.363), rgba(218, 58, 196, 0.346)) !important;
+        backdrop-filter: blur(5px);
+        background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgb(47, 110, 226) 100%);
+        box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
+        transition: all 0.3s ease-in-out 0s;
+        outline: none;
+        position: relative;
+        padding: 10px;
+        box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
+        border-radius: 5%;
+
+      }
       .box1 p {
         text-align: justify;
+        color: #B2175F;
         }
   
     .box1:hover {
@@ -822,7 +837,7 @@ input#male, input#female{
 }
 
 #ico_footer > a > i:hover{
-  color: blue;
+  color: rgb(255, 0, 212);
 }
 
 
@@ -869,3 +884,8 @@ input#male, input#female{
   position: relative !important;
   top: -8px !important;
 }  
+
+.iconos > a {
+  color: #4d0857;
+}
+

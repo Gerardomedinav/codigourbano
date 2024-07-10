@@ -75,7 +75,7 @@ h3 {
 }
 
 .genero p:hover {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid rgb(73, 19, 64);
 }
 
 .genero p:active {
@@ -84,7 +84,7 @@ h3 {
 }
 
 .genero p.active{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid rgb(88, 27, 94);
 }
 
 #buscador {
@@ -356,12 +356,12 @@ h3 {
     border-radius: 10px;
 }
 .boton-anadir {
-    background-color: #4CAF50; /* Verde */
+    background-color: #af4c91; /* Verde */
     color: white;
 }
   
 .boton-sacar {
-    background-color: #f44336; /* Rojo */
+    background-color: #f436db; /* Rojo */
     color: white;
 }
 
@@ -372,7 +372,7 @@ h3 {
     /* transform: translate(1.5em, -1.7em);  */
     font-size: 7em;
     /* Reducir el tamaño de la fuente */
-    color: red;
+    color: rgb(255, 0, 157);
     z-index: 1111;
     position: fixed;
     top: -25px;
@@ -408,14 +408,14 @@ h3 {
 #añadir {
     margin: 1em;
     font-size: 2em;
-    background-color:  rgb(255, 99, 99);
+    background-color:  rgb(255, 99, 216);
 }
 
 
 #sacar {
     margin: 1em;
     font-size: 2em;
-    background-color: rgb(205, 84, 51);
+    background-color: rgb(205, 51, 172);
 
 }
 
@@ -483,7 +483,7 @@ footer {
 .elimnar_fav_Y_produc{
     font-size: 5em;
     /* Reducir el tamaño de la fuente */
-    color: red;
+    color: rgb(255, 0, 179);
     z-index: 1111;
     position: fixed;
     transform: translate(200px, -10px);
@@ -630,4 +630,8 @@ footer {
     #contenedor_botones_producto{
         flex-direction: column;
     }
+}
+a.genero {
+    color: pink !important;
+    
 }
