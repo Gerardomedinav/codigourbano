@@ -15,16 +15,18 @@ body{
 
 #myID span {
     opacity: 0;
-    animation: example 1s forwards;
+    animation: example 0.5s forwards;
 }
 
 #myID{
     font-size: 8vw;
-    margin: 12% 0;
+    margin: 10% 0;
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
     flex-direction: row;
+    z-index: -10;
+    
 }
 
 /* esto es para mostrar el contenido de app VUE cuando el html este carcado por completo. y que se cierre con transition. */
