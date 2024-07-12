@@ -258,7 +258,7 @@ h1 {
     flex-wrap: nowrap;
     flex-direction: column;
     text-align:left;
-    background-color: rgba(204, 253, 245, 0.8);
+    background-color: rgba(251, 204, 253, 0.8) !important;
     border-radius: 5px;
     padding-left: 5px;
     padding-bottom: 10px;

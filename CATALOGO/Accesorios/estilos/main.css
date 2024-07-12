@@ -1,10 +1,6 @@
 
 body{
-    background-image: url(../img/fondo.png) !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    box-shadow: inset 0 0 0 5000px #92a1a180 !important;
+   background-color: #ffff;
    
 }
 
@@ -19,8 +15,8 @@ body{
 }
 
 #myID{
-    font-size: 8vw;
-    margin: 10% 0;
+    font-size: 3vw;
+    margin: 5% 0;
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
@@ -42,12 +38,9 @@ body{
 
 
 #pintado{
-    background-color: rgba(211, 211, 211, 0.8);
-    backdrop-filter: blur(3px); /* Desenfoque del fondo */
-    margin-bottom: 1em;
-    border-radius: 17px;
-    border-top: solid 3px  black;
-    border-bottom: solid 3px  black;
+   
+    background-color: rgba(243, 123, 243, 0.767);
+    backdrop-filter: blur(1px); /* Desenfoque del fondo */
 }
 
 
@@ -56,7 +49,6 @@ body{
    
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     padding: 0 4vw;
@@ -72,8 +64,7 @@ body{
         padding: 8em 0;
         width: 50%;
         gap: 10px;
-        background-color: rgba(251, 255, 255,0.1);
-        backdrop-filter: blur(1px); /* Desenfoque del fondo */
+        
         border-radius: 17px;
         margin: 5em auto;
     }
@@ -90,19 +81,20 @@ body{
 
 
 .genero{
+    color: rgb(116, 40, 116);
     font-size: 2em;
     margin-left: 1em;
 }
 
 .genero:hover{
-    border-bottom: 10px solid black;
-    border-top: 10px solid rgb(0, 0, 0);
+    border-bottom: 10px solid rgb(99, 15, 80);
+    border-top: 10px solid rgb(97, 28, 97);
     transition: 0.2s;
 }
 
 .genero.activar{
-    border-bottom: 3px solid black;
-    border-top: 3px solid rgb(0, 0, 0);
+    border-bottom: 3px solid rgb(105, 30, 95);
+    border-top: 3px solid rgb(102, 27, 73);
     transition: 0.2s;
 }
 
@@ -115,22 +107,21 @@ body{
 }
 
 
-#searchs{
+#searchs {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5%; 
+    margin-bottom: 6%;
+    padding: 1em;
    
-     
+    
 }
 
 #search{
-    margin: 1em;
     padding: 0 1em;
     font-size: 2em;
-  
+    border-radius: 17px;
 }
-
 
 /* fin del carruzel */
 
@@ -160,22 +151,24 @@ body{
 
 /* modificamos el sideber */
 #sidebar {
-    border: 1px solid black;
+    border: 1px solid rgb(92, 26, 72);
  
     padding: 0 1em;
     width: 95%;
-    background-color: rgba(211, 211, 211, 0.8);
+    background-color: rgba(226, 86, 180, 0.8);
     border-radius: 0 17px 17px 0;
     display: flex;
     
     flex-wrap: wrap;
     flex-direction: column;
-  
+    box-shadow: 0 2px 2px rgba(100, 100, 100, 0.2);
     /* z-index: 1000; */
 }
 
 
 .sidebar-link{
+    color: #ffff;
+    background-color: #c25ea9ad;
     border-radius: 17px;
     padding: 0 10px;
     font-size: 130%;
@@ -184,11 +177,11 @@ body{
 }
 
 .sidebar-link:hover{
-    background-image: linear-gradient(to right, rgb(25, 190, 190), rgb(101, 219, 235), rgb(112, 216, 199), rgb(140, 224, 230));
+    background-image: linear-gradient(to right, rgb(190, 25, 176), rgb(235, 101, 228), rgb(213, 112, 216), rgb(230, 140, 208));
 }
 
 .sidebar-link.active{
-    background-image: linear-gradient(to right, rgb(25, 190, 190), rgb(101, 219, 235), rgb(112, 216, 199), rgb(140, 224, 230));
+    background-image: linear-gradient(to right, rgb(190, 25, 168), rgb(235, 101, 224), rgb(216, 112, 207), rgb(230, 140, 208));
 }
 
 
@@ -203,8 +196,8 @@ body{
     justify-content: center;
     align-items: center;
     gap: 0.5em 0;
-    border: 5px solid rgb(6, 197, 204);
-    background-color: rgba(70, 68, 68,0.5);
+    border: 5px solid rgb(204, 6, 178);
+    background-color: rgba(216, 122, 196, 0.5);
 
     border-radius: 2em;
     margin: 0.9em;
@@ -220,8 +213,7 @@ body{
 
     height: 24em;
     padding: 0 1em;
-
-    background-color: rgba(204, 253, 245, 0.9);
+    background-color: rgb(207 92 179 / 90%);
     margin: 1vw;
     overflow: auto;
     border-radius: 17px;
@@ -266,7 +258,7 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    */background-color: white; /*antiquewhite*/
+    */background-color: rgba(250, 169, 223, 0.973); /*antiquewhite*/
     z-index: 1000;
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.9);
     overflow: auto;
@@ -284,7 +276,7 @@ body{
     flex-wrap: nowrap;
     flex-direction: column;
     text-align:left;
-    background-color: rgba(204, 253, 245, 0.8);
+    background-color: rgba(235, 132, 221, 0.8);
     border-radius: 5px;
     padding-left: 5px;
     padding-bottom: 10px;
@@ -292,8 +284,8 @@ body{
 .productoInterno hr {
     width: 80% auto;
     height: 1px;
-    background-color: black;
-    border: black;
+    background-color: rgb(87, 27, 77);
+    border: rgb(90, 29, 72);
     
 }
 .cantidad-selector {
@@ -306,25 +298,46 @@ body{
     border-radius: 5px;
 }
 .boton_agragar_compara {
-    margin: 1em;
-    border-radius: 17px;
-    font-size: 1em;
-    transition: background-color 0.3s, color 0.3s;
-  }
+    min-width: 100px;
+    min-height: 60px;
+  
+    text-transform: uppercase;
+
+  
+    color: #d5d5e3;
+ 
+    font-family: "FIFA Welcome" !important ; 
+    background: radial-gradient(at top, rgba(167, 14, 227, 0.363), rgba(76, 7, 85, 0.346)) !important;
+    backdrop-filter: blur(5px);
+  
+    border: none;
+    border-color: #350f2d;
+  
+    box-shadow: 12px 12px 24px rgba(77, 40, 69, 0.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    
+    
+}
+.boton_agragar_compara:hover {
+    background: radial-gradient(at top, rgba(193, 100, 230, 0.363), rgba(164, 95, 173, 0.346)) !important; 
+}
   
   .boton-anadir {
-    background-color: #4CAF50; /* Verde */
+    background-color: #752063; /* Verde */
     color: white;
   }
   
   .boton-sacar {
-    background-color: #f44336; /* Rojo */
+    background-color: #640e40; /* Rojo */
     color: white;
   }
 
   /* Estilos del contenedor de compras*/
 .contenedor_de_productos_y_favoritos{
-    background-color: rgba(70, 68, 68,0.5);
+    background-color: rgba(216, 61, 157, 0.5);
     backdrop-filter: blur(6px); /* Desenfoque del fondo */
     display: flex;
     justify-content: center;
@@ -341,9 +354,9 @@ body{
     margin-top: 13vw;
     background-color: rgba(70, 68, 68,0.5);
     border-radius: 17px 17px 0 0;*/
-    color: rgba(70, 68, 68,0.5);
+    color: rgba(85, 28, 73, 0.5);
     font-size: 4rem;
-    box-shadow: inset 0 0 0 2000px #cdf0f080;
+    box-shadow: inset 0 0 0 2000px #f0b5f080;
     border-radius: 60px;
     padding: 0px 10px;
     
@@ -354,7 +367,7 @@ body{
     display: flex;
     justify-content:space-around;
     align-items: center;
-    background-color: rgba(70, 68, 68,0.5);
+    background-color: rgba(187, 64, 166, 0.5);
     backdrop-filter: blur(10px); /* Desenfoque del fondo */
     border-radius: 17px 17px 0 0;
     margin: 0 11px;
@@ -366,7 +379,7 @@ body{
     font-weight: 800;
     margin-left:11px;
     margin-right:11px;
-    background-color: rgba(70, 68, 68,0.5);
+    background-color: rgba(226, 95, 209, 0.5);
     font-size: 2em;
     text-align: center;
     border-radius: 5px;
@@ -374,13 +387,13 @@ body{
 }
 
 .container-carrito {
-    background-color:rgba(70, 68, 68,0.5) ;
+    background-color:rgba(224, 68, 211, 0.5) ;
 }
 
 #titulo_carrito {
-    color: rgba(70, 68, 68,0.5);
+    color: rgba(134, 37, 126, 0.5);
     font-size: 4rem;
-    box-shadow: inset 0 0 0 2000px #cdf0f080;
+    box-shadow: inset 0 0 0 2000px #f0bde7b4;
     border-radius: 60px;
     padding: 0px 10px;
 }
@@ -404,7 +417,7 @@ body{
     /* transform: translate(1.5em, -1.7em);  */
     font-size: 7em;
     /* Reducir el tamaño de la fuente */
-    color: red;
+    color: rgb(100, 23, 90);
     z-index: 1111;
     position: fixed;
     top: -25px;
@@ -453,11 +466,11 @@ body{
     margin: 1em;
     border-radius: 17px;
     font-size: 2em; 
-    background-color:  rgb(255, 99, 99);
+    background-color:  rgb(255, 99, 255);
 }
 
 .contenedor_de_productos_y_favoritos{
-    background-color: rgba(70, 68, 68,0.5);
+    background-color: rgba(163, 65, 155, 0.5);
     backdrop-filter: blur(6px); /* Desenfoque del fondo */
     display: flex;
     justify-content: center;
@@ -473,7 +486,7 @@ body{
     display: flex;
     justify-content:space-around;
     align-items: center;
-    background-color: rgba(70, 68, 68,0.5);
+    background-color: rgba(230, 129, 224, 0.5);
     backdrop-filter: blur(10px); /* Desenfoque del fondo */
     border-radius: 17px 17px 0 0;
     margin: 0 11px;
@@ -489,7 +502,7 @@ body{
 .elimnar_fav_Y_produc{
     font-size: 5em;
     /* Reducir el tamaño de la fuente */
-    color: red;
+    color: rgb(75, 16, 57);
     z-index: 1111;
     position: fixed;
     transform: translate(200px, -10px);
@@ -498,7 +511,7 @@ body{
 }
 
 .elimnar_fav_Y_produc:hover{
-    color: rgb(165, 165, 165);
+    color: rgb(230, 164, 221);
 }
 
 #compra_producto{
@@ -533,11 +546,18 @@ body{
     font-weight: 800;
     margin-left:11px;
     margin-right:11px;
-    background-color: rgba(70, 68, 68,0.5);
+    background-color: rgba(197, 111, 193, 0.5);
     font-size: 2em;
     text-align: center;
 }
 
 .imagen_product {
     max-height: 250px;
+}
+
+@media (max-width: 600px) {
+    #contenedor_botones_producto{
+        display: flex;
+        flex-direction: column;
+    }
 }
