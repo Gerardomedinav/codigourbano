@@ -556,8 +556,13 @@ body{
 }
 
 @media (max-width: 600px) {
-    #contenedor_botones_producto{
-        display: flex;
-        flex-direction: column;
+    #contenedor_botones_producto {
+        flex-direction: column; /* Cambiar la dirección de los elementos a columna */
+        padding: 15px 10px; /* Ajustar el padding */
+        margin: 0 5px; /* Ajustar el margen */
+        max-height: none; /* Eliminar la restricción de altura */
+    }
+    #contenedor_botones_producto > p {
+        margin-top: 15px;
     }
 }
