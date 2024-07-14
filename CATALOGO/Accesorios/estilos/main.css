@@ -1,4 +1,6 @@
-
+*{
+    margin: 0;
+}
 body{
    background-color: #ffff;
    
@@ -306,7 +308,7 @@ body{
   
     color: #d5d5e3;
  
-    font-family: "FIFA Welcome" !important ; 
+    
     background: radial-gradient(at top, rgba(167, 14, 227, 0.363), rgba(76, 7, 85, 0.346)) !important;
     backdrop-filter: blur(5px);
   
@@ -410,6 +412,21 @@ body{
     .btn-exit {
         font-size: 1em;
     }
+    #search{
+        display: flex;
+        width: 100%;
+    }
+    #myID {
+        font-size: 7vw;
+        position: relative;
+        z-index: -1;
+    }
+    #pintado {
+        
+        position: relative;
+        z-index: -1;
+    }
+        
 
 }
 
@@ -565,4 +582,30 @@ body{
     #contenedor_botones_producto > p {
         margin-top: 15px;
     }
+  
 }
+
+
+@media screen and (max-width: 970px) {
+  
+  
+    .topnav.visible .nav-list {
+        
+        position:  relative !important;
+        z-index: 2 !important;
+        height: auto !important;
+        top: 380% !important;
+    }
+ 
+   
+    body {
+
+        position: relative;
+        z-index: -1000;
+        
+    }
+  
+    
+
+}
+

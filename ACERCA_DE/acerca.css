@@ -15,6 +15,9 @@
       "box4 box4 box4 box4";
 }
 
+.box4 > h1 {
+  margin: 20px;
+}
 
 
 /* Asignamos las áreas a los divs */
@@ -67,9 +70,10 @@
   
   .card-body {
     grid-area: 1 / 1;
+    display: flex;
     height: 200px;
-    width: 350px;
-    transform: translateX(10px) rotateY(25deg) rotateX(10deg);
+    width: 100%;
+
     background: rgba(104, 173, 236, 0.836);
     display: flex;
     justify-content: flex-start;
@@ -82,7 +86,7 @@
     font-weight: 900;
     backface-visibility: hidden;
     box-shadow: 0 10px 30px -3px rgba(0, 0, 0, 0);
-    border-radius: 50% !important;
+
     box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
   }
   
@@ -113,7 +117,7 @@
     background: transparent;
     transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
     pointer-events: none;
-    border: var(--bw) solid #00000000;
+   
     box-sizing: content-box;
   }
   
@@ -191,16 +195,16 @@
     padding: 20px;
     width: auto;
     margin: 2%;
-    border: 10px solid darkorchid;
+    border: 10px solid rgb(135, 71, 167);
     box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
  
     }
 
      .box4 {
      
-      background: radial-gradient(at top, rgba(14, 220, 227, 0.363), rgba(89, 142, 217, 0.346)) !important;
+      background: radial-gradient(at top, rgba(231, 120, 226, 0.363), rgba(228, 128, 189, 0.346)) !important;
       backdrop-filter: blur(5px);
-      background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgb(47, 110, 226) 100%);
+
       box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
       transition: all 0.3s ease-in-out 0s;
       outline: none;
@@ -212,16 +216,15 @@
       }
       .box1 {
 
-        background: radial-gradient(at top, rgba(220, 14, 227, 0.363), rgba(218, 58, 196, 0.346)) !important;
+        background: radial-gradient(at top, rgba(218, 114, 221, 0.363), rgba(218, 58, 196, 0.346)) !important;
         backdrop-filter: blur(5px);
-        background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgb(47, 110, 226) 100%);
         box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
         transition: all 0.3s ease-in-out 0s;
         outline: none;
         position: relative;
         padding: 10px;
         box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
-        border-radius: 5%;
+      
 
       }
       .box1 p {
@@ -332,7 +335,7 @@
         align-items: center;
         width: 100%;
         left: auto;
-        background: radial-gradient(at top, rgba(14, 220, 227, 0.363), rgba(89, 142, 217, 0.671)) !important;
+        background: radial-gradient(at top, rgba(209, 103, 209, 0.363), rgba(217, 89, 200, 0.671)) !important;
         backdrop-filter: blur(5px);
       }
       .box_mapa {
@@ -405,7 +408,7 @@
     
     /* form animation starts */
       .form {
-        background: #049bf3;
+        background: #50b8f5;
         text-align: center; 
         box-shadow: 0px 0px 20px 5px #AAA; 
         border-radius: 10px;  
@@ -417,46 +420,46 @@
       }
     
     .name { 
-        background-color: #DF1B76;
-        border-bottom: 5px solid #B2175F;
-        color: white;
+        background-color: #e7adc8;
+        border-bottom: 5px solid #fffdfe;
+        color: rgb(19, 18, 18);
         width:82%;
       }
     
       ::-webkit-input-placeholder{
-          color: white;
+          color: rgb(14, 13, 13);
           font-size: 20px;
       }
       .name:hover{
-        background-color: #DF1B76;
-        border-bottom: 5px solid #B2175F;
+        background-color: #f185f5;
+        border-bottom: 5px solid #adabac;
        
       }
     
       .email {
-        background-color: #7239C1;  
-        border-bottom: 5px solid #502789;
+        background-color: #f386cf;  
+        border-bottom: 5px solid #c7c2c5;
         height:50px;
         width:82%;
         
       }
       .email:hover{
-        background-color: #7239C1;  
-        border-bottom: 5px solid #502789;
+        background-color: #f588f5;  
+        border-bottom: 5px solid #d1ced6;
        
        
       }
       .message {   
-        background-color: rgb(245, 17, 195);
-        border-bottom: 5px solid rgb(143, 13, 110);
+        background-color: rgb(245, 133, 221);
+        border-bottom: 5px solid rgb(187, 181, 186);
         overflow: hidden;
         height: 100px;  
         width:82%;
       }
     
       .message:hover{
-        background-color: #e960e2;
-        border-bottom: 5px solid #4d0857;
+        background-color: #ec7ee7;
+        border-bottom: 5px solid #a564af;
        
       }
     
@@ -594,6 +597,11 @@
         
           margin-top: 70%;
         }
+        .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+       
+          position: relative;
+          z-index: -1;
+      }
 
     }
 

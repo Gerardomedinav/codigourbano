@@ -641,10 +641,31 @@ h3 {
 
 }
 
-@media (min-width: 1px) and (max-width: 426px) {
+@media screen and (max-width: 970px) {
+  
+    #myID {
+        position: relative;
+        z-index: -1;
+        
+    }
+    .topnav.visible .nav-list {
+        
+        position:  relative !important;
+        z-index: 2 !important;
+        height: auto !important;
+        top: 380% !important;
+    }
+    .flickity-enabled.is-draggable {
+        position: relative;
+        z-index: -1;
+    }
+    body {
 
+        position: relative;
+        z-index: -1000;
+        
+    }
     
-
 
 }
 
