@@ -2,45 +2,30 @@
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-
 }
 
-
-
-
-/* configracion del menu*/
-
+/* Configuración del menú */
 header {
-    
-
     background: radial-gradient(at top, rgba(227, 14, 149, 0.363), rgba(221, 87, 199, 0.346)) !important;
     backdrop-filter: blur(5px);
     z-index: 1002;
     position: relative;
     border-radius: 25px;
-   
-   
 }
 
-
-#nav{
+#nav {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
-   
-    
 }
 
 .logo_flex {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
-
 .topnav {
-
     margin: 1em;
     display: flex;
     flex-direction: row;
@@ -48,75 +33,50 @@ header {
     align-items: center;
     font-family: 'Gill Sans';
     font-size: 1em;
-   
-
-
 }
 
-
-
 .nav-list {
-
     list-style-type: none;
     display: flex;
     gap: 2rem;
-    
 }
 
 .nav-list a {
-    color: rgb(255, 255, 255);
+    color: #ffffff !important;
     font-size: 2em;
-   
 }
 
-/* Ajustes para la visibilidad de .nav-list */
 .nav-list {
     z-index: 1000 !important;
-    position: relative; /* Asegura que el z-index se aplique correctamente */
+    position: relative;
 }
 
-/* Asegurar que el carrusel esté detrás de la nav-list */
 .gallery {
     z-index: 1;
-    position: relative; /* Asegura que el z-index se aplique correctamente */
+    position: relative;
 }
 
-
-
-@media (max-width: 1300px){
-    .nav-list a{
+@media (max-width: 1300px) {
+    .nav-list a {
         font-size: 140%;
     }
 }
 
 .boton-hamburguesa {
     height: 50%;
-
     background-color: transparent;
-}
-
-.cerrar_menu {
-    background-color: transparent;
-}
-
-/*configuracion para que sea responsive*/
-.boton-hamburguesaIMG{
-    width: 60px;
-    height: 60px;
-}
-
-
-.boton-hamburguesa {
-    display: none;
-    background: transparent;
     border: none;
     cursor: pointer;
+}
+
+.boton-hamburguesaIMG {
+    width: 60px;
+    height: 60px;
 }
 
 .cerrar_menu,
 .boton-hamburguesa {
     display: none;
-
 }
 
 .overlay {
@@ -128,7 +88,7 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease;
     z-index: 999;
 }
 
@@ -136,7 +96,6 @@ header {
     opacity: 1;
     visibility: visible;
 }
-
 
 @media screen and (max-width: 970px) {
     .nav-list a {
@@ -151,35 +110,34 @@ header {
         top: 0 !important;
         right: 0 !important;
         bottom: 0 !important;
-        width: 250px !important;
+        width: 80% !important;
+        max-width: 300px;
         background-color: rgb(87, 56, 95) !important;
         z-index: 1000 !important;
         transform: translateX(100%);
-        transition: transform 0.3s ease-in-out !important;
-        visibility: hidden; /* Añadido */
+        visibility: hidden;
+        transition: transform 0.3s ease-in-out;
     }
-
     .topnav.visible {
         transform: translateX(0);
-        visibility: visible; /* Añadido */
+        visibility: visible;
     }
     .nav-list {
         background-color: rgb(87, 56, 95);
         position: fixed !important;
         top: 0 !important;
         right: 0 !important;
-        height: 100% !important;
-        width: 250px !important;
+        height: 100% ;
+        width: 100% ;
         transform: translateX(100%);
-        transition: transform 0.3s ease-in-out !important;
+        transition: transform 0.3s ease-in-out;
         display: flex !important;
         flex-direction: column !important;
-        padding: 6em 2em !important;
+        padding: 60px 20px 20px !important;
         margin: 0 !important;
         z-index: 1001 !important;
-        overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+        overflow-y: auto;
     }
-
     .topnav.visible .nav-list {
         transform: translateX(0);
     }
