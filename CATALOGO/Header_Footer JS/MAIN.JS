@@ -55,8 +55,8 @@ document.querySelector("footer").innerHTML = `
             </div>
 
             <div class="contact">
-                <span><i class="fas fa-phone"></i>   123-456-7890</span>
-                <span><i class="fas fa-envelope"></i>   info@codigourbano.com</span>
+                <span><i class="fas fa-phone"></i>123-456-7890</span>
+                <span><i class="fas fa-envelope"></i>info@codigourbano.com</span>
 
                 <div class="icon">
                 <ul class="iconos">

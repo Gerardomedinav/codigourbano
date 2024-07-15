@@ -228,6 +228,7 @@ header {
 .menu_interno {
     font-size: 1.5em;
     padding: 0.5vw;
+    color: #333 !important;
 }
 
 .menu_interno:hover {
@@ -257,6 +258,22 @@ header {
     font-size: 180%;
     margin-right: 2em;
     
+}
+
+p{
+    color: #333 !important;
+}
+
+h2{
+    color: #333 !important;
+}
+
+.fas{
+    color: #333 !important;
+}
+
+span{
+    color: #333 !important;
 }
 
 

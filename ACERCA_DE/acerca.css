@@ -17,6 +17,7 @@
 
 .box4 > h1 {
   margin: 20px;
+  color: #000000;
 }
 
 
@@ -74,7 +75,7 @@
     height: 200px;
     width: 100%;
 
-    background: rgba(104, 173, 236, 0.836);
+    background: rgba(85, 149, 209, 0.548);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -185,6 +186,10 @@
    
 }
 
+#gene{
+  color: #000000 !important;
+}
+
 
 
 }
@@ -196,13 +201,13 @@
     width: auto;
     margin: 2%;
     border: 10px solid rgb(135, 71, 167);
-    box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
+    box-shadow: 12px 12px 24px rgba(104, 104, 104, 0);
  
     }
 
      .box4 {
      
-      background: radial-gradient(at top, rgba(231, 120, 226, 0.363), rgba(228, 128, 189, 0.346)) !important;
+      background: radial-gradient(at top, rgba(153, 153, 153, 0.363), rgba(228, 128, 189, 0.346)) !important;
       backdrop-filter: blur(5px);
 
       box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
@@ -216,9 +221,9 @@
       }
       .box1 {
 
-        background: radial-gradient(at top, rgba(218, 114, 221, 0.363), rgba(218, 58, 196, 0.346)) !important;
+        background: radial-gradient(at top, rgba(139, 139, 139, 0), rgba(228, 85, 209, 0)) !important;
         backdrop-filter: blur(5px);
-        box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
+        box-shadow: 12px 12px 24px rgba(48, 49, 49, 0);
         transition: all 0.3s ease-in-out 0s;
         outline: none;
         position: relative;
@@ -229,7 +234,7 @@
       }
       .box1 p {
         text-align: justify;
-        color: #B2175F;
+        color: #000000;
         }
   
     .box1:hover {
@@ -310,6 +315,7 @@
       .box1_top h2 span {
       display: block;
       margin: 10%;
+      color: #000000;
       }
 
     .box3 {
@@ -335,14 +341,14 @@
         align-items: center;
         width: 100%;
         left: auto;
-        background: radial-gradient(at top, rgba(209, 103, 209, 0.363), rgba(217, 89, 200, 0.671)) !important;
+        background: radial-gradient(at top, rgba(209, 103, 209, 0), rgba(217, 89, 200, 0)) !important;
         backdrop-filter: blur(5px);
       }
       .box_mapa {
         display: flex;
         width: 80%;
         height: 80%;
-        background-color: #049bf3;
+        background-color: #42cef100;
         box-shadow: 12px 12px 24px rgba(48, 49, 49, 0.64);
         flex-direction: column;
         margin: 10px;
@@ -352,11 +358,11 @@
       }
       .box1 , .box3 * {
         font-size: 30px; 
-        color: white; 
+        color: rgb(0, 0, 0); 
         }
         .box1:hover   {
          
-          color: white; 
+          color: rgb(15, 15, 15); 
           }
 
           .title  > h1 {
@@ -380,7 +386,7 @@
         text-align: center;
         padding-bottom: 10px;
         font-size: 42px;
-        color: rgb(252, 252, 252);
+        color: rgb(0, 0, 0);
         display: flex;
       }
       .titulo h1#titles {
@@ -393,7 +399,7 @@
         text-align: center;
         padding-bottom: 10px;
         font-size: 42px;
-        color: rgb(252, 252, 252) !important;
+        color: rgb(0, 0, 0) !important;
       }
     
       #title-Tag-Line{
@@ -408,7 +414,7 @@
     
     /* form animation starts */
       .form {
-        background: #50b8f5;
+        background: #e4e4e400;
         text-align: center; 
         box-shadow: 0px 0px 20px 5px #AAA; 
         border-radius: 10px;  
@@ -420,7 +426,7 @@
       }
     
     .name { 
-        background-color: #e7adc8;
+        background-color: #e7adc86e;
         border-bottom: 5px solid #fffdfe;
         color: rgb(19, 18, 18);
         width:82%;
@@ -431,26 +437,26 @@
           font-size: 20px;
       }
       .name:hover{
-        background-color: #f185f5;
+        background-color: #e7adc8b9;
         border-bottom: 5px solid #adabac;
        
       }
     
       .email {
-        background-color: #f386cf;  
+        background-color: #e7adc86e; 
         border-bottom: 5px solid #c7c2c5;
         height:50px;
         width:82%;
         
       }
       .email:hover{
-        background-color: #f588f5;  
+        background-color: #e7adc8b9;  
         border-bottom: 5px solid #d1ced6;
        
        
       }
       .message {   
-        background-color: rgb(245, 133, 221);
+        background-color: #e7adc86e;
         border-bottom: 5px solid rgb(187, 181, 186);
         overflow: hidden;
         height: 100px;  
@@ -458,7 +464,7 @@
       }
     
       .message:hover{
-        background-color: #ec7ee7;
+        background-color: #e7adc8b9;
         border-bottom: 5px solid #a564af;
        
       }
@@ -530,7 +536,7 @@
       }
 
       .box3  {
-        color: #ffffff;
+        color: #000000;
         margin-top: -10%;
         
         
@@ -577,11 +583,11 @@
       }
       .box1 , .box3 * {
        
-        color: white; 
+        color: rgb(0, 0, 0); 
         }
         .box1:hover , .box3:hover * {
           
-          color: white; 
+          color: rgb(0, 0, 0); 
           }
           #profile-image {
             font-size: x-small;
@@ -606,7 +612,7 @@
 
       .box3 a {
         
-        color: white;
+        color: rgb(0, 0, 0);
         margin: 5px;
 
       }
@@ -622,13 +628,17 @@
   }
 
   /* Estilo para la etiqueta de género */
-.gender {
-  display: flex;
-  width: 80%;
-  margin: 8%;
-  padding: auto;
-  
-}
+  .gender {
+    display: flex;
+    flex-direction: row;
+
+    width: 80%;
+    padding: auto;
+    font-size: 70%;
+    font-weight: 700;
+    line-height: 1.5; 
+    color: #000000;
+  }
 
 /* Estilo para los botones de radio de género */
 .gender-radio {
@@ -700,22 +710,27 @@
 
 .gender {
   display: flex;
-  flex-direction: column;
-  width: 80%;
-  padding: auto;
-  font-size: 70%;
-  line-height: 1.5; 
-  color: #fcf9f9;
- 
   
+  flex-direction: column;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.5; 
+  color: #000000;
 }
+
 label#gene {
   display: flex;
+  
 }
 
 .genero {
+  gap: 2em;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  
 }
 
 input#profile-image {
@@ -735,6 +750,7 @@ input#profile-image {
 input#male, input#female{
   display: flex;
   width: 100%;
+
 }
 
 .masc input[type="radio"],
@@ -743,7 +759,7 @@ input#male, input#female{
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 5%;
-  height: 25px;
+  height: 50px;
   border-radius: 50%;
   border: 2px solid #ccc;
   outline: none;

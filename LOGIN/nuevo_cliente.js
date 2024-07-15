@@ -65,14 +65,19 @@ createApp({
             fetch(this.url, options)
                 .then(response => response.json())
                 .then(data => {
-                    alert("Registro Exitoso, será redirecionado al Catalogo")
-                    sessionStorage.setItem('isLoged', 'true');
-                    sessionStorage.setItem('id_cliente_logeado', data.id);
-                    window.location.href = "../CATALOGO/ropa/ropa.html";
+                    if (data.id) {
+                        sessionStorage.setItem('isLoged', 'true');
+                        sessionStorage.setItem('id_cliente_logeado', data.id);
+                        console.log('ID del cliente logeado:', data.id); // Para verificar
+                        alert("Registro Exitoso, será redireccionado al Catálogo");
+                        window.location.href = "../CATALOGO/ropa/ropa.html";
+                    } else {
+                        throw new Error('No se recibió un ID de usuario válido del servidor');
+                    }
                 })
                 .catch(err => {
                     console.error(err);
-                    alert("Error al Grabar")
+                    alert("Error al Grabar: " + err.message);
                 })
         },
 
