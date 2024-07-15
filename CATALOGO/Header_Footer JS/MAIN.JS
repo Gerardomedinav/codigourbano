@@ -1,6 +1,7 @@
 
-
+document.body.insertAdjacentHTML('afterbegin', '<div class="overlay" id="overlay"></div>');
 document.querySelector("header").innerHTML = ` 
+
 <div id="nav">
 <div class="logo_flex">
 <a class="logo" href="/index.html"><img src="../Header_Footer JS/img_head-foot/codigourbano2.png" alt=""></a>
