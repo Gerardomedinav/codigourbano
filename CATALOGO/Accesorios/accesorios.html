@@ -54,8 +54,8 @@
                     </div>
                     <div class="producto" v-for="product in products">
                         <a href="javascript:void(0)" class="heart" :class="{ 'red': isFavorite(product) }"@click="toggleColor(product)">&hearts;</a>
-                        <img class="imagen_product" :src="product.imagen" :alt="product.nombre"
-                            @click="showModal(product)">
+                        <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre" @click="showModal(product)">
+                       
                         <h3>{{product.nombre}}</h3>
                         <p>Precio: ${{ product.precio }}</p>
                     </div>
@@ -64,8 +64,8 @@
 
                    
                     <dialog id="modal" class="productoInterno" v-show="isModalOpen">
-                        <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen"
-                            alt="">
+                        <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen || '../../img/product-default.png'" @error="handleImageError($event)" alt="">
+                       
                         <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
                         <h2 v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
                         <div class="descripcion_de_producots">
@@ -98,7 +98,8 @@
                         <div v-for="product in favorites[getCurrentUserId()] || []" :key="product.id">
                           <div class="producto">
                             <button class="elimnar_fav_Y_produc" @click="toggleFavorite(product)">X</button>
-                            <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
+                            <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre">
+                       
                             <h5>{{ product.nombre }}</h5>
                             <p>Precio: ${{ product.precio }}</p>
                           </div>
@@ -116,7 +117,8 @@
                     <div v-for="(product, index) in compras" :key="product.id">
                         <div class="producto">
                             <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
-                            <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
+                            <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre">
+                       
                             <h5>{{ product.nombre }}</h5>
                             <p>Precio: ${{ product.precio }}</p>
                             <div class="cantidad-selector">

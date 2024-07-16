@@ -279,6 +279,9 @@ createApp({
           console.error('Error al realizar el pedido:', error);
         });
     },
+    handleImageError(event) {
+      event.target.src = '../../img/product-default.png';
+    },
     /* Metodos para control de favoritos y gaurdado en Local Storage de los mismos*/ 
     toggleFavorite(product) {
       const userId = this.getCurrentUserId();
