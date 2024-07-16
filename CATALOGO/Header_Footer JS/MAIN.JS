@@ -1,45 +1,36 @@
 
-
+document.body.insertAdjacentHTML('afterbegin', '<div class="overlay" id="overlay"></div>');
 document.querySelector("header").innerHTML = ` 
+
 <div id="nav">
-<div class="logo_flex">
-<a class="logo" href="/index.html"><img src="../Header_Footer JS/img_head-foot/codigourbano2.png" alt=""></a>
-<button  class="boton-hamburguesa" id="abrir"><img class="boton-hamburguesaIMG" src="../Header_Footer JS/img_head-foot/icons8-menu-16.png" alt=""></button>
-</div>
-
-<div class="topnav" id="topnav">
-    
-    <ul class="nav-list">
-
-
-        <button class="cerrar_menu" id="cerrar"><img src="../Header_Footer JS/img_head-foot/icons8-close-16.png" alt=""></button>
-        <li><a class="menu_interno" href="/index.html">Home</a></li>
-        <li><a class="menu_interno" href="../../CATALOGO/zapatillas/zapatilla.html">Zapatillas</a></li>
-        <li><a class="menu_interno" href="../../CATALOGO/ropa/ropa.html">Ropa</a></li>
-        <li><a class="menu_interno" href="../../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
-        <li><a class="menu_interno" href="../../ACERCA_DE/acerca_de.html">Nosotros</a></li>
-        <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li> 
-
-     <li>
-   <li id="userIconContainer"><a class="menu_interno" href="../../LOGIN/login.html" > <i class="fa-solid fa-user"></i></a></li>
-        <li id="logoutButton" style="display: none;"><a class="menu_interno" id="cerrarSesionBtn" href="#" onclick="cerrarSesion()">Cerrar Sesión</a></li>
-    
-</li>
-
-
-    </ul>
-</div>
-
-
-
-
-
-    <form id="buscador_header_logico">
-    <a href="#favorio" class="corazon_compra"><img  class="corazon_compraIMG" src="../Header_Footer JS/img_head-foot/icons8-heart-32.png" alt=""></a>
-        <a href="#compra" class="carrito_compra"><img class="carrito_compraIMG" src="../Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt=""></a>
-    </form>
-
-</div>
+            <div class="logo_flex">
+                <a class="logo" href="/index.html">
+                    <img src="../Header_Footer JS/img_head-foot/codigourbano2.png" alt="Logo">
+                </a>
+                <button class="boton-hamburguesa" id="abrir">
+                    <img class="boton-hamburguesaIMG" src="../Header_Footer JS/img_head-foot/icons8-menu-16.png" alt="Abrir menú">
+                </button>
+            </div>
+            <div class="topnav" id="topnav">
+                <ul class="nav-list">
+                    <button class="cerrar_menu" id="cerrar">
+                        <img src="../Header_Footer JS/img_head-foot/icons8-close-16.png" alt="Cerrar menú">
+                    </button>
+                    <li><a class="menu_interno" href="/index.html">Home</a></li>
+                    <li><a class="menu_interno" href="../../CATALOGO/zapatillas/zapatilla.html">Zapatillas</a></li>
+                    <li><a class="menu_interno" href="../../CATALOGO/ropa/ropa.html">Ropa</a></li>
+                    <li><a class="menu_interno" href="../../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
+                    <li><a class="menu_interno" href="../../ACERCA_DE/acerca_de.html">Nosotros</a></li>
+                    <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li>
+                    <li id="userIconContainer"><a class="menu_interno" href="../../LOGIN/login.html"><i class="fa-solid fa-user"></i></a></li>
+                    <li id="logoutButton" style="display: none;"><a class="menu_interno" id="cerrarSesionBtn" href="#" onclick="cerrarSesion()">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+            <form id="buscador_header_logico">
+                <a href="#favorio" class="corazon_compra"><img class="corazon_compraIMG" src="../Header_Footer JS/img_head-foot/icons8-heart-32.png" alt="Favoritos"></a>
+                <a href="#compra" class="carrito_compra"><img class="carrito_compraIMG" src="../Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt="Carrito de compra"></a>
+            </form>
+        </div>
 
 `
 
