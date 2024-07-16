@@ -18,6 +18,7 @@ createApp({
     };
   },
   methods: {
+
     async fetchData() {
       try {
         let queryUrl = this.url;
@@ -269,6 +270,9 @@ createApp({
         .catch(error => {
           console.error('Error al realizar el pedido:', error);
         });
+    },
+    handleImageError(event) {
+      event.target.src = '../../img/codigourbano2.png';
     },
     /* Metodos para control de favoritos y gaurdado en Local Storage de los mismos*/ 
     toggleFavorite(product) {

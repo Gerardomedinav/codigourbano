@@ -45,19 +45,26 @@
             </div>
 
 
-
             <div id="contenedor_de_productos">
-                <div v-if="noProducts" class="no-products-message">
+                <div v-if="!products.length" class="no-products-message">
                     <p>No se encontraron productos que coincidan con los criterios de búsqueda.</p>
                 </div>
-                <div class="producto" v-for="product in products">
-                    <a href="javascript:void(0)" class="heart" :class="{ 'red': isFavorite(product) }"@click="toggleColor(product)">&hearts;</a>
-                    <img class="imagen_product" :src="product.imagen" :alt="product.nombre"
-                        @click="showModal(product)">
-                    <h3>{{product.nombre}}</h3>
-                    <p>Precio: ${{ product.precio }}</p>
+                <div v-for="product in products" :key="product.id" class="producto" style="width: 18rem;">
+                    <a href="javascript:void(0)" class="heart" :class="{ 'red': isFavorite(product) }" @click="toggleColor(product)">&hearts;</a>
+                    <img :src="product.imagen || '../../img/codigourbano2.png'" @error="handleImageError($event)" class="imagen_product" :alt="product.nombre" @click="showModal(product)">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.nombre}}</h5>
+                        <p class="card-text">Precio: ${{ product.precio }}</p>
+                    </div>
                 </div>
             </div>
+            
+                 
+
+          
+            
+            
+            
 
             <transition name="fade">
                 <dialog id="modal" class="productoInterno" v-show="isModalOpen">

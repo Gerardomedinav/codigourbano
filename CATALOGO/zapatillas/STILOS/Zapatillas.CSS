@@ -174,8 +174,9 @@ h1 {
     text-align: center;
     width: 100%; /*2em*/
     max-width: 20em;
+ 
    /* min-width: 5em;*/
-    height: auto;
+
     background-color: rgb(233 215 230 / 80%);
     margin: 1vw;
     /* overflow: auto; */
@@ -214,6 +215,7 @@ h1 {
 .imagen_product {
     width: 15em;
     margin-top: 1em;
+    max-height: 15em;
 
 
 }
