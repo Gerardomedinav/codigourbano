@@ -28,7 +28,7 @@ document.querySelector("header").innerHTML = `
             </div>
             <form id="buscador_header_logico">
                 <a href="#favorio" class="corazon_compra"><img class="corazon_compraIMG" src="../Header_Footer JS/img_head-foot/icons8-heart-32.png" alt="Favoritos"></a>
-                <a href="#compra" class="carrito_compra"><img class="carrito_compraIMG" src="../Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt="Carrito de compra"></a>
+                <a href="#titulo_carrito" class="carrito_compra"><img class="carrito_compraIMG" src="../Header_Footer JS/img_head-foot/icons8-shopping-cart-32.png" alt="Carrito de compra"></a>
             </form>
         </div>
 
