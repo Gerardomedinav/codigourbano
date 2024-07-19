@@ -294,6 +294,10 @@ h3 {
     transform: translateY(-5px);
 }
 
+#contenedor_dialog {
+    width: 50%;
+}
+
 .productoInterno {
     position: fixed;
     left: 50%;

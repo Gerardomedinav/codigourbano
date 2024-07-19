@@ -46,25 +46,29 @@
             </div>
             <div class="container_genero_buscador">
                 <div class="genero">
-                    <p @click="changeGender('todo')" onclick="mantenerLinea(this)">Todo</p>
-                    <p @click="changeGender('hombre')" onclick="mantenerLinea(this)">Hombre</p>
-                    <p @click="changeGender('mujer')" onclick="mantenerLinea(this)">Mujer</p>
-                    <p @click="changeGender('niño')" onclick="mantenerLinea(this)">Niños</p>
+                    <p @click="changeGender('Todo')" onclick="mantenerLinea(this)">Todo</p>
+                    <p @click="changeGender('Hombre')" onclick="mantenerLinea(this)">Hombre</p>
+                    <p @click="changeGender('Mujer')" onclick="mantenerLinea(this)">Mujer</p>
+                    <p @click="changeGender('Niño')" onclick="mantenerLinea(this)">Niños</p>
                 </div>
-                <label for="buscador"></label>
-                <input type="text" id="buscador" placeholder="Buscador" v-model="selectorRopa"
-                    @keyup.enter="fetchData(selectorRopa)" onclick="manteneColorFondo(this)">
+                
+                <div class="buscador-container">
+                    <input type="text" id="buscador" placeholder="Buscador" v-model="searchQuery"
+                        @input="debouncedFetchData" onclick="manteneColorFondo(this)">    
+                   <!-- <button @click="fetchData">Buscar</button>-->
+                </div>
+                  
             </div>
             <div class="grid-container">
                 <div class="tipo-ropa">
 
-                    <button @click="changeSubCategory('Remera')" class="boton" onclick="cambiarColor(this)">Remeras</button>
-                    <button @click="changeSubCategory('Camisetas')" class="boton"onclick="cambiarColor(this)">Camisetas</button>
-                    <button @click="changeSubCategory('Pantalones')" class="boton"onclick="cambiarColor(this)">Pantalones</button>
-                    <button @click="changeSubCategory('Calzas')" class="boton" onclick="cambiarColor(this)">Calzas</button>
-                    <button @click="changeSubCategory('Shorts')" class="boton" onclick="cambiarColor(this)">Shorts</button>
-                    <button @click="changeSubCategory('Buzos')" class="boton" onclick="cambiarColor(this)">Buzos</button>
-                    <button @click="changeSubCategory('Camperas')" class="boton" onclick="cambiarColor(this)">Camperas</button>
+                    <button href="javascript:void(0)" @click="changeSubCategory('Remera')" class="boton" onclick="cambiarColor(this)">Remeras</button>
+                    <button href="javascript:void(0)" @click="changeSubCategory('Camisetas')" class="boton"onclick="cambiarColor(this)">Camisetas</button>
+                    <button href="javascript:void(0)" @click="changeSubCategory('Pantalones')" class="boton"onclick="cambiarColor(this)">Pantalones</button>
+                    <button href="javascript:void(0)" @click="changeSubCategory('Calzas')" class="boton" onclick="cambiarColor(this)">Calzas</button>
+                    <button href="javascript:void(0)" @click="changeSubCategory('Shorts')" class="boton" onclick="cambiarColor(this)">Shorts</button>
+                    <button href="javascript:void(0)" @click="changeSubCategory('Buzos')" class="boton" onclick="cambiarColor(this)">Buzos</button>
+                    <button href="javascript:void(0)" @click="changeSubCategory('Camperas')" class="boton" onclick="cambiarColor(this)">Camperas</button>
 
                 </div>
                 <div id="grid-columna_derecha">
@@ -126,7 +130,7 @@
             </div>
 
             <!-- ventana emergente-->
-            <transition name="fade">
+            <transition name="fade" id="contenedor_dialog">
                 <dialog id="modal" class="productoInterno" v-show="isModalOpen">
                     <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen"
                         alt="">
@@ -146,7 +150,7 @@
                     <div class="boton_agragar_compara">
                         <button class="boton_agragar_compara" id="compra" @click="comprar" :disabled="!cantidad || cantidad > (selectedProduct ? selectedProduct.stock : 0)">Comprar</button>
                         <button class="boton_agragar_compara" :class="{ 'boton-anadir': !isInCompras(selectedProduct), 'boton-sacar': isInCompras(selectedProduct) }"@click="toggleCompras(selectedProduct, cantidadSeleccionada)" id="añadir">
-                            {{ isInCompras(selectedProduct) ? 'Actualizar' : 'Añadir' }}
+                            {{ isInCompras(selectedProduct) ? 'Actualizar carrito' : 'Añadir carrito' }}
                         </button>
                     </div>
                 </dialog>
