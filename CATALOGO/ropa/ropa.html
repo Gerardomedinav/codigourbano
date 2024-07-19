@@ -74,6 +74,8 @@
                             <p>No se encontraron productos que coincidan con los criterios de búsqueda.</p>
                         </div>
                         <div class="tarjeta" v-for="product in products">
+                            <a href="javascript:void(0)" class="heart" :class="{ 'red': product.isFavorite }"
+                            @click="toggleColor(product)">&hearts;</a>
                             <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre" @click="showModal(product)">
                             <div class="tarjeta-texto" id="miTarjeta">
                                 <p class="card-text">Precio: ${{ product.precio }}</p>
