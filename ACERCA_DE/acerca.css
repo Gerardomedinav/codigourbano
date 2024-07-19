@@ -3,7 +3,7 @@
   font-family: "FIFA Welcome", 'Courier New', Courier, monospace;
  
 }
-.container {
+.custom-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Definimos 4 columnas de igual ancho */
   grid-template-rows: auto auto; /* Definimos filas automáticas */
@@ -33,14 +33,14 @@
 .box4 {
   grid-area: box4; /* Este div ocupará las dos primeras columnas en la segunda fila */
 }
-  .container {
+.custom-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: auto;
     gap: 20px;
     }
     
-    .container > * {
+    .custom-container > * {
     min-width: 0;
     min-height: 0;
     }
@@ -155,14 +155,14 @@
 
 /* Estilos para pantallas medianas */
 @media (min-width: 768px) and (max-width: 1199px) {
-  .container {
+  .custom-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: auto;
     gap: 20px;
   }
   
-  .container > * {
+  .custom-container > * {
     min-width: 0;
     min-height: 0;
   }
@@ -170,36 +170,28 @@
 
 /* Estilos para pantallas más pequeñas */
 @media (max-width: 767px) {
-  .container {
+  .custom-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
   
   .box1,
-  .box3,
-  .box4 {
-    width: 100%;
-    margin: 0;
-    padding: 10px;
-  }
-
-  form.form {
+  .box2 {
     width: 100%;
   }
+  .box3 .titulo{
+    margin-top: 0% !important;
+   
+   
+}
 
-  input.entry,
-  textarea.entry,
-  select#country {
-    width: 100%;
-    max-width: 100%;
-  }
+#gene{
+  color: #000000 !important;
+}
 
-  .gender,
-  .country {
-    display: flex;
-    flex-direction: column;
-  }
+
+
 }
 
     
