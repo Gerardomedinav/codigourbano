@@ -689,6 +689,11 @@ img, .carousel, .container_genero_buscador, .grid-container {
         z-index: -1000;
         
     }
+    .gallery-cell {
+        width: 100%;
+        margin: 0px auto;
+        text-align: center;
+    }
     
 
 }
@@ -709,3 +714,4 @@ a.genero {
     color: pink !important;
     
 }
+
