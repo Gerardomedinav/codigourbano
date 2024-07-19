@@ -351,14 +351,23 @@ h3 {
 
 .heart {
     font-size: 50px;
-    color: rgb(139, 141, 139);
+    color: #919791ad;
     position: absolute;
-    left: 280px; /* Ajusta la posición horizontal según tus necesidades */
+    top: 10px;
+    right: 10px;
+    z-index: 100; /* Aumentamos el z-index para asegurar que esté por encima de otros elementos */
+    transition: color 0.3s ease;
+    pointer-events: auto; /* Asegura que el corazón sea clickeable */
+}
+
+.heart:hover {
+    color: #ff69b4;
 }
 
 .heart.red {
-    color: rgb(233, 10, 10);
+    color: rgb(233, 10, 133);
 }
+
 
 .boton_agragar_compara {
     min-width: 100px;
@@ -506,15 +515,20 @@ h3 {
 }
 
 
-.elimnar_fav_Y_produc{
-    font-size: 5em;
-    /* Reducir el tamaño de la fuente */
+.eliminar_fav_Y_produc {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 4em;
     color: rgb(255, 0, 179);
-    z-index: 1111;
-    position: fixed;
-    transform: translate(200px, -10px);
-    background-color: transparent;
+    background: transparent;
     border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.eliminar_fav_Y_produc:hover {
+    color: rgb(200, 0, 140);
 }
 
 #compra_producto{

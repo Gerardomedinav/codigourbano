@@ -46,29 +46,25 @@
             </div>
             <div class="container_genero_buscador">
                 <div class="genero">
-                    <p @click="changeGender('Todo')" onclick="mantenerLinea(this)">Todo</p>
-                    <p @click="changeGender('Hombre')" onclick="mantenerLinea(this)">Hombre</p>
-                    <p @click="changeGender('Mujer')" onclick="mantenerLinea(this)">Mujer</p>
-                    <p @click="changeGender('Niño')" onclick="mantenerLinea(this)">Niños</p>
+                    <p @click="changeGender('todo')" onclick="mantenerLinea(this)">Todo</p>
+                    <p @click="changeGender('hombre')" onclick="mantenerLinea(this)">Hombre</p>
+                    <p @click="changeGender('mujer')" onclick="mantenerLinea(this)">Mujer</p>
+                    <p @click="changeGender('niño')" onclick="mantenerLinea(this)">Niños</p>
                 </div>
-                
-                <div class="buscador-container">
-                    <input type="text" id="buscador" placeholder="Buscador" v-model="searchQuery"
-                        @input="debouncedFetchData" onclick="manteneColorFondo(this)">    
-                   <!-- <button @click="fetchData">Buscar</button>-->
-                </div>
-                  
+                <label for="buscador"></label>
+                <input type="text" id="buscador" placeholder="Buscador" v-model="selectorRopa"
+                    @keyup.enter="fetchData(selectorRopa)" onclick="manteneColorFondo(this)">
             </div>
             <div class="grid-container">
                 <div class="tipo-ropa">
 
-                    <button href="javascript:void(0)" @click="changeSubCategory('Remera')" class="boton" onclick="cambiarColor(this)">Remeras</button>
-                    <button href="javascript:void(0)" @click="changeSubCategory('Camisetas')" class="boton"onclick="cambiarColor(this)">Camisetas</button>
-                    <button href="javascript:void(0)" @click="changeSubCategory('Pantalones')" class="boton"onclick="cambiarColor(this)">Pantalones</button>
-                    <button href="javascript:void(0)" @click="changeSubCategory('Calzas')" class="boton" onclick="cambiarColor(this)">Calzas</button>
-                    <button href="javascript:void(0)" @click="changeSubCategory('Shorts')" class="boton" onclick="cambiarColor(this)">Shorts</button>
-                    <button href="javascript:void(0)" @click="changeSubCategory('Buzos')" class="boton" onclick="cambiarColor(this)">Buzos</button>
-                    <button href="javascript:void(0)" @click="changeSubCategory('Camperas')" class="boton" onclick="cambiarColor(this)">Camperas</button>
+                    <button @click="changeSubCategory('Remera')" class="boton" onclick="cambiarColor(this)">Remeras</button>
+                    <button @click="changeSubCategory('Camisetas')" class="boton"onclick="cambiarColor(this)">Camisetas</button>
+                    <button @click="changeSubCategory('Pantalones')" class="boton"onclick="cambiarColor(this)">Pantalones</button>
+                    <button @click="changeSubCategory('Calzas')" class="boton" onclick="cambiarColor(this)">Calzas</button>
+                    <button @click="changeSubCategory('Shorts')" class="boton" onclick="cambiarColor(this)">Shorts</button>
+                    <button @click="changeSubCategory('Buzos')" class="boton" onclick="cambiarColor(this)">Buzos</button>
+                    <button @click="changeSubCategory('Camperas')" class="boton" onclick="cambiarColor(this)">Camperas</button>
 
                 </div>
                 <div id="grid-columna_derecha">
@@ -79,7 +75,7 @@
                         </div>
                         <div class="tarjeta" v-for="product in products">
                             <a href="javascript:void(0)" class="heart" :class="{ 'red': product.isFavorite }"
-                            @click="toggleColor(product)">&hearts;</a>
+                                @click="toggleColor(product)">&hearts;</a>
                             <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre" @click="showModal(product)">
                             <div class="tarjeta-texto" id="miTarjeta">
                                 <p class="card-text">Precio: ${{ product.precio }}</p>
@@ -94,18 +90,15 @@
                 
             <div id="contenedor_botones_producto">
                 <h3 id="favorio">Favoritos</h3>
-              </div>
-              <div class="contenedor_de_productos_y_favoritos">
-                <div v-for="product in favorites[getCurrentUserId()] || []" :key="product.id">
-                  <div class="tarjeta">
-                    <button class="elimnar_fav_Y_produc" @click="toggleFavorite(product)">X</button>
+            </div>
+            <div class="contenedor_de_productos_y_favoritos">
+                <div v-for="product in favorites[getCurrentUserId()] || []" :key="product.id" class="tarjeta">
+                    <button class="eliminar_fav_Y_produc" @click="toggleFavorite(product)">X</button>
                     <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre">
-                    
                     <h5>{{ product.nombre }}</h5>
                     <p>Precio: ${{ product.precio }}</p>
-                  </div>
                 </div>
-              </div>
+            </div>
             
             <!-- contenedor del carrito-->
 
@@ -116,23 +109,20 @@
             </div>
             
             <div class="contenedor_de_productos_y_favoritos">
-                <div v-for="(product, index) in compras" :key="product.id">
-                    <div class="tarjeta">
-                        <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
-                        <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen || '../../img/product-default.png'" @error="handleImageError($event)" alt="">
-                  
-                        <h5>{{ product.nombre }}</h5>
-                        <p>Precio: ${{ product.precio }}</p>
-                        <div class="cantidad-selector">
-                            <label for="cantidad">Cantidad:</label>
-                            <input type="number" v-model.number="product.cantidad" min="1" :max="product.stock" >
-                        </div>
+                <div v-for="(product, index) in compras" :key="product.id" class="tarjeta">
+                    <button class="eliminar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
+                    <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre">
+                    <h5>{{ product.nombre }}</h5>
+                    <p>Precio: ${{ product.precio }}</p>
+                    <div class="cantidad-selector">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" v-model.number="product.cantidad" min="1" :max="product.stock">
                     </div>
                 </div>
             </div>
 
             <!-- ventana emergente-->
-            <transition name="fade" id="contenedor_dialog">
+            <transition name="fade">
                 <dialog id="modal" class="productoInterno" v-show="isModalOpen">
                     <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen || '../../img/product-default.png'" @error="handleImageError($event)" alt="">
                     <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
@@ -151,7 +141,7 @@
                     <div class="boton_agragar_compara">
                         <button class="boton_agragar_compara" id="compra" @click="comprar" :disabled="!cantidad || cantidad > (selectedProduct ? selectedProduct.stock : 0)">Comprar</button>
                         <button class="boton_agragar_compara" :class="{ 'boton-anadir': !isInCompras(selectedProduct), 'boton-sacar': isInCompras(selectedProduct) }"@click="toggleCompras(selectedProduct, cantidadSeleccionada)" id="añadir">
-                            {{ isInCompras(selectedProduct) ? 'Actualizar carrito' : 'Añadir carrito' }}
+                            {{ isInCompras(selectedProduct) ? 'Actualizar' : 'Añadir' }}
                         </button>
                     </div>
                 </dialog>
