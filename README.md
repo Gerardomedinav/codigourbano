@@ -1,3 +1,5 @@
+[![Captura-de-pantalla-de-2024-07-14-12-59-20.png](https://i.postimg.cc/MGk0dCYP/Captura-de-pantalla-de-2024-07-14-12-59-20.png)](https://postimg.cc/21wB5XMh)
+
 # Web Ecomerce Código Urbano - Tienda de Ropa Deportiva
 
 ## Integrantes: (Grupo 11)
