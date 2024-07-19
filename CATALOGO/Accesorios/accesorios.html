@@ -34,7 +34,7 @@
         
                 <div id="searchs">
                     <input placeholder="Buscar..." type="text" class="form-control" id="search"
-                        v-model="searchQuery" @keyup.enter="fetchData">
+                        v-model="searchQuery"  @input="debouncedFetchData">
                 </div>
             </div>
         
@@ -85,7 +85,7 @@
                         <div class="boton_agragar_compara">
                             <button class="boton_agragar_compara" id="compra" @click="comprar" :disabled="!cantidad || cantidad > (selectedProduct ? selectedProduct.stock : 0)">Comprar</button>
                             <button class="boton_agragar_compara" :class="{ 'boton-anadir': !isInCompras(selectedProduct), 'boton-sacar': isInCompras(selectedProduct) }"@click="toggleCompras(selectedProduct, cantidadSeleccionada)" id="añadir">
-                                {{ isInCompras(selectedProduct) ? 'Actualizar' : 'Añadir' }}
+                                {{ isInCompras(selectedProduct) ? 'Actualizar carrito' : 'Añadir carrito' }}
                             </button>
                         </div>
                     </dialog>

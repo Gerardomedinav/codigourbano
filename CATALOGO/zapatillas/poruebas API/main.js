@@ -15,9 +15,22 @@ createApp({
       cantidad: 1,
       cantidadSeleccionada: 1,
       favorites: {},
+      debouncedFetchData: null,
     };
   },
   methods: {
+
+    debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    },
 
     async fetchData() {
       try {
@@ -320,6 +333,7 @@ createApp({
   created() {
     this.fetchData();
     this.loadFavoritesFromLocalStorage();
+    this.debouncedFetchData = this.debounce(this.fetchData, 300)
   },
 }).mount('#app');
 

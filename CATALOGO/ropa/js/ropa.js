@@ -1,7 +1,4 @@
-
-
 const { createApp } = Vue;
-
 createApp({
   data() {
     return {
@@ -18,48 +15,65 @@ createApp({
       cantidad: 1,
       cantidadSeleccionada: 1,
       favorites: {},
+      debouncedFetchData: null,
     };
   },
   methods: {
-    async changeGender(gender) {
-      this.gender = gender;
-      this.subCategory = '';
-      await this.fetchData();
-    },
-    async changeSubCategory(subCategory) {
-      this.subCategory = subCategory;
-      await this.fetchData();
-    },
-    async fetchData() {
-      try {
-        let queryUrl = this.url;
-        const params = [];
+async changeGender(gender) {
+  this.gender = gender;
+    if (this.gender == "Todo"){
+      this.subCategory = '';  
+    }
+  await this.fetchData();
+},
+async changeSubCategory(subCategory) {
+  this.subCategory = subCategory;
+  await this.fetchData();
+},
+debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+},
 
-        if (this.gender !== 'Todo') {
-          params.push(`genero=${encodeURIComponent(this.gender)}`);
-        }
-        if (this.subCategory) {
-          params.push(`subCategoria=${encodeURIComponent(this.subCategory)}`);
-        }
-        if (this.searchQuery) {
-          params.push(`nombre=${encodeURIComponent(this.searchQuery)}`);
-        }
+async fetchData() {
+  try {
+    let queryUrl = this.url;
+    const params = [];
 
-        if (params.length > 0) {
-          queryUrl += '?' + params.join('&');
-        }
+    if (this.gender !== 'Todo') {
+      params.push(`genero=${encodeURIComponent(this.gender)}`);
+    }
+    if (this.subCategory) {
+      params.push(`subCategoria=${encodeURIComponent(this.subCategory)}`);
+    }
+    if (this.searchQuery) {
+      params.push(`nombre=${encodeURIComponent(this.searchQuery)}`);
+    }
 
-        const response = await fetch(queryUrl);
-        const data = await response.json();
-        this.products = data.filter(product =>
-          product.tipoProducto.toLowerCase().includes('ropa')
-        );
-        this.noProducts = this.products.length === 0;
-      } catch (error) {
-        console.error(`Error: ${error}`);
-        this.noProducts = true;
-      }
-    },
+    if (params.length > 0) {
+      queryUrl += '?' + params.join('&');
+    }
+    
+    const response = await fetch(queryUrl);
+    const data = await response.json();
+    this.products = data.filter(product => 
+      product.tipoProducto.toLowerCase().includes('ropa')
+    );
+    this.noProducts = this.products.length === 0;
+  } catch (error) {
+    console.error(`Error: ${error}`);
+    this.noProducts = true;
+  }
+},
+
+
     addToCart(product) {
       if (!this.cart.some(p => p.id === product.id)) {
         this.cart.push(product);
@@ -328,6 +342,7 @@ createApp({
   created() {
     this.fetchData();
     this.loadFavoritesFromLocalStorage();
+    this.debouncedFetchData = this.debounce(this.fetchData, 300)
   },
 }).mount('#app');
 
