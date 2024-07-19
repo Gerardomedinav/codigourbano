@@ -99,7 +99,7 @@
                       </div>
                       <div class="contenedor_de_productos_y_favoritos">
                         <div v-for="product in favorites[getCurrentUserId()] || []" :key="product.id" class="producto">
-                            <button class="eliminar_fav_Y_produc" @click="toggleFavorite(product)">X</button>
+                            <button class="eliminar_fav_Y_produc" @click="toggleFavorite(product)" :class="{ 'favorite': isFavorite(product) }">X</button>
                             <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre">
                             <h5>{{ product.nombre }}</h5>
                             <p>Precio: ${{ product.precio }}</p>

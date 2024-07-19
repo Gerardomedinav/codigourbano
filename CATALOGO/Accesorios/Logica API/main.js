@@ -298,19 +298,22 @@ createApp({
     /* Metodos para control de favoritos y gaurdado en Local Storage de los mismos*/ 
     toggleFavorite(product) {
       const userId = this.getCurrentUserId();
-      if (!userId) return;
-  
+      if (!userId) {
+        this.showLoginModal();
+        return;
+      }
+    
       if (!this.favorites[userId]) {
         this.favorites[userId] = [];
       }
-  
+    
       const index = this.favorites[userId].findIndex(p => p.id === product.id);
       if (index === -1) {
         this.favorites[userId].push(product);
       } else {
         this.favorites[userId].splice(index, 1);
       }
-  
+    
       this.saveFavoritesToLocalStorage();
       product.isFavorite = !product.isFavorite;
     },
@@ -333,11 +336,18 @@ createApp({
     },
   
     getCurrentUserId() {
-      return sessionStorage.getItem('id_cliente_logeado');
+      const isLoged = JSON.parse(sessionStorage.getItem('isLoged'));
+      return isLoged ? sessionStorage.getItem('id_cliente_logeado') : null;
     },
     
     handleImageError(event) {
       event.target.src = '../../img/product-default.png';
+    },
+    showLoginModal() {
+      // Aquí se puede implementar la lógica para una ventana emergente
+      alert("Por favor, regístrate o inicia sesión para guardar productos en favoritos.");
+      // Opcionalmente, se puede redirigir al usuario a la página de inicio de sesión
+      // window.location.href = "/LOGIN/login.html";
     },
 
   },
