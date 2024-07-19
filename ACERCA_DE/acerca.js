@@ -1,3 +1,4 @@
+document.body.insertAdjacentHTML('afterbegin', '<div class="overlay" id="overlay"></div>');
 document.querySelector("header").innerHTML = ` 
 <div id="nav">
 <div class="logo_flex">

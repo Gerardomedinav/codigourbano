@@ -22,7 +22,7 @@ document.querySelector("header").innerHTML = `
                     <li><a class="menu_interno" href="../../CATALOGO/Accesorios/accesorios.html">Accesorios</a></li>
                     <li><a class="menu_interno" href="../../ACERCA_DE/acerca_de.html">Nosotros</a></li>
                     <li><a class="menu_interno" href="../../CONTACTOS/contactos.html">Contactos</a></li>
-                    <li id="userIconContainer"><a class="menu_interno" href="../../LOGIN/login.html"><i class="fa-solid fa-user"></i></a></li>
+                    <li id="userIconContainer"><a  class="menu_interno" href="../../LOGIN/login.html"><i class="fa-solid fa-user"></i></a></li>
                     <li id="logoutButton" style="display: none;"><a class="menu_interno" id="cerrarSesionBtn" href="#" onclick="cerrarSesion()">Cerrar Sesión</a></li>
                 </ul>
             </div>
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (isLoged) {
         // Usuario logueado: icono en color rosa y enlace a la página de Cliente
-        userIconContainer.innerHTML = `<a class="menu_interno" href="../../CRUD-Frontend/Cliente.html" title="Mi Cuenta"> <i class="fa-solid fa-user" style="color: pink;"></i></a>`;
+        userIconContainer.innerHTML = `<a class="menu_interno" href="../../CRUD-Frontend/Cliente.html" title="Mi Cuenta"> <i class="fa-solid fa-user" style="color: green;"></i></a>`;
         userIconContainer.setAttribute('title', `Bienvenido Sesión Abierta`);
         logoutButton.style.display = 'inline-block'; // Mostrar botón de cerrar sesión
         if (clienteLink) {
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     } else {
         // Usuario no logueado: icono en negro y enlace a login
-        userIconContainer.innerHTML = `<a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user" style="color: write;"></i></a>`;
+        userIconContainer.innerHTML = `<a class="menu_interno" href="../../LOGIN/login.html" title="Acceso Restringido"> <i class="fa-solid fa-user" style="color: black;"></i></a>`;
         userIconContainer.setAttribute('title', `Acceso Restringido`);
         logoutButton.style.display = 'none'; // Ocultar botón de cerrar sesión
         if (clienteLink) {

@@ -177,21 +177,29 @@
   }
   
   .box1,
-  .box2 {
+  .box3,
+  .box4 {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+  }
+
+  form.form {
     width: 100%;
   }
-  .box3 .titulo{
-    margin-top: 0% !important;
-   
-   
-}
 
-#gene{
-  color: #000000 !important;
-}
+  input.entry,
+  textarea.entry,
+  select#country {
+    width: 100%;
+    max-width: 100%;
+  }
 
-
-
+  .gender,
+  .country {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
     
