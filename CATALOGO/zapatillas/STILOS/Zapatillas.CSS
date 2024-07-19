@@ -150,38 +150,37 @@ h1 {
 
 /*configuracion de productos*/
 
-#contenedor_de_productos {
-
+.contenedor_de_productos{
+    backdrop-filter: blur(6px); /* Desenfoque del fondo */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 0.5em 0;
-    border: 5px solid rgb(135, 18, 139);
-    background-color: rgba(192, 81, 168, 0.5);
+    border: 5px solid rgb(204, 6, 178);
+    background-color: rgba(216, 122, 196, 0.5);
+
     border-radius: 2em;
     margin: 0.9em;
-    box-shadow: 0 2px 2px rgba(100, 100, 100, 0.2);
-    transition: all 0.25s;
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.4);
-
 }
 
 
 
 .producto{
     text-align: center;
-    width: 100%; /*2em*/
-    max-width: 20em;
- 
-   /* min-width: 5em;*/
-
-    background-color: rgb(233 215 230 / 80%);
-    margin: 1vw;
-    /* overflow: auto; */
-    border-radius: 17px;
     position: relative;
+    width: 20em;
+    /* max-width: 15em;
+    min-width: 5em; */
+    overflow: hidden;  /* Cambia 'auto' por 'hidden' */
+    height: 24em;
+    padding: 0 1em;
+    background-color: rgb(207 92 179 / 90%);
+    margin: 1vw;
+    overflow: auto;
+    border-radius: 17px;
+
     
 }
 
@@ -189,22 +188,25 @@ h1 {
     box-shadow: 0 2px 2px rgba(100, 100, 100, 0.2);
     transition: all 0.25s;
     box-shadow: 0 12px 16px rgba(0, 0, 0,0.4);
-    margin-left: 70px;
 }
 
-.heart{
+.heart {
     font-size: 50px;
-    margin-right: 0.3em;
-    margin-top: 0.2em;
     color: #919791ad;
-    position: fixed;
-    transform: translateX(190px);
-    
-
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100; /* Aumentamos el z-index para asegurar que esté por encima de otros elementos */
+    transition: color 0.3s ease;
+    pointer-events: auto; /* Asegura que el corazón sea clickeable */
 }
 
-.heart.red{  /*esto es del corazon faovrito*/
- color: rgb(233, 10, 133);
+.heart:hover {
+    color: #ff69b4;
+}
+
+.heart.red {
+    color: rgb(233, 10, 133);
 }
 
 #contenedor_de_productos,
@@ -214,11 +216,11 @@ h1 {
 }
 
 .imagen_product {
-    width: 15em;
+    border-radius: 17px;
+    width: 100%;  /* Cambia esto de 15em a 100% */
+    height: 200px;  /* Establece una altura fija */
+    object-fit: cover;  /* Esto asegura que la imagen cubra todo el espacio sin distorsionarse */
     margin-top: 1em;
-    max-height: 15em;
-
-
 }
 
 /* ver detalle del producto */
@@ -237,14 +239,13 @@ h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    */background-color: rgba(218, 171, 211, 0.932); /*antiquewhite*/
+    */background-color: rgba(250, 169, 223, 0.973); /*antiquewhite*/
     z-index: 1000;
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.9);
     overflow: auto;
     /* Agrega desplazamiento si el contenido es más grande que el modal */
     border-radius: 10px;
     text-align: center;
-    
 }
 
 .productoInterno h2,.boton_agragar_compara{
@@ -348,21 +349,19 @@ flex-direction: column;
     background: radial-gradient(at top, rgba(193, 100, 230, 0.363), rgba(164, 95, 173, 0.346)) !important; 
 }
 
-.btn-exit {
-    /* transform: translate(1.5em, -1.7em);  */
-    font-size: 7em;
-    /* Reducir el tamaño de la fuente */
-    color: rgb(88, 19, 83);
-    z-index: 1111;
-    position: fixed;
-    top: -25px;
-    /* Agregar un poco de margen */
+.eliminar_fav_Y_produc {
+    position: absolute;
+    top: 10px;
     right: 10px;
-    /* Agregar un poco de margen */
-
+    font-size: 4em;
+    color: rgb(255, 0, 157);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.btn-exit:hover {
+.eliminar_fav_Y_produc:hover {
     color: rgb(154, 28, 158);
 }
 
@@ -376,9 +375,9 @@ h2 {
     margin: 0 auto;
 }
 
-.imagen_product_interno {
-    max-width: 50%;
-
+.imagen_product_interno{
+    max-width: 82%;
+    border-radius: 30px;
 }
 
 #comprar {

@@ -21,7 +21,9 @@ createApp({
   methods: {
     async changeGender(gender) {
       this.gender = gender;
-      this.subCategory = '';  // Restablecer la subcategoría al cambiar de género
+      if (this.gender == "Todo"){
+        this.subCategory = '';  
+      }
       await this.fetchData();
     },
     async changeSubCategory(subCategory) {
