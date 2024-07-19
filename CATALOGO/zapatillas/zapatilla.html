@@ -81,13 +81,9 @@
                     </div>
                     <div class="boton_agragar_compara">
                         <button class="boton_agragar_compara" id="compra" @click="comprar" :disabled="!cantidad || cantidad > (selectedProduct ? selectedProduct.stock : 0)">Comprar</button>
-<<<<<<< HEAD
                         <button class="boton_agragar_compara" :class="{ 'boton-anadir': !isInCompras(selectedProduct), 'boton-sacar': isInCompras(selectedProduct) }"@click="toggleCompras(selectedProduct, cantidadSeleccionada)" id="añadir">
                             {{ isInCompras(selectedProduct) ? 'Actualizar carrito' : 'Añadir carrito' }}
-=======
-                        <button class="boton_agragar_compara" :class="{ 'boton-anadir': !isInCompras(selectedProduct), 'boton-sacar': isInCompras(selectedProduct) }" @click="toggleCompras(selectedProduct, cantidadSeleccionada)" id="añadir">
-                            {{ isInCompras(selectedProduct) ? 'Actualizar' : 'Añadir' }}
->>>>>>> 981a3b9a1c0ea95c0ad126d35522abd77448361a
+
                         </button>
                     </div>
                 </dialog>
