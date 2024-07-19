@@ -17,7 +17,7 @@
 <body>
     <header></header>
     <main>
-        <div class="container" id="app" >
+        <div class="custom-container" id="app" >
             <div class="box1" >
                 <div class="contactBody">
                     <div class="wrapper">
@@ -26,18 +26,22 @@
                         </div>
                        
                             <form id="contactForm" class="form" @submit.prevent="guardarComentario">
+                                
                                 <div>
                                     <input type="text" class="name entry" v-model="nombre" placeholder="Ingrese su nombre">
                                     <p class="name-error"></p>
                                 </div>
+
                                 <div>
                                     <input type="email" class="email entry" v-model="email" placeholder="Email">
                                     <p class="email-error"></p>
                                 </div>
+
                                 <div>
-                                    <textarea class="message entry" v-model="mensaje" placeholder="Mensaje"></textarea>
+                                    <textarea class="message entry" v-model="mensaje"  placeholder="Mensaje"></textarea>
                                     <p class="message-error"></p>
                                 </div>
+
                                 <div class="gender">
                                     <label id="gene" for="gender">Género:</label>
                                     <div class="genero">
@@ -51,6 +55,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="country">
                                     <label for="country">País:</label>
                                     <select id="country" v-model="pais">
@@ -64,6 +69,7 @@
                                     </select>
                                     <p class="country-error"></p>
                                 </div>
+
                                 <button class="submit entry" type="submit">Enviar</button>
                             </form>
                         
@@ -123,6 +129,6 @@
     <footer></footer>
 
     <script src="../ACERCA_DE/acerca.js"></script>
-    <script src="../CATALOGO/Header_Footer JS/Menu.js"></script>
+    <script src="../CATALOGO/Header_Footer JS/Menu.js"></script> 
 </body>
 </html>

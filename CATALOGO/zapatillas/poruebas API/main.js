@@ -19,6 +19,7 @@ createApp({
     };
   },
   methods: {
+<<<<<<< HEAD
     debounce(func, wait) {
       let timeout;
       return function executedFunction(...args) {
@@ -30,6 +31,8 @@ createApp({
         timeout = setTimeout(later, wait);
       };
     },
+=======
+>>>>>>> 981a3b9a1c0ea95c0ad126d35522abd77448361a
 
     async fetchData() {
       try {
@@ -282,6 +285,9 @@ createApp({
         .catch(error => {
           console.error('Error al realizar el pedido:', error);
         });
+    },
+    handleImageError(event) {
+      event.target.src = '../../img/product-default.png';
     },
     /* Metodos para control de favoritos y gaurdado en Local Storage de los mismos*/ 
     toggleFavorite(product) {

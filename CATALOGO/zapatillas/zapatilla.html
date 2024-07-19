@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/8e58209530.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../Header_Footer JS/estilo-fot-head.CSS">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-     <link rel="stylesheet" href="STILOS/Zapatillas.CSS">
+    <link rel="stylesheet" href="STILOS/Zapatillas.CSS">
     <title>Ropa Deportiva - Codigo Urbano</title>
 </head>
 
@@ -26,10 +26,8 @@
             <div class="gallery-cell">
                 <img src="img/3.png" alt="">
             </div>
-          
         </div>
         <div id="app" v-cloak>
-
             <div id="pintado">
                 <div id="main-prin_seleccionador_genero">
                     <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero"
@@ -41,37 +39,40 @@
                     <a href="javascript:void(0)" onclick="activarBotonGeneros(this)" class="genero"
                         @click="changeGender('Mujer')">Mujer</a>
                 </div>
+<<<<<<< HEAD
                 <div id="searchs">
                     <input placeholder="Buscar..." type="text" class="form-control" id="search"
                         v-model="searchQuery"  @input="debouncedFetchData">
                 </div>
+=======
+>>>>>>> 981a3b9a1c0ea95c0ad126d35522abd77448361a
             </div>
 
-
-
-            <div id="contenedor_de_productos">
-                <div v-if="noProducts" class="no-products-message">
+            <div class="contenedor_de_productos">
+                <div v-if="!products.length" class="no-products-message">
                     <p>No se encontraron productos que coincidan con los criterios de búsqueda.</p>
                 </div>
-                <div class="producto" v-for="product in products">
-                    <a href="javascript:void(0)" class="heart" :class="{ 'red': isFavorite(product) }"@click="toggleColor(product)">&hearts;</a>
-                    <img class="imagen_product" :src="product.imagen" :alt="product.nombre"
-                        @click="showModal(product)">
-                    <h3>{{product.nombre}}</h3>
-                    <p>Precio: ${{ product.precio }}</p>
+                <div v-for="product in products" :key="product.id" class="producto" style="width: 18rem;">
+                    <a href="javascript:void(0)" class="heart" :class="{ 'red': isFavorite(product) }" @click.stop.prevent="toggleColor(product)">&hearts;</a>
+                    <div @click="showModal(product)"> <!-- Nuevo div para el contenido clickeable -->
+                        <img :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" class="imagen_product" :alt="product.nombre">
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.nombre}}</h5>
+                            <p class="card-text">Precio: ${{ product.precio }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <transition name="fade">
                 <dialog id="modal" class="productoInterno" v-show="isModalOpen">
-                    <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen"
-                        alt="">
-                    <a href="javascript:void(0)" @click="closeModal" class="btn-exit">X</a>
+                    <img class="imagen_product_interno" v-if="selectedProduct" :src="selectedProduct.imagen || '../../img/product-default.png'" @error="handleImageError($event)" alt="">
+                    <a href="javascript:void(0)" @click="closeModal" class="eliminar_fav_Y_produc">X</a>
                     <h2 v-if="selectedProduct">{{selectedProduct.nombre}}</h2>
                     <div class="descripcion_de_producots">
                         <p v-if="selectedProduct">Precio: ${{ selectedProduct.precio }}</p>
                         <p v-if="selectedProduct">Stock: {{selectedProduct.stock}}</p>
-                        <p v-if="selectedProduct">Descripción: {{selectedProduct.descricion}}</p>
+                        <p v-if="selectedProduct">Descripción: {{selectedProduct.descripcion}}</p>
                         <p v-if="selectedProduct">Marca: {{selectedProduct.marca}}</p>
                     </div>
                     <hr>
@@ -81,8 +82,13 @@
                     </div>
                     <div class="boton_agragar_compara">
                         <button class="boton_agragar_compara" id="compra" @click="comprar" :disabled="!cantidad || cantidad > (selectedProduct ? selectedProduct.stock : 0)">Comprar</button>
+<<<<<<< HEAD
                         <button class="boton_agragar_compara" :class="{ 'boton-anadir': !isInCompras(selectedProduct), 'boton-sacar': isInCompras(selectedProduct) }"@click="toggleCompras(selectedProduct, cantidadSeleccionada)" id="añadir">
                             {{ isInCompras(selectedProduct) ? 'Actualizar carrito' : 'Añadir carrito' }}
+=======
+                        <button class="boton_agragar_compara" :class="{ 'boton-anadir': !isInCompras(selectedProduct), 'boton-sacar': isInCompras(selectedProduct) }" @click="toggleCompras(selectedProduct, cantidadSeleccionada)" id="añadir">
+                            {{ isInCompras(selectedProduct) ? 'Actualizar' : 'Añadir' }}
+>>>>>>> 981a3b9a1c0ea95c0ad126d35522abd77448361a
                         </button>
                     </div>
                 </dialog>
@@ -92,39 +98,35 @@
             <div id="contenedor_botones_producto">
                 <h3 id="favorio">Favoritos</h3>
             </div>
-              <div class="contenedor_de_productos_y_favoritos">
-                <div v-for="product in favorites[getCurrentUserId()] || []" :key="product.id">
-                  <div class="producto">
-                    <button class="elimnar_fav_Y_produc" @click="toggleFavorite(product)">X</button>
-                    <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
+            <div class="contenedor_de_productos_y_favoritos">
+                <div v-for="product in favorites[getCurrentUserId()] || []" :key="product.id" class="producto">
+                    <button class="eliminar_fav_Y_produc" @click="toggleFavorite(product)">X</button>
+                    <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre">
                     <h5>{{ product.nombre }}</h5>
                     <p>Precio: ${{ product.precio }}</p>
-                  </div>
                 </div>
-              </div>
-            
-                  <!-- contenedor del carrito -->  
-                  <div id="contenedor_botones_producto">
-                    <h3 id="titulo_carrito">Carrito</h3>
-                    <p id="contador_precio" style="color: rgb(247, 247, 247);">Total: ${{ totalPrice() }}</p>
-                    <button id="compra_producto" class="boton_agragar_compara" @click="realizarPedido">Realizar Compra</button>
-                </div>
-                
-                <div class="contenedor_de_productos_y_favoritos">
-                    <div v-for="(product, index) in compras" :key="product.id">
-                        <div class="producto">
-                            <button class="elimnar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
-                            <img class="imagen_product" :src="product.imagen" :alt="product.nombre">
-                            <h5>{{ product.nombre }}</h5>
-                            <p>Precio: ${{ product.precio }}</p>
-                            <div class="cantidad-selector">
-                                <label for="cantidad">Cantidad:</label>
-                                <input type="number" v-model.number="product.cantidad" min="1" :max="product.stock" >
-                            </div>
-                        </div>
+            </div>
+
+            <!-- contenedor del carrito -->
+            <div id="contenedor_botones_producto">
+                <h3 id="titulo_carrito">Carrito</h3>
+                <p id="contador_precio" style="color: rgb(247, 247, 247);">Total: ${{ totalPrice() }}</p>
+                <button id="compra_producto" class="boton_agragar_compara" @click="realizarPedido">Realizar Compra</button>
+            </div>
+
+            <div class="contenedor_de_productos_y_favoritos" >
+                <div v-for="(product, index) in compras" :key="product.id" class="producto">
+                    <button class="eliminar_fav_Y_produc" @click="removeFromCompras(product)">X</button>
+                    <img class="imagen_product" :src="product.imagen || '../../img/product-default.png'" @error="handleImageError($event)" :alt="product.nombre">
+                    <h5>{{ product.nombre }}</h5>
+                    <p>Precio: ${{ product.precio }}</p>
+                    <div class="cantidad-selector">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" v-model.number="product.cantidad" min="1" :max="product.stock">
                     </div>
                 </div>
-
+            </div>
+            
         </div>
     </main>
 
@@ -132,7 +134,7 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../Header_Footer JS/MAIN.JS"></script> <!-- aquí guardamos el HEADER y el Footer en JS -->
-    <script src="../Header_Footer JS/Menu.js"></script> <!-- esto es lógica de responsive  -->
+    <script src="../Header_Footer JS/Menu.js"></script> <!-- esto es lógica de responsive -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!-- para hacer un carrusel -->
     <script src="../zapatillas/poruebas API/main.js"></script> <!-- esto es la prueba API -->
 </body>

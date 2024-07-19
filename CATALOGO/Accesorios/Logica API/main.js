@@ -22,7 +22,9 @@ createApp({
   methods: {
     async changeGender(gender) {
       this.gender = gender;
-      this.subCategory = '';  // Restablecer la subcategoría al cambiar de género
+      if (this.gender == "Todo"){
+        this.subCategory = '';  
+      }
       await this.fetchData();
     },
     async changeSubCategory(subCategory) {
@@ -292,6 +294,7 @@ createApp({
           console.error('Error al realizar el pedido:', error);
         });
     },
+    
     /* Metodos para control de favoritos y gaurdado en Local Storage de los mismos*/ 
     toggleFavorite(product) {
       const userId = this.getCurrentUserId();
@@ -332,7 +335,10 @@ createApp({
     getCurrentUserId() {
       return sessionStorage.getItem('id_cliente_logeado');
     },
-
+    
+    handleImageError(event) {
+      event.target.src = '../../img/product-default.png';
+    },
 
   },
   created() {
